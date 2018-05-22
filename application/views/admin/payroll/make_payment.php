@@ -84,6 +84,8 @@
                             <th><strong><?= lang('status')?></strong></th>
                             <th><strong><?= lang('view_details')?></strong></th>
                             <th><?= lang('action')?></th>
+                            <th><?= lang('delete')?></th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -172,6 +174,9 @@
                                                 <?php } else { ?>
                                                     <a class="text-danger" href="<?php echo base_url() ?>admin/payroll/make_payment/<?php echo $v_employee->employee_id . '/' . $v_employee->department_id . '/' . $payment_month; ?>">Make Payment</a>
                                                 <?php } ?>
+                                            </td>
+                                            <td>
+                                                <a class="text-danger" href="<?php echo base_url() ?>admin/payroll/delete_payment/<?php echo $v_employee->payroll_id ?>">X</a>
                                             </td>
                                         </tr>                    
                                     <?php endforeach; ?>

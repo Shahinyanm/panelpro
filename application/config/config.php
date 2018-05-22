@@ -22,7 +22,7 @@ function __autoload($classname) {
 | path to your installation.
 |
 */
-$config['base_url']	= "http://localhost/Mher/codeigniter/public/";
+$config['base_url']	= "http://localhost/Mher/codeigniter/panelpro/";
 
 /*
 |--------------------------------------------------------------------------

@@ -514,4 +514,17 @@ class Payroll extends Admin_Controller {
         $this->load->view('admin/_layout_main', $data);
     }
 
+
+    public function delete_payment($id = NULL) {
+
+
+        $this->payroll_model->_table_name = 'tbl_employee_payroll';
+        $this->payroll_model->_primary_key = 'tbl_employee_payroll.payroll_id';
+        $this->payroll_model->delete($id);
+        $type = 'success';
+        $message = lang('Employee payment deleted');
+        set_message($type, $message);
+        redirect('admin/payroll/make_payment');
+    }
+
 }

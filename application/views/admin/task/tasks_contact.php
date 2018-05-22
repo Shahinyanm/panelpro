@@ -45,17 +45,18 @@
                                                             echo '';
                                                         }
                                                         ?></span></a></td>
-                                            <?php
+                                            <td> <?php
                                             if (!empty($assigned['assigned_to'])) :
 
                                                foreach ($assigned['assigned_to'] as $v_assign) :
                                                    $emp_info = $this->db->where(array('employee_id' => $v_assign))->get('tbl_employee')->row();
                                                    ?>
-                                                   <td>
+
                                                     <a href="<?= base_url() ?>admin/employee/view_employee/<?= $emp_info->employee_id ?>"><h6><?= $emp_info->first_name . ' ' . $emp_info->last_name . '<small> (' . $emp_info->employee_id . ') </small>' ?></h6></a>
-                                                </td>
+
                                             <?php endforeach ?>
                                             <?php else: ?>
+                                            </td>
                                                 <td>
                                                 </td>
                                             <?php endif ?>
@@ -202,4 +203,5 @@
         </div>
     </div>
 </div>
+
 

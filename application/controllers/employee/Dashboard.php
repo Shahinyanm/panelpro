@@ -1192,7 +1192,7 @@ class Dashboard extends Employee_Controller {
             }
 
             $val = $this->employee_model->uploadImage('photo');
-            $val == TRUE || redirect('admin/employee/employees');
+            $val == TRUE || redirect('employee/dashboard/');
             $data['photo'] = $val['path'];
             $data['photo_a_path'] = $val['fullPath'];
         }
@@ -1250,7 +1250,7 @@ class Dashboard extends Employee_Controller {
                 unlink($old_path);
             }
             $val = $this->employee_model->uploadFile('resume');
-            $val == TRUE || redirect('admin/employee/employees');
+            $val == TRUE || redirect('employee/dashboard/');
             $document_data['resume_filename'] = $val['fileName'];
             $document_data['resume'] = $val['path'];
             $document_data['resume_path'] = $val['fullPath'];
@@ -1263,7 +1263,7 @@ class Dashboard extends Employee_Controller {
                 unlink($old_path);
             }
             $val = $this->employee_model->uploadFile('offer_letter');
-            $val == TRUE || redirect('admin/employee/employees');
+            $val == TRUE || redirect('employee/dashboard/');
             $document_data['offer_letter_filename'] = $val['fileName'];
             $document_data['offer_letter'] = $val['path'];
             $document_data['offer_letter_path'] = $val['fullPath'];
@@ -1275,7 +1275,7 @@ class Dashboard extends Employee_Controller {
                 unlink($old_path);
             }
             $val = $this->employee_model->uploadFile('joining_letter');
-            $val == TRUE || redirect('admin/employee/employees');
+            $val == TRUE || redirect('employee/dashboard/');
             $document_data['joining_letter_filename'] = $val['fileName'];
             $document_data['joining_letter'] = $val['path'];
             $document_data['joining_letter_path'] = $val['fullPath'];
@@ -1288,7 +1288,7 @@ class Dashboard extends Employee_Controller {
                 unlink($old_path);
             }
             $val = $this->employee_model->uploadFile('contract_paper');
-            $val == TRUE || redirect('admin/employee/employees');
+            $val == TRUE || redirect('employee/dashboard/');
             $document_data['contract_paper_filename'] = $val['fileName'];
             $document_data['contract_paper'] = $val['path'];
             $document_data['contract_paper_path'] = $val['fullPath'];
@@ -1300,7 +1300,7 @@ class Dashboard extends Employee_Controller {
                 unlink($old_path);
             }
             $val = $this->employee_model->uploadFile('id_proff');
-            $val == TRUE || redirect('admin/employee/employees');
+            $val == TRUE || redirect('employee/dashboard/');
             $document_data['id_proff_filename'] = $val['fileName'];
             $document_data['id_proff'] = $val['path'];
             $document_data['id_proff_path'] = $val['fullPath'];
@@ -1312,7 +1312,7 @@ class Dashboard extends Employee_Controller {
                 unlink($old_path);
             }
             $val = $this->employee_model->uploadFile('other_document');
-            $val == TRUE || redirect('admin/employee/employees');
+            $val == TRUE || redirect('employee/dashboard/');
             $document_data['other_document_filename'] = $val['fileName'];
             $document_data['other_document'] = $val['path'];
             $document_data['other_document_path'] = $val['fullPath'];
@@ -1335,7 +1335,7 @@ class Dashboard extends Employee_Controller {
         $type = "success";
         $message = lang('employee_info_saved');
         set_message($type, $message);
-        redirect('admin/employee/employees'); //redirect page
+        redirect('employee/dashboard/'); //redirect page
     }
 
     public function save_team_links($id = NULL)

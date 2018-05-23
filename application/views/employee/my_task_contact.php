@@ -36,10 +36,9 @@
 //                    var_dump($all_comment_info);
 //                    die();
 //                 = count($all_comment_arr);
-                        $assign_user = unserialize($v_task->assigned_to);
-                        foreach ($assign_user['assigned_to'] as $assding_id) {
 
-                            if ($assding_id == $this->session->userdata('employee_id') ) {
+
+                            if ($v_task->assigned_to == $this->session->userdata('employee_id') ) {
                                 ?>
                                 <tr>
                                     <td><a href="<?= base_url() ?>employee/dashboard/view_task_contact_details/<?= $v_task->task_contact_id ?>"><?php echo $v_task->project_name; ?>  <span class="label label-danger" ><?php
@@ -66,7 +65,7 @@
                                     </td>                                
                                 </tr>                
                                 <?php
-                            }
+
                         }
                     endforeach;
                     ?>

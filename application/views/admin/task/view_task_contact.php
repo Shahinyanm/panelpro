@@ -6,7 +6,7 @@
             <div class="box-header with-border">
                 <h3 class="box-title"><?= lang('task_initials') ?></h3>
             </div>
-            <form id="form_validation" action="<?php echo base_url() ?>admin/task/update_status/<?php if (!empty($task_details->task_contact_id)) echo $task_details->task_contact_id; ?>" method="post">
+            <form id="form_validation" action="<?php echo base_url() ?>admin/task/update_project_status/<?php if (!empty($task_details->task_contact_id)) echo $task_details->task_contact_id; ?>" method="post">
                 <div class="box-body">
                     <div class="form-group" id="border-none">                    
                         <div class="col-sm-12">
@@ -48,7 +48,7 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label class="control-label" ><?= lang('progress') ?></label>                               
-                                <input type="text"  name="task_progress" 
+                                <input type="text" readonly name="task_contact_progress"
                                        class="slider form-control" data-slider-min="0" data-slider-max="100" 
                                        data-slider-step="1" data-slider-value="<?php
                                        if (!empty($task_details->task_contact_progress))
@@ -64,7 +64,7 @@
                             <div class="form-group">
                                 <label class="control-label"><?= lang('task_status') ?></label>
 
-                                <select name="task_status" class="form-control" required >                                            
+                                <select name="task_contact_status" class="form-control" required >
                                     <option value="0" <?php echo $task_details->task_contact_status == 0 ? 'selected' : '' ?>> <?= lang('pending') ?> </option>
                                     <option value="1" <?php echo $task_details->task_contact_status == 1 ? 'selected' : '' ?>> <?= lang('started') ?> </option>
                                     <option value="2" <?php echo $task_details->task_contact_status == 2 ? 'selected' : '' ?>> <?= lang('completed') ?> </option>
@@ -128,13 +128,12 @@
                             <div class="form-group col-sm-12" id="border-none">
                                 <label class="col-sm-3 control-label"><?= lang('assined_to') ?></label>
                                 <div class="col-sm-7">
-                                    <?php $assigned = unserialize($task_details->assigned_to); ?>
                                     <table class="table table-bordered" style="background-color: #EEE;"id="dataTables-example">
+
                                         <tbody>
                                             <?php
-                                            if (!empty($assigned['assigned_to'])) :
-                                                foreach ($assigned['assigned_to'] as $v_assign) :
-                                                    $emp_info = $this->db->where(array('employee_id' => $v_assign))->get('tbl_employee')->row();
+                                            if (!empty($task_details->assigned_to)) :
+                                                    $emp_info = $this->db->where(array('employee_id' => $task_details->assigned_to))->get('tbl_employee')->row();
                                                     ?>
                                                     <tr>
                                                         <td style="width: 75px; border: 0px;">
@@ -149,7 +148,6 @@
                                                         </td>                                                        
                                                     </tr>
                                                     <?php
-                                                endforeach;
                                             endif;
                                             ?>
                                         </tbody>

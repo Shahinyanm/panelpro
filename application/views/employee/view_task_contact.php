@@ -128,13 +128,11 @@
                                     
             <div class="form-group col-sm-12" id="border-none">                   <label class="col-sm-3 control-label"><?= lang('assined_to') ?></label>
             <div class="col-sm-7">
-                <?php $assigned = unserialize($task_details->assigned_to); ?>
                 <table class="table table-bordered" style="background-color: #EEE;"id="dataTables-example">
                     <tbody>
                        <?php
-                        if (!empty($assigned['assigned_to'])) :
-                            foreach ($assigned['assigned_to'] as $v_assign) :
-                              $emp_info = $this->db->where(array('employee_id' => $v_assign))->get('tbl_employee')->row();
+                        if (!empty($task_details->assigned_to)) :
+                              $emp_info = $this->db->where(array('employee_id' => $task_details->assigned_to))->get('tbl_employee')->row();
                                                         ?>
                             <tr>
                              <td style="width: 75px; border: 0px;">
@@ -149,7 +147,6 @@
                                 </td>                                                        
                             </tr>
                          <?php
-                                endforeach;
                             endif;
                             ?>
                         </tbody>

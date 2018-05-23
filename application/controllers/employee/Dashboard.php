@@ -452,11 +452,19 @@ class Dashboard extends Employee_Controller {
     public function view_task_details($id, $active = NULL) {
         $data['title'] = "Task Details";
         $data['page_header'] = "Task Management";
+        $com = array();
 
         //get all task information
         $data['task_details'] = $this->emp_model->get_all_task_info($id);
         //get all comments info
-        $data['comment_details'] = $this->emp_model->get_all_comment_info($id);
+       $result = $this->emp_model->get_all_comment_info($id);
+       foreach ($result as $comment){
+           if(($comment->employee_id == $this->session->userdata('employee_id')) ||  $comment->employee_id == NULL){
+               $com[] = $comment;
+           }
+       }
+
+        $data['comment_details'] = $com;
         $arr = ['view_status'=>1];
         $where = ['task_id'=>$id,
             'user_id !='=> '(Null)' ];
@@ -492,6 +500,7 @@ class Dashboard extends Employee_Controller {
     public function view_task_contact_details($id, $active = NULL) {
         $data['title'] = "Task Details";
         $data['page_header'] = "Task Management";
+        $com = array();
 
         //get all task information
         $data['task_details'] = $this->emp_model->get_all_task_contact_info($id);
@@ -505,7 +514,15 @@ class Dashboard extends Employee_Controller {
 //        var_dump($data['task_team_details']);
 //        die();
         //get all comments info
-        $data['comment_details'] = $this->emp_model->get_all_contact_comment_info($id);
+        $result= $this->emp_model->get_all_contact_comment_info($id);
+
+        foreach ($result as $comment){
+//            echo $comment->employee_id;
+            if(($comment->employee_id == $this->session->userdata('employee_id')) ||  $comment->employee_id == NULL){
+                $com[] = $comment;
+            }
+        }
+        $data['comment_details'] = $com;
         $arr = ['view_status'=>1];
         $where = ['task_contact_id'=>$id,
             'user_id !='=> '(Null)' ];

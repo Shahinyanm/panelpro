@@ -27,19 +27,8 @@
                 if (!empty($all_task_info)):foreach ($all_task_info as $v_task):
                     $all_comment_info = count($this->db->where('task_id', $v_task->task_id)->where('view_status',2)->where('user_id !=', '(Null)')->get('tbl_task_comment')->result());
 
-//                    foreach ($all_comment as $comment){
-//                        if(!$comment->user_id) {
-//                            $all_comment_arr[] = $comment;
-//                        }
-//                    }
-//                    echo "<pre>";
-//                    var_dump($all_comment_info);
-//                    die();
-//                 = count($all_comment_arr);
-                        $assign_user = unserialize($v_task->assigned_to);
-                        foreach ($assign_user['assigned_to'] as $assding_id) {
 
-                            if ($assding_id == $this->session->userdata('employee_id') ) {
+                            if ($v_task->assigned_to == $this->session->userdata('employee_id') ) {
                                 ?>
                                 <tr>
                                     <td><a href="<?= base_url() ?>employee/dashboard/view_task_details/<?= $v_task->task_id ?>"><?php echo $v_task->task_name; ?>  <span class="label label-danger" ><?php
@@ -67,7 +56,7 @@
                                 </tr>                
                                 <?php
                             }
-                        }
+
                     endforeach;
                     ?>
                 <?php endif; ?>

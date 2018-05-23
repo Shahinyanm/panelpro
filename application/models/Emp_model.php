@@ -319,51 +319,28 @@ class Emp_Model extends MY_Model
     }
     public function get_new_task($where, $id = NULL)
     {
-        $data = array();
         $this->db->select('tbl_task.*', FALSE);
         $this->db->from('tbl_task');
         $this->db->where($where, $id);
         $query_result = $this->db->get();
         $result = $query_result->result();
-//        echo $id;
-       // echo "<pre>";
-       // var_dump($result);
-       // die();
 
-        foreach ($result as $assigned) {
-            $assigned->assigned_to = unserialize($assigned->assigned_to);
 
-            foreach ($assigned->assigned_to as $arr) {
-                if (in_array($id, $arr)) {
-                    $data[] = $assigned;
-                }
-            }
-        }
-        return $data;
+
+        return $result;
     }
 
 public function get_new_task_contact($where, $id = NULL)
     {
-        $data = array();
         $this->db->select('tbl_task_contact.*', FALSE);
         $this->db->from('tbl_task_contact');
         $this->db->where($where, $id);
         $query_result = $this->db->get();
         $result = $query_result->result();
-//        echo $id;
-       // echo "<pre>";
-       // var_dump($result);
-       // die();
 
-        foreach ($result as $assigned) {
-            $assigned->assigned_to = unserialize($assigned->assigned_to);
-            foreach ($assigned->assigned_to as $arr) {
-                if (in_array($id, $arr)) {
-                    $data[] = $assigned;
-                }
-            }
-        }
-        return $data;
+
+
+        return $result;
     }
 
 
@@ -453,9 +430,7 @@ public function get_new_task_contact($where, $id = NULL)
         $this->db->where('tbl_clock_history.notify_me', '1');
         $query_result = $this->db->get();
         $result = $query_result->result();
-//        echo "<pre>";
-//        var_dump($result);
-//        die();
+
         return $result;
     }
 
@@ -512,26 +487,12 @@ public function get_new_task_contact($where, $id = NULL)
         $data = array();
         $this->db->select('tbl_task_contact.*');
         $this->db->from('tbl_task_contact');
+        $this->db->where('tbl_task_contact.assigned_to',$id);
         $task = $this->db->get()->result();
-//        var_dump($task);
-        foreach ($task as $assigned) {
-            if (!empty($assigned->assigned_to)) {
-                $assigned->assigned_to = unserialize($assigned->assigned_to);
-                foreach ($assigned->assigned_to as $arr) {
-                    if (in_array($id, $arr)) {
-                        $data[] = $assigned;
-                    }
-
-                }
-            }
-        }
-//    var_dump($data);
-//        die();
-    $result = array();
+        $result = array();
         $sum = null;
-        foreach ($data as $comment){
-//            echo $comment->task_id;
-//            die();
+        foreach ($task as $comment){
+
             $this->db->select('tbl_task_contact_comment.*', FALSE);
             $this->db->select('tbl_task_contact.*', FALSE);
             $this->db->from('tbl_task_contact_comment');
@@ -561,26 +522,14 @@ public function get_new_task_contact($where, $id = NULL)
         $data = array();
         $this->db->select('tbl_task.*');
         $this->db->from('tbl_task');
-        $task = $this->db->get()->result();
-//        var_dump($task);
-        foreach ($task as $assigned) {
-            if (!empty($assigned->assigned_to)) {
-                $assigned->assigned_to = unserialize($assigned->assigned_to);
-                foreach ($assigned->assigned_to as $arr) {
-                    if (in_array($id, $arr)) {
-                        $data[] = $assigned;
-                    }
+        $this->db->where('tbl_task.assigned_to',$id);
 
-                }
-            }
-        }
-//    var_dump($data);
-//        die();
+        $task = $this->db->get()->result();
+
     $result = array();
         $sum = null;
-        foreach ($data as $comment){
-//            echo $comment->task_id;
-//            die();
+        foreach ($task as $comment){
+
             $this->db->select('tbl_task_comment.*', FALSE);
             $this->db->select('tbl_task.*', FALSE);
             $this->db->from('tbl_task_comment');

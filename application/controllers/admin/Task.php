@@ -35,6 +35,7 @@ class Task extends Admin_Controller {
         $data['all_task_info'] = $this->task_model->get_all_task_info();
 
 
+
         if ($id) { // retrive data from db by id
             $data['active'] = 2;
             //get all task information
@@ -61,12 +62,7 @@ class Task extends Admin_Controller {
 
         $data['all_task_contact_info'] = $this->task_contact_model->get_all_task_contact_info();
         $data['all_task_contact_info'] = $this->task_contact_model->get_all_task_contact_info();
-//        echo "<pre>";
-//        var_dump($data['all_task_contact_info']);
-//        die();
-//        echo "<pre>";
-//        var_dump($data['all_task_info']);
-//        die();
+
 
         if ($id) { // retrive data from db by id
             $data['active'] = 2;
@@ -92,13 +88,18 @@ class Task extends Admin_Controller {
             'task_hour',
             'task_progress',
             'task_status'));
+        $assigned_to = $this->input->post("assigned_to");
+        foreach ($assigned_to as $assig){
+            $data['assigned_to'] = $assig;
+            $this->task_model->_table_name = "tbl_task"; // table name
+            $this->task_model->_primary_key = "task_id"; // $id
+            $this->task_model->save($data, $id);
+        }
+//        $data['assigned_to'] = serialize($this->task_model->array_from_post(array('assigned_to')));
 
-        $data['assigned_to'] = serialize($this->task_model->array_from_post(array('assigned_to')));
 
         //save data into table.
-        $this->task_model->_table_name = "tbl_task"; // table name
-        $this->task_model->_primary_key = "task_id"; // $id
-        $this->task_model->save($data, $id);
+
 
         $type = "success";
         $message = lang('save_task');
@@ -118,15 +119,15 @@ class Task extends Admin_Controller {
             'project_name',
             'project_details'));
 
-        $data['assigned_to'] = serialize($this->task_contact_model->array_from_post(array('assigned_to')));
-
+        $assigned_to = $this->input->post("assigned_to");
+        foreach ($assigned_to as $assig){
+            $data['assigned_to'] = $assig;
+            $this->task_contact_model->_table_name = "tbl_task_contact"; // table name
+            $this->task_contact_model->_primary_key = "task_contact_id"; // $id
+            $this->task_contact_model->save($data, $id);
+        }
         //save data into table.
-        $this->task_contact_model->_table_name = "tbl_task_contact"; // table name
-        $this->task_contact_model->_primary_key = "task_contact_id"; // $id
-//        echo "<pre>";
-//        var_dump($data);
-//        die();
-        $this->task_contact_model->save($data, $id);
+
 
         $type = "success";
         $message = lang('save_task');
@@ -150,6 +151,25 @@ class Task extends Admin_Controller {
         $message = lang('task_updated');
         set_message($type, $message);
         redirect('admin/task/view_task_details/' . $id);
+    }
+
+
+    public function update_project_status($id = NULL) {
+
+        $data = $this->task_contact_model->array_from_post(array(
+            'task_contact_progress',
+            'task_contact_status'));
+
+
+        //save data into table.
+        $this->task_contact_model->_table_name = "tbl_task_contact"; // table name
+        $this->task_contact_model->_primary_key = "task_contact_id"; // $id
+        $this->task_contact_model->save($data, $id);
+
+        $type = "success";
+        $message = lang('task_updated');
+        set_message($type, $message);
+        redirect('admin/task/view_task_contact_details/' . $id);
     }
 
     public function update_contact_status($id = NULL) {
@@ -358,6 +378,7 @@ class Task extends Admin_Controller {
 
         //get all task information
         $data['task_details'] = $this->task_contact_model->get_all_task_contact_info($id);
+
         //get all comments info
         $data['task_team_details'] = $this->task_contact_model->get_all_task_team_info($id);
         //get all comments info

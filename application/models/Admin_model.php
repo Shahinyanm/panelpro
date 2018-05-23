@@ -204,18 +204,20 @@ class Admin_Model extends MY_Model {
         $data = array();
         $this->db->select('tbl_task.*');
         $this->db->from('tbl_task');
+        $this->db->where('tbl_task.assigned_to',$id);
         $task = $this->db->get()->result();
 //        var_dump($task);
-        foreach ($task as $assigned) {
-            if (!empty($assigned->assigned_to)) {
-                $assigned->assigned_to = unserialize($assigned->assigned_to);
-                foreach ($assigned->assigned_to as $arr) {
-                    if (in_array($id, $arr)) {
-                        $data[] = $assigned;
-                    }
-                }
-            }
-        }
+//        foreach ($task as $assigned) {
+//
+//            if (!empty($assigned->assigned_to)) {
+//                $assigned->assigned_to = unserialize($assigned->assigned_to);
+//                foreach ($assigned->assigned_to as $arr) {
+//                    if (in_array($id, $arr)) {
+//                        $data[] = $assigned;
+//                    }
+//                }
+//            }
+//        }
 //    var_dump($data);
 //        die();
         $result = array();

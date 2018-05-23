@@ -34,7 +34,6 @@
                                     <?php if (!empty($all_task_info)):foreach ($all_task_info as $key => $v_task): ?>
                                        <?php  $all_comment_info = count($this->db->where('task_id', $v_task->task_id)->where('view_status',2)->where('employee_id !=', '(Null)')->get('tbl_task_comment')->result()); ?>
 
-                                        <?php $assigned = unserialize($v_task->assigned_to); ?>
 
                                         <tr>
                                                 <td><a href="<?= base_url() ?>admin/task/view_task_details/<?= $v_task->task_id ?>"><?php echo $v_task->task_name; ?>
@@ -47,15 +46,15 @@
                                                             ?></span></a></td>
                                             <td>
                                             <?php
-                                                if (!empty($assigned['assigned_to'])) :
+                                                if (!empty($v_task->assigned_to)) :
 
-                                                 foreach ($assigned['assigned_to'] as $v_assign) :
-                                                 $emp_info = $this->db->where(array('employee_id' => $v_assign))->get('tbl_employee')->row();
+//                                                 foreach ($assigned['assigned_to'] as $v_assign) :
+                                                 $emp_info = $this->db->where(array('employee_id' => $v_task->assigned_to))->get('tbl_employee')->row();
                                             ?>
 
                                                 <a href="<?= base_url() ?>admin/employee/view_employee/<?= $emp_info->employee_id ?>"><h6><?= $emp_info->first_name . ' ' . $emp_info->last_name . '<small> (' . $emp_info->employee_id . ') </small>' ?></h6></a>
 
-                                                         <?php endforeach ?>
+<!--                                                         --><?php //endforeach ?>
                                                      <?php else: ?>
                                                     </td>
                                             <td>
@@ -112,10 +111,10 @@
                                                     <option value="<?php echo $v_employee->employee_id; ?>" 
                                                     <?php
                                                     if (!empty($task_info->assigned_to)) {
-                                                        $assign_user = unserialize($task_info->assigned_to);
-                                                        foreach ($assign_user['assigned_to'] as $assding_id) {
-                                                            echo $v_employee->employee_id == $assding_id ? 'selected' : '';
-                                                        }
+                                                        $assign_id = $task_info->assigned_to;
+//                                                        foreach ($assign_user['assigned_to'] as $assding_id) {
+                                                            echo $v_employee->employee_id == $assign_id ? 'selected' : '';
+//                                                        }
                                                     }
                                                     ?>><?php echo $v_employee->first_name . ' ' . $v_employee->last_name ?> (<?php echo $v_employee->employee_id ?> )</option>
                                                         <?php endforeach; ?>

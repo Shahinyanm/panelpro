@@ -64,6 +64,11 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="483">
               <caret line="21" selection-start-line="21" selection-end-line="21" />
+              <folding>
+                <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#590#597#1" expanded="true" />
+                <element signature="e#724#730#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -267,7 +272,7 @@
       <find>hash</find>
       <find>date</find>
       <find>read_inbox</find>
-      <find>table-responsive mailbox-messages</find>
+      <find />
       <find>profile_</find>
       <find>$data['all_expense_list']</find>
       <find>var_</find>
@@ -478,12 +483,12 @@
       <workItem from="1526894826003" duration="7565000" />
       <workItem from="1526921007399" duration="5399000" />
       <workItem from="1526970109176" duration="4007000" />
-      <workItem from="1527006243455" duration="13674000" />
+      <workItem from="1527006243455" duration="14525000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="309689000" />
+    <option name="totallyTimeSpent" value="310540000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -1037,6 +1042,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="483">
           <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#590#597#1" expanded="true" />
+            <element signature="e#724#730#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

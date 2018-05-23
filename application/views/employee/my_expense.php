@@ -18,7 +18,9 @@
                                 <th><?= lang('purchase_from') ?></th>
                                 <th><?= lang('purchase_date') ?></th>                                                                                                               
                                 <th><?= lang('amount') ?></th>
-                                <th><?= lang('status') ?></th>                                        
+                                <th><?= lang('status') ?></th>
+                                <th><?= lang('details') ?></th>
+
                             </tr>
                         </thead>
                         <tbody>

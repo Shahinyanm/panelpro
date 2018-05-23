@@ -59,22 +59,7 @@
                         <a href="<?php echo base_url() ?>admin/award/employee_award" class="small-box-footer"><?= lang('more_info') ?> <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div><!-- End total Award -->
-                <!-- Total Employee-->
-                <?php
-                $stock_info = $this->db->get('tbl_stock')->result();
-                ?>
-                <div class="info-box">
-                    <span class="info-box-icon bg-heading"><i class="fa fa-codepen"></i></span>
-                    <div class="info-box-content">
-                        <span class="info-box-text"><?= lang('total_stock') ?></span>
-                        <span class="info-box-number"><?php
-                            if (!empty($stock_info)) {
-                                echo count($stock_info);
-                            }
-                            ?></span>
-                        <a href="<?php echo base_url() ?>admin/stock/stock_list" class="small-box-footer"><?= lang('more_info') ?> <i class="fa fa-arrow-circle-right"></i></a>
-                    </div>
-                </div><!-- end Total Employee-->                
+
 
                 <!-- Total Expense-->
                 <div class="info-box">

@@ -212,7 +212,7 @@
                     <div class="panel panel-info" style="border: 1px solid #004884 ">
                         <div class="panel-body">
                             <?php if ($employee_details->photo): ?>
-                                <img src="<?php echo base_url() . $employee_details->photo; ?>" style="height: 180px; width: 210px;"  class="img-responsive center-block" />
+                                <img src="<?php echo base_url() . $employee_details->photo; ?>" style="height: 170px; width: 210px;"  class="img-responsive center-block" />
                             <?php else: ?>
                                 <img src="<?php echo base_url() ?>/asset/img/user.jpg" style="height: 180px; width: 210px; "  class="img-responsive center-block" alt="Employee_Image" />
                             <?php endif; ?>

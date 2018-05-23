@@ -24,7 +24,10 @@ class Employee extends Admin_Controller {
 
         $data['active'] = 1;
         $data['all_employee_info'] = $this->db->get('tbl_employee')->result();
-
+//        echo "<pre>";
+//        var_dump($data['all_employee_info']);
+//
+//        die();
 
         if (!empty($id)) {// retrive data from db by id 
             $data['active'] = 2;
@@ -53,6 +56,8 @@ class Employee extends Admin_Controller {
         $this->employee_model->_table_name = "countries"; //table name
         $this->employee_model->_order_by = "countryName";
         $data['all_country'] = $this->employee_model->get();
+
+
 
 
         $data['subview'] = $this->load->view('admin/employee/employee_list', $data, TRUE);

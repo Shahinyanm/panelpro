@@ -43,7 +43,7 @@ class Register extends MY_Controller {
             $this->load->view('register',['msg'=>"error "]);
 
         }else{
-            $employee_id =  $this->user_model->add_new_user('tbl_employee', ['email'=> $email, 'employment_id'=>'employee']);
+            $employee_id =  $this->user_model->add_new_user('tbl_employee', ['email'=> $email, 'employment_id'=>'employee','status'=> 0]);
 
             $tmp = [
 

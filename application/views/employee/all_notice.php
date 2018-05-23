@@ -18,7 +18,7 @@
                             <th class="col-sm-3"><?= lang('title')?></th>                                                                
                             <th><?= lang('short_description')?></th>                                                                
 
-                            <th class="col-sm-1"><?= lang('action')?>Action</th>                                                                
+                            <th class="col-sm-1"><?= lang('action')?></th>
                         </tr>
                     </thead>
                     <tbody>

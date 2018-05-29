@@ -8,6 +8,12 @@ $lang['team'] = 'Team';
 $lang['advisors'] = 'Advisors';
 $lang['partners'] = 'Partners';
 $lang['links'] = 'Links';
+$lang['clients'] = 'Clients';
+$lang['clients_list'] = 'Clients List';
+$lang['add_client'] = 'Add Client';
+
+$lang['view_client'] = 'View Client';
+$lang['advance'] = 'Advance';
 $lang['interac'] = 'Interac E-Transfer';
 $lang['mailbox'] = 'Mailbox';
 $lang['settings'] = 'Settings';

@@ -8,7 +8,7 @@
         <div class="nav-tabs-custom">
             <!-- Tabs within a box -->
             <ul class="nav nav-tabs">
-                <li class="<?= $active == 1 ? 'active' : '' ?>"><a href="#employee_list" data-toggle="tab"><?= lang('employee_list') ?></a>                    
+                <li class="<?= $active == 1 ? 'active' : '' ?>"><a href="#employee_list" data-toggle="tab"><?= lang('employee_list') ?></a>
                 </li>
                 <li class="<?= $active == 2 ? 'active' : '' ?>"><a href="#add_employee"  data-toggle="tab"><?= lang('add_employee') ?></a></li>
             </ul>

@@ -69,6 +69,7 @@ class Login_Model extends MY_Model {
                         'user_name' => $user_info->first_name . '  ' . $user_info->last_name,
                         'photo' => $user_info->photo,
                         'employee_login_id' => $employee->employee_login_id,
+                        'employment_id' => $user_info->employment_id,
                         'loggedin' => TRUE,
                         'user_type' => 2,
                         'url' => 'employee/dashboard',

@@ -1,3 +1,9 @@
+<style>
+    .navbar-collapse {
+    padding-right: 5px !important;
+    padding-left: 5px !important;
+    }
+</style>
 <div id="main-header" class="clearfix">
     <header id="header" class="clearfix">                        
         <div class="row main">
@@ -176,8 +182,14 @@
                                             echo '';
                                         }
                                         ?></span></a></li>
-
-
+                                    <?php if ($_SESSION['employment_id'] == 'advance'){ ?>
+                                    <li class="<?php
+                                    if (!empty($menu['employee'])) {
+                                        echo $menu['employee'] == 1 ? 'active' : '';
+                                    }
+                                    ?>">
+                                        <a href="<?php echo base_url() ?>employee/dashboard/employees"><?= lang('employee')?></a></li>
+                                    <?php } ?>
 
                         </ul>
                         <ul class="main-menu nav navbar-nav navbar-right">

@@ -30,6 +30,7 @@ class Dashboard extends Employee_Controller {
 
     public function index() {
         $data['menu'] = array("index" => 1);
+
         $data['title'] = "Employee Panel";
         $employee_id = $this->session->userdata('employee_id');
 
@@ -1454,6 +1455,94 @@ class Dashboard extends Employee_Controller {
         redirect('employee/dashboard/view_task_contact_details/' . $id2. '/' . $data['active'] = 4);
 
     }
+
+    public function employees($id = NULL) {
+        $data['menu'] = array("employee" => 1);
+        $data['title'] = lang('employee_list');
+        $data['page_header'] = lang('employee_page_header'); //Page header title
+
+        $data['active'] = 1;
+        $data['all_employee_info'] = $this->db->get('tbl_employee')->result();
+//        echo "<pre>";
+//        var_dump($data['all_employee_info']);
+//
+//        die();
+
+        if (!empty($id)) {// retrive data from db by id
+            $data['active'] = 2;
+            $data['employee_info'] = $this->employee_model->all_emplyee_info($id);
+
+            $data['emp_info'] = $this->db->where('employee_id', $id)->get('tbl_employee')->row();
+
+            if (empty($data['employee_info'])) {
+                $type = "error";
+                $message = lang('no_record_found');
+                set_message($type, $message);
+                redirect('employee/dashboard/add_employee');
+            }
+        } else {
+            $data['active'] = 1;
+        }
+
+        // retrive all data from department table
+        $this->employee_model->_table_name = "tbl_department"; //table name
+        $this->employee_model->_order_by = "department_id";
+        $all_dept_info = $this->employee_model->get();
+        // get all department info and designation info
+        foreach ($all_dept_info as $v_dept_info) {
+            $data['all_department_info'][$v_dept_info->department_name] = $this->employee_model->get_add_department_by_id($v_dept_info->department_id);
+        }
+        // retrive country
+        $this->employee_model->_table_name = "countries"; //table name
+        $this->employee_model->_order_by = "countryName";
+        $data['all_country'] = $this->employee_model->get();
+
+
+
+
+        $data['subview'] = $this->load->view('employee/employee/employee_list', $data, TRUE);
+        $this->load->view('employee/_layout_main', $data);
+    }
+
+
+
+
+    public function view_employee($id = NULL) {
+        $data['title'] = lang('view_employee');
+        $data['page_header'] = lang('employee_page_header'); //Page header title
+
+
+        if (!empty($id)) {// retrive data from db by id
+            $data['employee_info'] = $this->employee_model->all_emplyee_info($id);
+            if (empty($data['employee_info'])) {
+                $type = "error";
+                $message = lang('no_record_found');
+                set_message($type, $message);
+                redirect('employee/employee/employee_list');
+            }
+        }
+        $data['subview'] = $this->load->view('employee/employee/view_employee', $data, TRUE);
+        $this->load->view('employee/_layout_main', $data);
+    }
+
+
+
+    public function employee_list_pdf() {
+        $data['title'] = "Employee List";
+        $data['all_employee_info'] = $this->employee_model->all_emplyee_info();
+        $this->load->helper('dompdf');
+        $view_file = $this->load->view('employee/employee/employee_list_pdf', $data, true);
+        pdf_create($view_file, 'Employee List');
+    }
+
+    public function make_pdf($employee_id) {
+        $data['title'] = "Employee List";
+        $data['employee_info'] = $this->employee_model->all_emplyee_info($employee_id);
+        $this->load->helper('dompdf');
+        $view_file = $this->load->view('employee/employee/employee_view_pdf', $data, true);
+        pdf_create($view_file, $data['employee_info']->first_name . ' ' . $data['employee_info']->last_name);
+    }
+
 
 }
 

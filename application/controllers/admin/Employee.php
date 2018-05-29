@@ -19,7 +19,7 @@ class Employee extends Admin_Controller {
     }
 
     public function employees($id = NULL) {
-        $data['title'] = lang('employee_list');
+        $data['title'] = lang('clients_list');
         $data['page_header'] = lang('employee_page_header'); //Page header title
 
         $data['active'] = 1;
@@ -29,9 +29,10 @@ class Employee extends Admin_Controller {
 //
 //        die();
 
-        if (!empty($id)) {// retrive data from db by id 
+        if (!empty($id)) {// retrive data from db by id
             $data['active'] = 2;
             $data['employee_info'] = $this->employee_model->all_emplyee_info($id);
+
             $data['emp_info'] = $this->db->where('employee_id', $id)->get('tbl_employee')->row();
 
             if (empty($data['employee_info'])) {
@@ -222,9 +223,11 @@ class Employee extends Admin_Controller {
         }
         // ***Employee Document Information Save and Update End   ***
         // messages for user
+//        var_dump($data['e'])
         $type = "success";
         $message = lang('employee_info_saved');
         set_message($type, $message);
+
         redirect('admin/employee/employees'); //redirect page
     }
 
@@ -303,5 +306,64 @@ class Employee extends Admin_Controller {
         $view_file = $this->load->view('admin/employee/employee_view_pdf', $data, true);
         pdf_create($view_file, $data['employee_info']->first_name . ' ' . $data['employee_info']->last_name);
     }
+
+    public function clients($id = NULL) {
+        $data['title'] = lang('clients');
+        $data['page_header'] = lang('employee_page_header'); //Page header title
+        $data['active'] = 1;
+        $data['all_employee_info'] = $this->db->where('employment_id','advance')->get('tbl_employee')->result();
+
+
+        if (!empty($id)) {// retrive data from db by id
+            $data['active'] = 2;
+            $data['employee_info'] = $this->employee_model->all_emplyee_info($id);
+
+            $data['emp_info'] = $this->db->where('employee_id', $id)->get('tbl_employee')->row();
+
+            if (empty($data['employee_info'])) {
+                $type = "error";
+                $message = lang('no_record_found');
+                set_message($type, $message);
+                redirect('admin/employee/add_employee');
+            }
+        } else {
+            $data['active'] = 1;
+        }
+
+        // retrive all data from department table
+        $this->employee_model->_table_name = "tbl_department"; //table name
+        $this->employee_model->_order_by = "department_id";
+        $all_dept_info = $this->employee_model->get();
+        // get all department info and designation info
+        foreach ($all_dept_info as $v_dept_info) {
+            $data['all_department_info'][$v_dept_info->department_name] = $this->employee_model->get_add_department_by_id($v_dept_info->department_id);
+        }
+        // retrive country
+        $this->employee_model->_table_name = "countries"; //table name
+        $this->employee_model->_order_by = "countryName";
+        $data['all_country'] = $this->employee_model->get();
+
+        $data['subview'] = $this->load->view('admin/employee/clients_list', $data, TRUE);
+        $this->load->view('admin/_layout_main', $data);
+    }
+
+    public function view_clients($id = NULL) {
+        $data['title'] = lang('view_clients');
+        $data['page_header'] = lang('employee_page_header'); //Page header title
+        $data['active'] = 1;
+
+        if (!empty($id)) {// retrive data from db by id
+            $data['employee_info'] = $this->employee_model->all_emplyee_info($id);
+            if (empty($data['employee_info'])) {
+                $type = "error";
+                $message = lang('no_record_found');
+                set_message($type, $message);
+                redirect('admin/employee/clients_list');
+            }
+        }
+        $data['subview'] = $this->load->view('admin/employee/clients_list', $data, TRUE);
+        $this->load->view('admin/_layout_main', $data);
+    }
+
 
 }

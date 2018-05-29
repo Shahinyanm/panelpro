@@ -8,13 +8,14 @@
         <div class="nav-tabs-custom">
             <!-- Tabs within a box -->
             <ul class="nav nav-tabs">
-                <li class="<?= $active == 1 ? 'active' : '' ?>"><a href="#employee_list" data-toggle="tab"><?= lang('employee_list') ?></a>                    
+                <li class="<?= $active == 1 ? 'active' : '' ?>"><a href="#clients_list" data-toggle="tab"><?= lang('clients_list') ?></a>
                 </li>
-                <li class="<?= $active == 2 ? 'active' : '' ?>"><a href="#add_employee"  data-toggle="tab"><?= lang('add_employee') ?></a></li>
+                <li class="<?= $active == 2 ? 'active' : '' ?>"><a href="#add_client"  data-toggle="tab"><?= lang('add_client') ?></a></li>
+                <li class="<?= $active == 3 ? 'active' : '' ?>"><a href="#add_employee"  data-toggle="tab"><?= lang('add_employee') ?></a></li>
             </ul>
             <div class="tab-content no-padding">
                 <!-- Employee List tab Starts -->
-                <div class="tab-pane <?= $active == 1 ? 'active' : '' ?>" id="employee_list" style="position: relative;">
+                <div class="tab-pane <?= $active == 1 ? 'active' : '' ?>" id="clients_list" style="position: relative;">
                     <div class="box" style="border: none;" data-collapsed="0">                                                
                         <div class="box-body">
                             <div class="pull-right hidden-print" style="padding-top: 0px;padding-bottom: 8px">                                                                      
@@ -60,9 +61,10 @@
                                                 echo '<span class="label label-danger">Deactive</span>';
                                             }
                                             ?></td>
-                                            <td ><?php echo btn_view('admin/employee/view_employee/' . $v_employee->employee_id); ?></td>
+                                            <td ><?php echo btn_view('admin/employee/view_clients/' . $v_employee->employee_id); ?></td>
                                             <td >
-                                                <?php echo btn_edit('admin/employee/employees/' . $v_employee->employee_id); ?>
+                                                <?php echo btn_add('admin/employee/view_clients/' . $v_employee->employee_id. 'add' ); ?>
+                                                <?php echo btn_edit('admin/employee/clients/' . $v_employee->employee_id); ?>
                                                 <?php echo btn_delete('admin/employee/delete_employee/' . $v_employee->employee_id ); ?>
                                             </td>
                                         </tr>
@@ -91,10 +93,12 @@
                                                         echo '<span class="label label-danger">Deactive</span>';
                                                     }
                                                     ?></td>
-                                                <td ><?php echo btn_view('admin/employee/view_employee/' . $v_employee->employee_id); ?></td>
+                                                <td ><?php echo btn_view('admin/employee/view_clients/' . $v_employee->employee_id); ?></td>
                                                 <td >
-                                                    <?php echo btn_edit('admin/employee/employees/' . $v_employee->employee_id); ?>
+                                                    <?php echo btn_add('admin/employee/view_clients/' . $v_employee->employee_id. '/add' ); ?>
+                                                    <?php echo btn_edit('admin/employee/clients/' . $v_employee->employee_id); ?>
                                                     <?php echo btn_delete('admin/employee/delete_employee/' . $v_employee->employee_id ); ?>
+
                                                 </td>
                                             </tr>
                                             <?php
@@ -115,7 +119,7 @@
 
 
             <!-- Add Employee tab Starts -->
-            <div class="tab-pane <?= $active == 2 ? 'active' : '' ?>" id="add_employee" style="position: relative;">
+                <div class="tab-pane <?= $active == 2 ? 'active' : '' ?>" id="add_client" style="position: relative;">
                 <div class="box" style="border: none; padding-top: 15px;" data-collapsed="0">                        
                     <div class="box-body">
                         <form role="form" id="employee-form" enctype="multipart/form-data" action="<?php echo base_url() ?>admin/employee/save_employee/<?php
@@ -734,8 +738,167 @@
 </div>   
 </div>
 <!-- Add Employee tab Ends -->
-</div>
-</div>
-</div>
+                <div class="tab-pane <?= $active == 3 ? 'active' : '' ?>" id="add_employee" style="position: relative;">
+                    <div class="box" style="border: none; padding-top: 15px;" data-collapsed="0">
+                        <div class="box-body">
+                            <form role="form" id="employee-form" enctype="multipart/form-data" action="<?php echo base_url() ?>admin/employee/save_clients_employee/<?php
+                            if (!empty($emp_info->employee_id)) {
+                                echo $emp_info->employee_id;
+                            }
+                            ?>" method="post" class="form-horizontal form-groups-bordered">
+                                <div class="row">
+                                    <div class="col-sm-12">
+
+                                        <!-- ************************ Personal Information Panel Start ************************-->
+                                        <div class="col-sm-6">
+                                            <div class="box box-primary">
+                                                <div class="box-heading with-border">
+                                                    <h4 class="box-title"><?= lang('personal_details') ?></h4>
+                                                </div>
+                                                <div class="box-body ">
+                                                    <div class="">
+                                                        <label class="control-label" ><?= lang('first_name') ?> <span class="required"> *</span></label>
+                                                        <input type="text" name="first_name" value="<?php
+                                                        if (!empty($employee_info->first_name)) {
+                                                            echo $employee_info->first_name;
+                                                        }
+                                                        ?>"  class="form-control">
+                                                    </div>
+                                                    <div class="">
+                                                        <label class="control-label" ><?= lang('middle_name') ?> <span class="required"> </span></label>
+                                                        <input type="text" name="middle_name" value="<?php
+                                                        if (!empty($employee_info->middle_name)) {
+                                                            echo $employee_info->middle_name;
+                                                        }
+                                                        ?>"  class="form-control">
+                                                    </div>
+                                                    <div class="">
+                                                        <label class="control-label" ><?= lang('last_name') ?><span class="required"> *</span></label>
+                                                        <input type="text" name="last_name" value="<?php
+                                                        if (!empty($employee_info->last_name)) {
+                                                            echo $employee_info->last_name;
+                                                        }
+                                                        ?>" class="form-control">
+                                                    </div>
+                                                    <div class="">
+                                                        <label class="control-label" ><?= lang('date_of_birth') ?> <span class="required"> *</span></label>
+                                                        <div class="input-group">
+                                                            <input type="text" name="date_of_birth" value="<?php
+                                                            if (!empty($employee_info->date_of_birth)) {
+                                                                echo $employee_info->date_of_birth;
+                                                            }
+                                                            ?>" class="form-control datepicker" data-format="yyy-mm-dd">
+                                                            <div class="input-group-addon">
+                                                                <a href="#"><i class="entypo-calendar"></i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="">
+                                                        <label class="control-label" ><?= lang('gender') ?> <span class="required"> *</span></label>
+                                                        <select name="gender" class="form-control" >
+                                                            <option value=""><?= lang('gender') ?> ...</option>
+                                                            <option value="Male" <?php
+                                                            if (!empty($employee_info->gender)) {
+                                                                echo $employee_info->gender == 'Male' ? 'selected' : '';
+                                                            }
+                                                            ?>><?= lang('male') ?></option>
+                                                            <option value="Female" <?php
+                                                            if (!empty($employee_info->gender)) {
+                                                                echo $employee_info->gender == 'Female' ? 'selected' : '';
+                                                            }
+                                                            ?>><?= lang('female') ?></option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="">
+                                                        <label class="control-label" ><?= lang('maratial_status') ?> <span class="required"> *</span></label>
+                                                        <select name="maratial_status" class="form-control" >
+                                                            <option value=""><?= lang('maratial_status') ?>...
+                                                            </option>
+                                                            <option value="Married" <?php
+                                                            if (!empty($employee_info->maratial_status)) {
+                                                                echo $employee_info->maratial_status == 'Married' ? 'selected' : '';
+                                                            }
+                                                            ?>><?= lang('married') ?>
+                                                            </option>
+                                                            <option value="Un-Married" <?php
+                                                            if (!empty($employee_info->maratial_status)) {
+                                                                echo $employee_info->maratial_status == 'Un-Married' ? 'selected' : '';
+                                                            }
+                                                            ?>><?= lang('un-married') ?>
+                                                            </option>
+                                                            <option value="Widowed" <?php
+                                                            if (!empty($employee_info->maratial_status)) {
+                                                                echo $employee_info->maratial_status == 'Widowed' ? 'selected' : '';
+                                                            }
+                                                            ?>><?= lang('widowed') ?></option>
+                                                            <option value="Divorced" <?php
+                                                            if (!empty($employee_info->maratial_status)) {
+                                                                echo $employee_info->maratial_status == 'Divorced' ? 'selected' : '';
+                                                            }
+                                                            ?>><?= lang('divorced') ?></option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="">
+                                                        <label class="control-label"><?= lang('nationality') ?><span class="required"> *</span></label>
+                                                        <select name="nationality" class="form-control col-sm-5" >
+                                                            <option value="" ><?= lang('select_country') ?>...</option>
+                                                            <?php foreach ($all_country as $v_country) : ?>
+                                                                <option value="<?php echo $v_country->idCountry ?>" <?php
+                                                                if (!empty($employee_info->country_id)) {
+                                                                    echo $v_country->countryName == $employee_info->nationality ? 'selected' : '';
+                                                                }
+                                                                ?>><?php echo $v_country->countryName ?></option>
+                                                            <?php endforeach; ?>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="form-group col-sm-12">
+                                                        <div class="form-group col-sm-12">
+                                                            <label for="field-1" class="control-label"><?= lang('photo') ?> <span class="required">*</span></label>
+                                                            <div class="input-group">
+                                                                <input type="hidden" name="old_path" value="<?php
+                                                                if (!empty($employee_info->photo_a_path)) {
+                                                                    echo $employee_info->photo_a_path;
+                                                                }
+                                                                ?>">
+                                                                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                                    <div class="fileinput-new thumbnail" style="width: 150px; height: 150px;">
+                                                                        <?php if (!empty($employee_info->photo)): ?>
+                                                                            <img src="<?php echo base_url() . $employee_info->photo; ?>" >
+                                                                        <?php else: ?>
+                                                                            <img src="http://placehold.it/350x260" alt="Please Connect Your Internet">
+                                                                        <?php endif; ?>
+                                                                    </div>
+                                                                    <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 150px; max-height: 150px;">
+                                                                        <input type="file" value="<?php if (!empty($employee_info)) echo base_url() . $employee_info->photo; ?>" name="photo" size="20" /><
+                                                                    </div>
+                                                                    <div>
+                                                        <span class="btn btn-default btn-file">
+                                                            <span class="fileinput-new"><input type="file"  name="photo" size="20" /></span>
+                                                            <span class="fileinput-exists"><?= lang('change') ?></span>
+                                                        </span>
+                                                                        <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput"><?= lang('remove') ?></a>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="valid_msg" style="color: #e11221"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> <!-- ************************ Personal Information Panel End ************************-->
+
+                                    </div>
+                                            <button id="btn_emp" type="submit" class="btn btn-primary btn-block"><?= lang('save') ?></button>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 

@@ -307,7 +307,7 @@ class Employee extends Admin_Controller {
         pdf_create($view_file, $data['employee_info']->first_name . ' ' . $data['employee_info']->last_name);
     }
 
-    public function clients($id = NULL) {
+    public function clients($id = NULL, $flag = NULL) {
         $data['title'] = lang('clients');
         $data['page_header'] = lang('employee_page_header'); //Page header title
         $data['active'] = 1;
@@ -315,16 +315,30 @@ class Employee extends Admin_Controller {
 
 
         if (!empty($id)) {// retrive data from db by id
-            $data['active'] = 2;
-            $data['employee_info'] = $this->employee_model->all_emplyee_info($id);
+            if(!empty($flag)){
+                $data['active'] = 3;
+                $data['employee_info'] = $this->employee_model->all_emplyee_info($id);
+                $data['all_employee'] = $this->employee_model->all_emplyee_info();
+                $data['clients_employee'] = $this->employee_model->get_all_clients_employee($id);
+                $data['emp_info'] = $this->db->where('employee_id', $id)->get('tbl_employee')->row();
+//                echo "<pre>";
+//                var_dump($data['clients_employee']);
+//                die();
 
-            $data['emp_info'] = $this->db->where('employee_id', $id)->get('tbl_employee')->row();
 
-            if (empty($data['employee_info'])) {
-                $type = "error";
-                $message = lang('no_record_found');
-                set_message($type, $message);
-                redirect('admin/employee/add_employee');
+
+            }else{
+                $data['active'] = 2;
+                $data['employee_info'] = $this->employee_model->all_emplyee_info($id);
+
+                $data['emp_info'] = $this->db->where('employee_id', $id)->get('tbl_employee')->row();
+
+                if (empty($data['employee_info'])) {
+                    $type = "error";
+                    $message = lang('no_record_found');
+                    set_message($type, $message);
+                    redirect('admin/employee/add_employee');
+                }
             }
         } else {
             $data['active'] = 1;
@@ -365,5 +379,19 @@ class Employee extends Admin_Controller {
         $this->load->view('admin/_layout_main', $data);
     }
 
+
+    public function delete_clients_employee($employee,$client){
+//    echo $client
+        if(!empty($client) && !empty($employee)){
+
+            $this->employee_model->_table_name = "tbl_clients_employee"; // table name
+            $this->employee_model->delete_multiple(['clients_id'=>$client, 'employee_id'=>$employee]);
+        }
+
+        $type = "success";
+        $message = lang('employee_info_deleted');
+        set_message($type, $message);
+        redirect('admin/employee/clients/'.$client.'/add'); //redirect page
+    }
 
 }

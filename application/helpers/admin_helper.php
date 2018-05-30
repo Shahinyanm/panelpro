@@ -36,6 +36,12 @@ function btn_delete($uri) {
     ));
 }
 
+function btn_delete_disable_employee($uri) {
+    return anchor($uri, '<i class="fa fa-trash-o"></i>', array(
+        'class' => "btn btn-danger btn-xs ", 'title' => 'Delete', 'data-toggle' => 'tooltip', 'data-placement' => 'top', 'onclick' => "return confirm(" . lang('delete_alert') . ");"
+    ));
+}
+
 function btn_delete_disable($uri) {
     return anchor($uri, '<i class="fa fa-trash-o"></i>', array(
         'class' => "btn btn-danger btn-xs disabled", 'title' => 'Delete', 'data-toggle' => 'tooltip', 'data-placement' => 'top', 'onclick' => "return confirm(" . lang('delete_alert') . ");"

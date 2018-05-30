@@ -60,6 +60,16 @@ class Employee_Model extends MY_Model {
         }
         return $result;
     }
+    public function get_all_clients_employee($id){
+
+        $this->db->select('tbl_employee.*', FALSE);
+        $this->db->from('tbl_employee');
+        $this->db->join('tbl_clients_employee', 'tbl_clients_employee.employee_id  =  tbl_employee.employee_id ', 'left');
+        $this->db->where('tbl_clients_employee.clients_id', $id);
+        $query = $this->db->get()->result();
+
+        return $query;
+    }
 
 
 }

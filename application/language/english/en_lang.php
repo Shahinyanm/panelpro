@@ -11,6 +11,7 @@ $lang['links'] = 'Links';
 $lang['clients'] = 'Clients';
 $lang['clients_list'] = 'Clients List';
 $lang['add_client'] = 'Add Client';
+$lang['employee_details'] = 'Employee Details';
 
 $lang['view_client'] = 'View Client';
 $lang['advance'] = 'Advance';

@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : DT
+Source Server         : Db
 Source Server Version : 50505
 Source Host           : localhost:3306
 Source Database       : panelpro_db
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2018-05-23 12:33:13
+Date: 2018-05-30 13:55:45
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -817,6 +817,24 @@ CREATE TABLE `tbl_attendance` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for `tbl_clients_employee`
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_clients_employee`;
+CREATE TABLE `tbl_clients_employee` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `clients_id` int(11) DEFAULT NULL,
+  `employee_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tbl_clients_employee
+-- ----------------------------
+INSERT INTO `tbl_clients_employee` VALUES ('4', '21', '24');
+INSERT INTO `tbl_clients_employee` VALUES ('5', '21', '25');
+INSERT INTO `tbl_clients_employee` VALUES ('6', '21', '26');
+
+-- ----------------------------
 -- Table structure for `tbl_clock`
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_clock`;
@@ -969,13 +987,15 @@ CREATE TABLE `tbl_employee` (
   `etherum` varchar(255) NOT NULL,
   `etherum_account` varchar(255) NOT NULL,
   PRIMARY KEY (`employee_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tbl_employee
 -- ----------------------------
-INSERT INTO `tbl_employee` VALUES ('21', 'employee', 'asdadad', 'asdada', '1990-06-18', 'Male', 'Married', 'asdadad', '7', '', 'img/uploads/^316AEC5E8D8E5CB814010BF06B4E9E458ECA9F6799790425FA^pimgpsh_fullsize_distr1.jpg', 'D:/WEB/xamp/htdocs/Mher/codeigniter/public/img/uploads/^316AEC5E8D8E5CB814010BF06B4E9E458ECA9F6799790425FA^pimgpsh_fullsize_distr1.jpg', 'asdadad', 'qweqwe', '7', '21313', 'asdasad', 'shahinyanm@gmail.com', '1', '2018-05-21', '1', 'asdada', 'asdad', 'asdad', '', '', 'asdad', '', 'sdad', '');
-INSERT INTO `tbl_employee` VALUES ('22', 'employee', 'sdfsf', 'sdfsf', '1900-12-06', 'Male', 'Married', 'sdfsf', '15', '', '', '', 'sdfsf', 'sdfs', '3', 'sdfsfsf', 'sdfsf', 's-mher@inbox.ru', '1', '2018-05-22', '1', 'sdf', 'fsf', 'sdfsf', '', '', '', '', '', '');
+INSERT INTO `tbl_employee` VALUES ('21', 'advance', 'asdadad', 'asdada', '1990-06-18', 'Male', 'Married', 'asdadad', '7', '', 'img/uploads/^316AEC5E8D8E5CB814010BF06B4E9E458ECA9F6799790425FA^pimgpsh_fullsize_distr1.jpg', 'D:/WEB/xamp/htdocs/Mher/codeigniter/public/img/uploads/^316AEC5E8D8E5CB814010BF06B4E9E458ECA9F6799790425FA^pimgpsh_fullsize_distr1.jpg', 'asdadad', 'qweqwe', '7', '21313', 'asdasad', 'shahinyanm@gmail.com', '1', '2018-05-21', '1', 'asdada', 'asdad', 'asdad', '', '', 'asdad', '', 'sdad', '');
+INSERT INTO `tbl_employee` VALUES ('24', 'employee', 'sdad', 'asdsad', '0000-00-00', '', '', '', '', '', '', '', '', '', '0', '', '', 's-mher@inbox.ru', '0', '0000-00-00', '1', '', '', '24', 'employee', '', '', '0000-00-00', '', '');
+INSERT INTO `tbl_employee` VALUES ('25', 'employee', 'asdsad', 'asdsad', '0000-00-00', '', '', '', '', '', '', '', '', '', '0', '', '', '', '0', '0000-00-00', '1', '', '', '', '', '', '', '', '', '');
+INSERT INTO `tbl_employee` VALUES ('26', 'employee', 'afdkgld', '45454', '0000-00-00', '', '', '', '', '', '', '', '', '', '0', '', '', '', '0', '0000-00-00', '1', '', '', '', '', '', '', '', '', '');
 
 -- ----------------------------
 -- Table structure for `tbl_employee_award`
@@ -1069,13 +1089,13 @@ CREATE TABLE `tbl_employee_login` (
   `password` varchar(200) NOT NULL,
   `activate` tinyint(2) NOT NULL DEFAULT '0',
   PRIMARY KEY (`employee_login_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tbl_employee_login
 -- ----------------------------
 INSERT INTO `tbl_employee_login` VALUES ('20', '21', 'shahinyanm@gmail.com', '03e092b2f7f3b896956d7c8e00a9094b7ec059d75225057a497338097dbb6fccc16d64da0f35ccbdbec761350c08561edaa59f022457c8c94df04f72c2cf66a5', '1');
-INSERT INTO `tbl_employee_login` VALUES ('21', '22', 's-mher@inbox.ru', '03e092b2f7f3b896956d7c8e00a9094b7ec059d75225057a497338097dbb6fccc16d64da0f35ccbdbec761350c08561edaa59f022457c8c94df04f72c2cf66a5', '1');
+INSERT INTO `tbl_employee_login` VALUES ('23', '24', 's-mher@inbox.ru', '03e092b2f7f3b896956d7c8e00a9094b7ec059d75225057a497338097dbb6fccc16d64da0f35ccbdbec761350c08561edaa59f022457c8c94df04f72c2cf66a5', '1');
 
 -- ----------------------------
 -- Table structure for `tbl_employee_payroll`
@@ -1237,7 +1257,7 @@ CREATE TABLE `tbl_inbox` (
   `notify_me` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1=on 0=off',
   `deleted` enum('Yes','No') NOT NULL DEFAULT 'No',
   PRIMARY KEY (`inbox_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tbl_inbox
@@ -1245,7 +1265,11 @@ CREATE TABLE `tbl_inbox` (
 INSERT INTO `tbl_inbox` VALUES ('1', null, '1', 'shahinyanm@gmail.com', 'info@trescoder.com', 'asdada', '<p>asdad</p>\r\n', null, null, null, '2018-05-12 03:29:26', '1', '1', 'No');
 INSERT INTO `tbl_inbox` VALUES ('2', null, '2', 'sada@mail.ru', 'info@trescoder.com', 'asdada', '<p>asdad</p>\r\n', null, null, null, '2018-05-12 03:29:26', '2', '1', 'No');
 INSERT INTO `tbl_inbox` VALUES ('3', '19', null, 'info@trescoder.com', 'shahinyanm@gmail.com', 'sadadad', '<p>asdadad</p>\r\n', null, null, null, '2018-05-12 23:00:05', '1', '1', 'No');
-INSERT INTO `tbl_inbox` VALUES ('4', null, '1', 'shahinyanm@gmail.com', 'info@trescoder.com', 'фывфвф', '<p>фывфв</p>\r\n', null, null, null, '2018-05-21 19:01:45', '2', '1', 'No');
+INSERT INTO `tbl_inbox` VALUES ('4', null, '1', 'shahinyanm@gmail.com', 'info@trescoder.com', 'фывфвф', '<p>фывфв</p>\r\n', null, null, null, '2018-05-21 19:01:45', '1', '1', 'No');
+INSERT INTO `tbl_inbox` VALUES ('5', null, '2', 'infos@trescoder.com', '', 'czxczc', '<p>zxczc</p>\r\n', null, null, null, '2018-05-24 13:58:49', '2', '1', 'No');
+INSERT INTO `tbl_inbox` VALUES ('6', null, '2', 'infos@trescoder.com', '', 'ZXzX', '<p>ZXzXX</p>\r\n', null, null, null, '2018-05-24 14:10:24', '2', '1', 'No');
+INSERT INTO `tbl_inbox` VALUES ('7', null, '2', 'infos@trescoder.com', 'asda@mail.io', 'vcxvxv', '<p>xcvcxv</p>\r\n', null, null, null, '2018-05-24 14:25:56', '2', '1', 'No');
+INSERT INTO `tbl_inbox` VALUES ('8', null, '2', 'infos@trescoder.com', 'asda@mail.io', 'sadasdas', '<p>asdasdasd</p>\r\n', null, null, null, '2018-05-24 14:34:12', '2', '1', 'No');
 
 -- ----------------------------
 -- Table structure for `tbl_item_history`
@@ -1646,7 +1670,7 @@ CREATE TABLE `tbl_menu` (
   `parent` int(11) NOT NULL DEFAULT '0',
   `sort` int(11) NOT NULL,
   PRIMARY KEY (`menu_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tbl_menu
@@ -1688,6 +1712,7 @@ INSERT INTO `tbl_menu` VALUES ('97', 'hourly_rate', 'admin/payroll/hourly_rate',
 INSERT INTO `tbl_menu` VALUES ('98', 'trash', 'admin/mailbox/trash', 'fa fa-trash-o', '57', '4');
 INSERT INTO `tbl_menu` VALUES ('99', 'task_contact', 'admin/task/all_task_contact', 'fa fa-tasks', '100', '2');
 INSERT INTO `tbl_menu` VALUES ('100', 'tasks', '#', 'fa fa-tasks', '0', '3');
+INSERT INTO `tbl_menu` VALUES ('101', 'clients', 'admin/employee/clients', 'fa fa-user', '83', '3');
 
 -- ----------------------------
 -- Table structure for `tbl_notice`
@@ -1814,7 +1839,7 @@ CREATE TABLE `tbl_sent` (
   `message_time` datetime NOT NULL,
   `deleted` enum('Yes','No') NOT NULL DEFAULT 'No',
   PRIMARY KEY (`sent_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tbl_sent
@@ -1823,6 +1848,12 @@ INSERT INTO `tbl_sent` VALUES ('1', '1', null, 'shahinyanm@gmail.com', 'asdadad'
 INSERT INTO `tbl_sent` VALUES ('2', '1', null, 'shahinyanm@gmail.com', 'asdada', '<p>asdad</p>\r\n', null, null, null, '2018-05-12 03:29:21', 'No');
 INSERT INTO `tbl_sent` VALUES ('3', null, '19', 'info@trescoder.com', 'sadadad', '<p>asdadad</p>\r\n', null, null, null, '2018-05-12 22:59:58', 'No');
 INSERT INTO `tbl_sent` VALUES ('4', '1', null, 'shahinyanm@gmail.com', 'фывфвф', '<p>фывфв</p>\r\n', null, null, null, '2018-05-21 19:01:37', 'No');
+INSERT INTO `tbl_sent` VALUES ('5', '2', null, 'infos@trescoder.com', 'czxczc', '<p>zxczc</p>\r\n', null, null, null, '2018-05-24 13:58:43', 'No');
+INSERT INTO `tbl_sent` VALUES ('6', '2', null, 'infos@trescoder.com', 'ZXzX', '<p>ZXzXX</p>\r\n', null, null, null, '2018-05-24 14:10:19', 'No');
+INSERT INTO `tbl_sent` VALUES ('7', '2', null, 'infos@trescoder.com', 'vcxvxv', '<p>xcvcxv</p>\r\n', null, null, null, '2018-05-24 14:21:48', 'No');
+INSERT INTO `tbl_sent` VALUES ('8', '2', null, 'infos@trescoder.com', 'vcxvxv', '<p>xcvcxv</p>\r\n', null, null, null, '2018-05-24 14:24:21', 'No');
+INSERT INTO `tbl_sent` VALUES ('9', '2', null, 'infos@trescoder.com', 'vcxvxv', '<p>xcvcxv</p>\r\n', null, null, null, '2018-05-24 14:25:53', 'No');
+INSERT INTO `tbl_sent` VALUES ('10', '2', null, 'infos@trescoder.com', 'sadasdas', '<p>asdasdasd</p>\r\n', null, null, null, '2018-05-24 14:34:07', 'No');
 
 -- ----------------------------
 -- Table structure for `tbl_stock`
@@ -1887,11 +1918,13 @@ CREATE TABLE `tbl_task` (
   `view_status` int(1) NOT NULL DEFAULT '2' COMMENT '1read, 2 unread',
   `notify_me` int(1) NOT NULL DEFAULT '1' COMMENT '1 on 2 off',
   PRIMARY KEY (`task_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tbl_task
 -- ----------------------------
+INSERT INTO `tbl_task` VALUES ('3', 'asdsada', '<p>asda</p>\r\n', '21', '2018-05-23', '2018-05-23', '2018-05-23 13:31:52', '0', '12', '23', '2', '1');
+INSERT INTO `tbl_task` VALUES ('4', 'asdsada', '<p>asda</p>\r\n', '22', '2018-05-23', '2018-05-23', '2018-05-23 13:31:54', '0', '12', '23', '2', '1');
 
 -- ----------------------------
 -- Table structure for `tbl_task_attachment`
@@ -2566,12 +2599,13 @@ CREATE TABLE `tbl_user` (
   `user_status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1=active 0 =block',
   `flag` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tbl_user
 -- ----------------------------
 INSERT INTO `tbl_user` VALUES ('1', 'Mher', 'Shahinyan', 'infos@trescoder.com', 'admin', '27b0d575bd76125a167ccaee72a873336123e2e4c869a4468f6468160d2e7d69258b2a07a4d7ff882afcc6136f889984b415058f99d8605347f44c4c3479d819', '1', '1');
+INSERT INTO `tbl_user` VALUES ('2', 'aaa', 'aaa', 'asda@mail.io', 'Shahinyanm', '03e092b2f7f3b896956d7c8e00a9094b7ec059d75225057a497338097dbb6fccc16d64da0f35ccbdbec761350c08561edaa59f022457c8c94df04f72c2cf66a5', '1', '2');
 
 -- ----------------------------
 -- Table structure for `tbl_user_role`
@@ -2582,11 +2616,16 @@ CREATE TABLE `tbl_user_role` (
   `user_id` int(11) NOT NULL,
   `menu_id` int(11) NOT NULL,
   PRIMARY KEY (`user_role_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tbl_user_role
 -- ----------------------------
+INSERT INTO `tbl_user_role` VALUES ('1', '2', '57');
+INSERT INTO `tbl_user_role` VALUES ('2', '2', '58');
+INSERT INTO `tbl_user_role` VALUES ('3', '2', '59');
+INSERT INTO `tbl_user_role` VALUES ('4', '2', '60');
+INSERT INTO `tbl_user_role` VALUES ('5', '2', '98');
 
 -- ----------------------------
 -- Table structure for `tbl_working_days`

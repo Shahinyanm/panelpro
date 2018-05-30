@@ -71,5 +71,17 @@ class Employee_Model extends MY_Model {
         return $query;
     }
 
+    public function all_employee($id = NULL) {
+        $this->db->select('tbl_employee.*', FALSE);
+        $this->db->from('tbl_employee');
+        if (!empty($id)) {
+            $this->db->where('tbl_employee.employee_id', $id);
+            $query_result = $this->db->get();
+            $result = $query_result->row();
+        }else{
+            $result = $this->db->get()->result();
+        }
+        return $result;
+    }
 
 }

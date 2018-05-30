@@ -757,7 +757,18 @@
                                                     <h4 class="box-title"><?= lang('add_employee') ?></h4>
                                                 </div>
                                                 <div class="box-body ">
+                                                    <div class="col-sm-12">
+                                                        <select multiple="multiple" required name="employers[]" style="width: 100%" class="select_2_to" >
+                                                            <option value=""><?= lang('select_employee')?>...</option>
+                                                            <?php if (!empty($all_employee)): ?>
 
+                                                                <?php foreach ($all_employee as $v_employee) : ?>
+                                                                    <option value="<?php echo $v_employee->employee_id; ?>"
+                                                                     ><?php echo $v_employee->first_name . ' ' . $v_employee->last_name ?> (<?php echo $v_employee->employee_id ?> )</option>
+                                                                <?php endforeach; ?>
+                                                            <?php endif; ?>
+                                                        </select>
+                                                    </div>
                                                 </div>
 
                                             </div>

@@ -318,15 +318,13 @@ class Employee extends Admin_Controller {
             if(!empty($flag)){
                 $data['active'] = 3;
                 $data['employee_info'] = $this->employee_model->all_emplyee_info($id);
-                $data['all_employee'] = $this->employee_model->all_emplyee_info();
+                $data['all_employee'] = $this->employee_model->all_employee();
                 $data['clients_employee'] = $this->employee_model->get_all_clients_employee($id);
-                $data['emp_info'] = $this->db->where('employee_id', $id)->get('tbl_employee')->row();
+                $data['emp_info'] = $this->employee_model->all_employee($id);
+
 //                echo "<pre>";
-//                var_dump($data['clients_employee']);
+//                var_dump($data['emp_info']);
 //                die();
-
-
-
             }else{
                 $data['active'] = 2;
                 $data['employee_info'] = $this->employee_model->all_emplyee_info($id);
@@ -394,4 +392,25 @@ class Employee extends Admin_Controller {
         redirect('admin/employee/clients/'.$client.'/add'); //redirect page
     }
 
+
+    public function save_clients_employee($id = NULL) {
+
+        $employers = $this->input->post("employers");
+        foreach ($employers as $employee){
+            $data['employee_id'] = $employee;
+            $data['clients_id'] = $id;
+            $this->employee_model->_table_name = "tbl_clients_employee"; // table name
+//            $this->employee_model->_primary_key = "clients_id"; // $id
+//            var_dump($data);
+//            die();
+            $this->employee_model->save($data);
+        }
+
+        $data['active'] = 3;
+
+        $type = "success";
+        $message = lang('save_task');
+        set_message($type, $message);
+        redirect('admin/employee/clients/'.$id.'/add'); //redirect page
+    }
 }

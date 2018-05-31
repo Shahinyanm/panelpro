@@ -29,7 +29,7 @@
                                         <th><?= lang('mobile') ?></th>
                                         <th><?= lang('status') ?></th>
                                         <th class="col-sm-1 hidden-print"><?= lang('view_details') ?></th>                                             
-                                        <th class="col-sm-2 hidden-print"><?= lang('action') ?></th>
+<!--                                        <th class="col-sm-2 hidden-print">--><?//= lang('action') ?><!--</th>-->
                                     </tr>
                                 </thead>
                                 <tbody>                    
@@ -61,10 +61,10 @@
                                             }
                                             ?></td>
                                             <td ><?php echo btn_view('admin/employee/view_employee/' . $v_employee->employee_id); ?></td>
-                                            <td >
-                                                <?php echo btn_edit('admin/employee/employees/' . $v_employee->employee_id); ?>
-                                                <?php echo btn_delete('admin/employee/delete_employee/' . $v_employee->employee_id ); ?>
-                                            </td>
+<!--                                            <td >-->
+<!--                                                --><?php //echo btn_edit('admin/employee/employees/' . $v_employee->employee_id); ?>
+<!--                                                --><?php //echo btn_delete('admin/employee/delete_employee/' . $v_employee->employee_id ); ?>
+<!--                                            </td>-->
                                         </tr>
                                         <?php
                                         else:
@@ -91,11 +91,11 @@
                                                         echo '<span class="label label-danger">Deactive</span>';
                                                     }
                                                     ?></td>
-                                                <td ><?php echo btn_view('admin/employee/view_employee/' . $v_employee->employee_id); ?></td>
-                                                <td >
-                                                    <?php echo btn_edit('admin/employee/employees/' . $v_employee->employee_id); ?>
-                                                    <?php echo btn_delete('admin/employee/delete_employee/' . $v_employee->employee_id ); ?>
-                                                </td>
+                                                <td ><?php echo btn_view('employee/dashboard/view_employee/' . $v_employee->employee_id); ?></td>
+<!--                                                <td >-->
+<!--                                                    --><?php //echo btn_edit('admin/employee/employees/' . $v_employee->employee_id); ?>
+<!--                                                    --><?php //echo btn_delete('admin/employee/delete_employee/' . $v_employee->employee_id ); ?>
+<!--                                                </td>-->
                                             </tr>
                                             <?php
                                         endif;

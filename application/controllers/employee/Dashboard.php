@@ -1457,16 +1457,20 @@ class Dashboard extends Employee_Controller {
     }
 
     public function employees($id = NULL) {
+        $client_id = $this->session->userdata('employee_id');
+
         $data['menu'] = array("employee" => 1);
         $data['title'] = lang('employee_list');
         $data['page_header'] = lang('employee_page_header'); //Page header title
 
         $data['active'] = 1;
-        $data['all_employee_info'] = $this->db->get('tbl_employee')->result();
-//        echo "<pre>";
-//        var_dump($data['all_employee_info']);
-//
-//        die();
+        $data['all_employee_info'] = array();
+        $clients_employee = $this->employee_model->get_all_clients_employee($client_id);
+        foreach ($clients_employee as $client) {
+            $data['all_employee_info'][] = $this->employee_model->all_employee($client->employee_id);
+
+        }
+
 
         if (!empty($id)) {// retrive data from db by id
             $data['active'] = 2;

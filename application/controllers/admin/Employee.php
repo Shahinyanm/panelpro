@@ -323,9 +323,8 @@ class Employee extends Admin_Controller {
                 $data['emp_info'] = $this->employee_model->all_employee($id);
                  $isEmployee= $this->employee_model->all_employee();
                 foreach($isEmployee as $is){
-                    if (in_array($is->employee_id, $data['clients_employee'])){
-                        var_dump($is);
-                        die();
+                    if (!in_array($is, $data['clients_employee'])){
+                        $data['all_employee'][]=$is;
                     }
                 }
             }else{

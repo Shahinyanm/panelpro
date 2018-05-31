@@ -772,7 +772,7 @@
                                                 </div>
 
                                             </div>
-                                            <button id="btn_emp" type="submit" class="btn btn-primary btn-block"><?= lang('save') ?></button>
+                                            <button id="btn_emp" type="submit" class="btn btn-primary btn-block" ><?= lang('save') ?></button>
                                             </form>
 
                                         </div>

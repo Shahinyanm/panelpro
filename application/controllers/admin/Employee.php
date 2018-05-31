@@ -312,19 +312,22 @@ class Employee extends Admin_Controller {
         $data['page_header'] = lang('employee_page_header'); //Page header title
         $data['active'] = 1;
         $data['all_employee_info'] = $this->db->where('employment_id','advance')->get('tbl_employee')->result();
-
+        $data['all_employee'] =array();
 
         if (!empty($id)) {// retrive data from db by id
             if(!empty($flag)){
                 $data['active'] = 3;
                 $data['employee_info'] = $this->employee_model->all_emplyee_info($id);
-                $data['all_employee'] = $this->employee_model->all_employee();
                 $data['clients_employee'] = $this->employee_model->get_all_clients_employee($id);
-                $data['emp_info'] = $this->employee_model->all_employee($id);
 
-//                echo "<pre>";
-//                var_dump($data['emp_info']);
-//                die();
+                $data['emp_info'] = $this->employee_model->all_employee($id);
+                 $isEmployee= $this->employee_model->all_employee();
+                foreach($isEmployee as $is){
+                    if (in_array($is->employee_id, $data['clients_employee'])){
+                        var_dump($is);
+                        die();
+                    }
+                }
             }else{
                 $data['active'] = 2;
                 $data['employee_info'] = $this->employee_model->all_emplyee_info($id);

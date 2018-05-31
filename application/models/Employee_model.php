@@ -81,6 +81,7 @@ class Employee_Model extends MY_Model {
         }else{
             $result = $this->db->get()->result();
         }
+
         return $result;
     }
 

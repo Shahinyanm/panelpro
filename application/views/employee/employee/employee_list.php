@@ -60,7 +60,7 @@
                                                 echo '<span class="label label-danger">Deactive</span>';
                                             }
                                             ?></td>
-                                            <td ><?php echo btn_view('admin/employee/view_employee/' . $v_employee->employee_id); ?></td>
+                                            <td ><?php echo btn_view('employee/dashboard/view_employee/' . $v_employee->employee_id); ?></td>
 <!--                                            <td >-->
 <!--                                                --><?php //echo btn_edit('admin/employee/employees/' . $v_employee->employee_id); ?>
 <!--                                                --><?php //echo btn_delete('admin/employee/delete_employee/' . $v_employee->employee_id ); ?>

@@ -122,7 +122,7 @@
                                                 } else {
                                                     echo '';
                                                 }
-                                                ?></span></a>
+                                                ?></span></a></li>
                                     <li class="<?php
                                     if (!empty($menu['task_contact'])) {
                                         echo $menu['task_contact'] == 1 ? 'active' : '';
@@ -140,7 +140,27 @@
                                                 } else {
                                                     echo '';
                                                 }
-                                                ?></span></a>
+                                                ?></span></a></li>
+                                    <?php if ($_SESSION['employment_id'] == 'advance'){ ?>
+                                    <li class="<?php
+                                    if (!empty($menu['employee_task'])) {
+                                        echo $menu['employee_task'] == 1 ? 'active' : '';
+                                    }
+                                    ?>"><a href="<?php echo base_url() ?>employee/dashboard/employee_task"><?= lang('employee_task')?> <span class="label label-success"><?php
+                                                if (!empty($total_task_contact_request)) {
+                                                    echo $total_task_contact_request;
+                                                } else {
+                                                    echo '';
+                                                }
+                                                ?></span>
+                                            <span class="label label-danger"><?php
+                                                if (!empty($total_employee_task_coments)) {
+                                                    echo $total_employee_task_coments;
+                                                } else {
+                                                    echo '';
+                                                }
+                                                ?></span></a></li> <?php }?>
+
                                 </ul>
                                </li>
                             <li class="<?php

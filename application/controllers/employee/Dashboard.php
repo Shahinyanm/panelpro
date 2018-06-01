@@ -1547,7 +1547,143 @@ class Dashboard extends Employee_Controller {
         pdf_create($view_file, $data['employee_info']->first_name . ' ' . $data['employee_info']->last_name);
     }
 
+    public function employee_task($id = NULL) {
+        $data['title'] = 'Employee Task';
+        $data['menu'] = array("employee_task" => 1);
+        // get all employee info
+        $client_id = $this->session->userdata('employee_id');
+        $this->task_model->_table_name = 'tbl_employee';
+        $this->task_model->_order_by = 'designations_id';
+        $data['employee_info'] = $this->task_model->get_by(array('status' => 1), FALSE);
+        //get all training information
+        $data['all_task_info'] = $this->task_model->get_all_task_info();
 
+        if ($id) { // retrive data from db by id
+            $data['active'] = 2;
+            //get all task information
+            $data['task_info'] = $this->task_model->get_all_task_info($id);
+        } else {
+            $data['active'] = 1;
+        }
+
+        $data['editor'] = $this->data;
+
+        $data['subview'] = $this->load->view('employee/employee_task', $data, TRUE);
+        $this->load->view('employee/_layout_main', $data);
+    }
+
+    public function save_task($id = NULL) {
+
+        $data = $this->task_model->array_from_post(array(
+            'task_name',
+            'task_description',
+            'task_start_date',
+            'due_date',
+            'task_hour',
+            'task_progress',
+            'task_status'));
+        $assigned_to = $this->input->post("assigned_to");
+        foreach ($assigned_to as $assig){
+            $data['assigned_to'] = $assig;
+            $this->task_model->_table_name = "tbl_task"; // table name
+            $this->task_model->_primary_key = "task_id"; // $id
+            $this->task_model->save($data, $id);
+        }
+//        $data['assigned_to'] = serialize($this->task_model->array_from_post(array('assigned_to')));
+
+
+        //save data into table.
+
+
+        $type = "success";
+        $message = lang('save_task');
+        set_message($type, $message);
+        redirect('admin/task/all_task');
+    }
+
+    public function update_status($id = NULL) {
+
+        $data = $this->task_model->array_from_post(array(
+            'task_progress',
+            'task_status'));
+
+
+        //save data into table.
+        $this->task_model->_table_name = "tbl_task"; // table name
+        $this->task_model->_primary_key = "task_id"; // $id
+        $this->task_model->save($data, $id);
+
+        $type = "success";
+        $message = lang('task_updated');
+        set_message($type, $message);
+        redirect('admin/task/view_task_details/' . $id);
+    }
+
+    public function delete_task($id = NULL) {
+
+        $this->task_model->_table_name = "tbl_task";
+        $this->task_model->_primary_key = "task_id";
+        $this->task_model->delete($id);
+
+        // messages for user
+        $type = "error";
+        $message = lang('deleted_task');
+        set_message($type, $message);
+
+        redirect('admin/task/all_task');
+    }
+
+    public function save_task_attachment($task_attachment_id = NULL) {
+        $data = $this->emp_model->array_from_post(array('title', 'task_description', 'task_id'));
+        $user_type = $this->session->userdata('user_type');
+        if ($user_type == 1) {
+            $data['user_id'] = $this->session->userdata('employee_id');
+        } else {
+            $data['employee_id'] = $this->session->userdata('employee_id');
+        }
+        // save and update into tbl_files
+        $this->emp_model->_table_name = "tbl_task_attachment"; //table name
+        $this->emp_model->_primary_key = "task_attachment_id";
+        if (!empty($task_contact_attachment_id)) {
+            $id = $task_contact_attachment_id;
+            $this->emp_model->save($data, $id);
+            $msg = lang('task_file_updated');
+        } else {
+            $id = $this->emp_model->save($data);
+            $msg = lang('task_file_added');
+        }
+
+        if (!empty($_FILES['task_files']['name']['0'])) {
+            $old_path_info = $this->input->post('uploaded_path');
+            if (!empty($old_path_info)) {
+                foreach ($old_path_info as $old_path) {
+                    unlink($old_path);
+                }
+            }
+            $mul_val = $this->emp_model->multi_uploadAllType('task_files');
+
+            foreach ($mul_val as $val) {
+                $val == TRUE || redirect('employee/dashboard/view_task_details/3/' . $data['task_id']);
+                $fdata['files'] = $val['path'];
+                $fdata['file_name'] = $val['fileName'];
+                $fdata['uploaded_path'] = $val['fullPath'];
+                $fdata['size'] = $val['size'];
+                $fdata['ext'] = $val['ext'];
+                $fdata['is_image'] = $val['is_image'];
+                $fdata['image_width'] = $val['image_width'];
+                $fdata['image_height'] = $val['image_height'];
+                $fdata['task_attachment_id'] = $id;
+                $this->emp_model->_table_name = "tbl_task_contact_uploaded_files"; // table name
+                $this->emp_model->_primary_key = "uploaded_files_id"; // $id
+                $this->emp_model->save($fdata);
+            }
+        }
+        // messages for user
+        $type = "success";
+        $message = $msg;
+        set_message($type, $message);
+        redirect('employee/dashboard/view_task_contact_details/' . $data['task_contact_id'] . '/3');
+    }
 }
 
 

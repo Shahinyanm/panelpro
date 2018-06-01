@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5868deb-a76b-40e8-b8c7-515d95be964b" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/application/views/employee/employee_task.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../../laravel/Homestead/Vagrantfile" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../laravel/Homestead/Vagrantfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/employee/Dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/employee/Dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/english/en_lang.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/language/english/en_lang.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/employee/component/navigations.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/employee/component/navigations.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/employee/employee/employee_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/employee/employee/employee_list.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/employee/employee/view_employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/employee/employee/view_employee.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/language/english/english_lang.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/language/english/english_lang.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -11,20 +18,6 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="false" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand />
-    <select />
   </component>
   <component name="FavoritesManager">
     <favorites_list name="panelpro" />
@@ -49,17 +42,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="view_clients.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="view_clients.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/admin/employee/view_clients.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-138" />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Dashboard.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Dashboard.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/employee/Dashboard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34799">
+            <state relative-caret-position="-821">
               <caret line="1513" column="33" selection-start-line="1513" selection-start-column="20" selection-end-line="1513" selection-end-column="33" />
             </state>
           </provider>
@@ -86,62 +79,13 @@
       <file leaf-file-name="view_employee.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/employee/employee/view_employee.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3519">
-              <caret line="153" column="70" selection-start-line="153" selection-start-column="70" selection-end-line="153" selection-end-column="70" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="asd.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/asd.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="60" column="62" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="62" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="-2001">
+              <caret line="65" column="43" selection-start-line="65" selection-start-column="43" selection-end-line="65" selection-end-column="43" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>payroll_id</find>
-      <find>$data['comment_details</find>
-      <find>save_task</find>
-      <find>all_task_info</find>
-      <find>var_dump</find>
-      <find>echo</find>
-      <find>form</find>
-      <find>update_status</find>
-      <find>table</find>
-      <find>progress</find>
-      <find>flag</find>
-      <find>view_task_contact_details</find>
-      <find>total_stock</find>
-      <find>actio</find>
-      <find>employees</find>
-      <find>save</find>
-      <find>admin</find>
-      <find>img</find>
-      <find>$data['menu']</find>
-      <find>employee</find>
-      <find>award</find>
-      <find>save_employ</find>
-      <find>view</find>
-      <find>menu</find>
-      <find>btn_edit</find>
-      <find>photo</find>
-      <find>btn_delete</find>
-      <find>emp_info</find>
-      <find>delete</find>
-      <find>view_emp</find>
-    </findStrings>
-    <dirStrings>
-      <dir>D:\WEB\xamp\htdocs\Mher\codeigniter\public_html\application\libraries</dir>
-    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -212,12 +156,6 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="44" />
-    <option name="y" value="107" />
-    <option name="width" value="1382" />
-    <option name="height" value="784" />
-  </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -279,30 +217,6 @@
       </pane>
       <pane id="Scope" />
     </panes>
-  </component>
-  <component name="PropertiesComponent">
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
-    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../laravel" />
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\WEB\xamp\htdocs\Mher\codeigniter\panel\homedir\public_html\application\views" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\WEB\xamp\htdocs\Mher\codeigniter\panelpro\application\views\admin\employee" />
-      <recent name="D:\WEB\xamp\htdocs\Mher\codeigniter\panelpro\application\views\employee" />
-      <recent name="D:\WEB\laravel\project\restaurant\resources\assets\js\components" />
-      <recent name="D:\WEB\xamp\htdocs\Mher\codeigniter\public\application\views\admin\task" />
-      <recent name="D:\WEB\xamp\htdocs\Mher\codeigniter\public\application\language\english" />
-    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -368,11 +282,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="393735000" />
+    <option name="totallyTimeSpent" value="394134000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49906892" visible="true" weight="0.21574564" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -383,7 +296,7 @@
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32921174" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" sideWeight="0.5009311" side_tool="true" weight="0.25586677" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49659348" weight="0.34907252" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49659348" visible="true" weight="0.34907252" />
       <window_info anchor="bottom" id="Favorites" order="12" sideWeight="0.5026495" side_tool="true" weight="0.3322091" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -418,14 +331,14 @@
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32911393" />
       <window_info anchor="right" id="Database" order="4" weight="0.025718609" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32911393" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -442,19 +355,7 @@
       <path value="$PROJECT_DIR$/../../../../.." />
     </ignored-roots>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/application/views/employee/view_task_contact.php</url>
-          <line>498</line>
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="2" />
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../../../../laravel/project/restaurant/.env" />
     <entry file="file://$PROJECT_DIR$/../../../../../laravel/Homestead/Homestead.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-54">
@@ -588,13 +489,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/employee/Dashboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34799">
-          <caret line="1513" column="33" selection-start-line="1513" selection-start-column="20" selection-end-line="1513" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/employee/employee/employee_list.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2139">
@@ -602,10 +496,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/asd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="60" column="62" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="62" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/employee/employee/view_employee.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3519">
-          <caret line="153" column="70" selection-start-line="153" selection-start-column="70" selection-end-line="153" selection-end-column="70" />
+        <state relative-caret-position="-2001">
+          <caret line="65" column="43" selection-start-line="65" selection-start-column="43" selection-end-line="65" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/employee/Dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-821">
+          <caret line="1513" column="33" selection-start-line="1513" selection-start-column="20" selection-end-line="1513" selection-end-column="33" />
         </state>
       </provider>
     </entry>

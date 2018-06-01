@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #userinfo {
+            height: 500px;
+            width: 500px;
+            border:1px solid red;
+
+        }
+
+    </style>
+
+
+</head>
+<body>
+1. validatia sargeq buttoni clickic heto <br>
+2. "save data" button clickic heto gnal login form (display none,block) <br>
+3. login buttony sexmeluc heto hamematel useri ata mutqagras datai het (hamnkneluc het cuc tal user data ete voch cuc tveq es message "Incorrect conditions")
+
+<form id = "register">
+    <label>Register</label><br>
+    <input type="text" id = "firstname" name="firstname" placeholder="firstname" value="Anun"><br>
+    <input type="text" id = "lastname" name="lastname" placeholder="lastname" value="Azganun"><br>
+    <input type="text" id = "phone" name="phone" placeholder="phone" value="010351475"><br>
+    <input type="password" id = "password" name="password" placeholder="password" value="123456"><br>
+    <input type="email" id = "email" name="email" placeholder="email" value="kolya@mail.ru"><br>
+    <input type="button" value="Save data" onclick="setUserData()">
+</form>
+
+<div id="userinfo">
+</div>
+
+<div id="loginform" style="display: none;">
+    <label>Login form</label><br>
+    <form>
+        <input type="text" name="login" placeholder="login">
+        <input type="password" name="password" placeholder="password">
+        <input type="button" value="login">
+    </form>
+</div>
+
+</body>
+<script>
+    ////////// asyan irikun Asian kxrge jamic kxrge galstyan.sergey1987@gmail.com
+    var userInfo = {}; //userInfo օբյեկտ ենք հայտարարել
+
+    userInfo.firstname = document.getElementById('firstname').value; //userInfo-ի firstname key-ով էլեմենտին վերագրի 'firstname' ID ունեցող էլեմենտի արժեքը
+    userInfo.lastname = document.getElementById('lastname').value; //userInfo-ի lastname key-ով էլեմենտին վերագրի 'lastname' ID ունեցող էլեմենտի արժեքը
+    userInfo.phone = document.getElementById('phone').value; //userInfo-ի phone key-ով էլեմենտին վերագրի 'phone' ID ունեցող էլեմենտի արժեքը
+    userInfo.password = document.getElementById('password').value; //userInfo-ի password key-ով էլեմենտին վերագրի 'password' ID ունեցող էլեմենտի արժեքը
+    userInfo.email = document.getElementById('email').value; // userInfo-ի lastname key-ով էլեմենտին վերագրի lastname ID ունեցող էլեմենտի արժեքը
+
+    function setUserData(){
+        if(document.getElementById('firstname').value.length >7 ){ //firstname-ի վալիդացիա
+            alert('firstname must be less then 7');
+            return false;}
+        else {
+            document.getElementById('userinfo').innerHTML = ''
+            for (x in userInfo) { // userInfo մասիվի էլեմենտների վրայով պտտվի ու ամեն անգամ x փոփոխականին վերագրի էլեմենտի արժեքը
+
+                document.getElementById('userinfo').innerHTML +=x+'<br>'; // userinfo ID ունեցող էլեմենտին վերագրի x փոփոխականի ամեն անգամվա ստացած արժեքն ու enter արա(մասիվում ստանում ենք դաշտերի արժեքները)
+            };
+            document.getElementById('loginform').style.display= "block";}
+
+    }
+
+    document.querySelector('#loginform').onclick = function() {
+        this.style.display ='block'
+    };
+</script>
+</html>

@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e5868deb-a76b-40e8-b8c7-515d95be964b" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/application/views/employee/employee_task.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../laravel/Homestead/Vagrantfile" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../laravel/Homestead/Vagrantfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/employee/Dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/employee/Dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/english/en_lang.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/language/english/en_lang.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/employee/component/navigations.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/employee/component/navigations.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/employee/employee/employee_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/employee/employee/employee_list.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/employee/employee/view_employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/employee/employee/view_employee.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system/language/english/english_lang.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/language/english/english_lang.php" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="panelpro" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Employee.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/admin/Employee.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="7406">
+              <caret line="326" column="52" selection-start-line="326" selection-start-column="52" selection-end-line="326" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="clients_list.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/admin/employee/clients_list.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17802">
+              <caret line="774" column="113" selection-start-line="774" selection-start-column="113" selection-end-line="774" selection-end-column="113" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view_clients.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/admin/employee/view_clients.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-138" />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Dashboard.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/controllers/employee/Dashboard.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-752">
+              <caret line="1513" column="33" selection-start-line="1513" selection-start-column="20" selection-end-line="1513" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Employee_model.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/Employee_model.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1679">
+              <caret line="73" column="32" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="employee_list.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/employee/employee/employee_list.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2139">
+              <caret line="93" column="92" selection-start-line="93" selection-start-column="92" selection-end-line="93" selection-end-column="92" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view_employee.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/employee/employee/view_employee.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2001">
+              <caret line="65" column="43" selection-start-line="65" selection-start-column="43" selection-end-line="65" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/application/views/admin/payroll/make_payment.php" />
+        <option value="$PROJECT_DIR$/application/controllers/admin/Payroll.php" />
+        <option value="$PROJECT_DIR$/application/models/Admin_model.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/task/tasks.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/task/view_task.php" />
+        <option value="$PROJECT_DIR$/application/views/employee/view_task.php" />
+        <option value="$PROJECT_DIR$/application/views/employee/my_task.php" />
+        <option value="$PROJECT_DIR$/application/models/Emp_model.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/task/tasks_contact.php" />
+        <option value="$PROJECT_DIR$/application/views/employee/my_task_contact.php" />
+        <option value="$PROJECT_DIR$/application/views/employee/view_task_contact.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/task/view_task_contact.php" />
+        <option value="$PROJECT_DIR$/application/controllers/admin/Task.php" />
+        <option value="$PROJECT_DIR$/application/controllers/admin/Stock.php" />
+        <option value="$PROJECT_DIR$/application/models/Stock_model.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/stock/add_stock.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/stock/stock_category.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/stock/stock_history.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/stock/stock_list.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/stock/stock_report.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/stock/stock_report_pdf.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/main_content.php" />
+        <option value="$PROJECT_DIR$/application/views/employee/main_content.php" />
+        <option value="$PROJECT_DIR$/application/views/employee/all_notice.php" />
+        <option value="$PROJECT_DIR$/application/views/employee/my_expense.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Register.php" />
+        <option value="$PROJECT_DIR$/../../../../../laravel/Homestead/Vagrantfile" />
+        <option value="$PROJECT_DIR$/../../../../../laravel/project/restaurant/.env" />
+        <option value="$PROJECT_DIR$/../../../../../laravel/project/restaurant/public/js/index.js" />
+        <option value="$PROJECT_DIR$/../../../../../laravel/project/restaurant/database/seeds/UsersTableSeeder.php" />
+        <option value="$PROJECT_DIR$/../../../../../laravel/project/restaurant/database/seeds/DatabaseSeeder.php" />
+        <option value="$PROJECT_DIR$/../../../../../laravel/project/restaurant/resources/assets/js/components/slidesComponent.vue" />
+        <option value="$PROJECT_DIR$/../../../../../laravel/project/restaurant/resources/assets/js/components/slides.vue" />
+        <option value="$PROJECT_DIR$/../../../../../laravel/project/restaurant/public/js/vue/Script.js" />
+        <option value="$PROJECT_DIR$/../../../../../laravel/project/restaurant/resources/assets/js/components/my-slides.vue" />
+        <option value="$PROJECT_DIR$/../../../../../laravel/project/restaurant/resources/assets/js/components/ExampleComponent2.vue" />
+        <option value="$PROJECT_DIR$/../../../../../laravel/project/restaurant/resources/assets/js/app.js" />
+        <option value="$PROJECT_DIR$/../../../../../laravel/project/restaurant/resources/views/layouts/master.blade.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/employee/employee_list.php" />
+        <option value="$PROJECT_DIR$/application/models/Login_model.php" />
+        <option value="$PROJECT_DIR$/application/views/employee/component/navigations.php" />
+        <option value="$PROJECT_DIR$/application/controllers/employee/employee.php" />
+        <option value="$PROJECT_DIR$/application/views/employee/employee/view_employee.php" />
+        <option value="$PROJECT_DIR$/application/language/english/en_lang.php" />
+        <option value="$PROJECT_DIR$/system/language/english/english_lang.php" />
+        <option value="$PROJECT_DIR$/application/helpers/admin_helper.php" />
+        <option value="$PROJECT_DIR$/application/models/Employee_model.php" />
+        <option value="$PROJECT_DIR$/application/controllers/admin/Employee.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/employee/clients_list.php" />
+        <option value="$PROJECT_DIR$/application/controllers/employee/Dashboard.php" />
+        <option value="$PROJECT_DIR$/application/views/employee/employee/employee_list.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="panelpro" type="b2602c69:ProjectViewProjectNode" />
+              <item name="panelpro" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="panelpro" type="b2602c69:ProjectViewProjectNode" />
+              <item name="panelpro" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="panelpro" type="b2602c69:ProjectViewProjectNode" />
+              <item name="panelpro" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="panelpro" type="b2602c69:ProjectViewProjectNode" />
+              <item name="panelpro" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="employee" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="panelpro" type="b2602c69:ProjectViewProjectNode" />
+              <item name="panelpro" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="panelpro" type="b2602c69:ProjectViewProjectNode" />
+              <item name="panelpro" type="462c0819:PsiDirectoryNode" />
+              <item name="system" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="panelpro" type="b2602c69:ProjectViewProjectNode" />
+              <item name="panelpro" type="462c0819:PsiDirectoryNode" />
+              <item name="system" type="462c0819:PsiDirectoryNode" />
+              <item name="language" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="panelpro" type="b2602c69:ProjectViewProjectNode" />
+              <item name="panelpro" type="462c0819:PsiDirectoryNode" />
+              <item name="system" type="462c0819:PsiDirectoryNode" />
+              <item name="language" type="462c0819:PsiDirectoryNode" />
+              <item name="english" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e5868deb-a76b-40e8-b8c7-515d95be964b" name="Default" comment="" />
+      <created>1525599176294</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1525599176294</updated>
+      <workItem from="1525599182974" duration="26895000" />
+      <workItem from="1525703973828" duration="13528000" />
+      <workItem from="1525729353016" duration="1359000" />
+      <workItem from="1525783561636" duration="2980000" />
+      <workItem from="1525787010203" duration="18656000" />
+      <workItem from="1525818218560" duration="22029000" />
+      <workItem from="1525883546566" duration="17753000" />
+      <workItem from="1525961304887" duration="18133000" />
+      <workItem from="1526056958876" duration="8500000" />
+      <workItem from="1526128671142" duration="9247000" />
+      <workItem from="1526142902007" duration="10502000" />
+      <workItem from="1526160524364" duration="37456000" />
+      <workItem from="1526397098522" duration="16359000" />
+      <workItem from="1526475927835" duration="17095000" />
+      <workItem from="1526624843955" duration="826000" />
+      <workItem from="1526626181569" duration="269000" />
+      <workItem from="1526626520968" duration="11284000" />
+      <workItem from="1526653861215" duration="15154000" />
+      <workItem from="1526713352971" duration="851000" />
+      <workItem from="1526881735947" duration="645000" />
+      <workItem from="1526882851732" duration="5946000" />
+      <workItem from="1526894470026" duration="243000" />
+      <workItem from="1526894826003" duration="7565000" />
+      <workItem from="1526921007399" duration="5399000" />
+      <workItem from="1526970109176" duration="4007000" />
+      <workItem from="1527006243455" duration="14525000" />
+      <workItem from="1527055343257" duration="186000" />
+      <workItem from="1527055644343" duration="3134000" />
+      <workItem from="1527074318364" duration="2061000" />
+      <workItem from="1527087724918" duration="4026000" />
+      <workItem from="1527173137588" duration="837000" />
+      <workItem from="1527262855505" duration="162000" />
+      <workItem from="1527274152299" duration="1180000" />
+      <workItem from="1527275512129" duration="5601000" />
+      <workItem from="1527347309838" duration="2348000" />
+      <workItem from="1527404237171" duration="31721000" />
+      <workItem from="1527604886914" duration="15981000" />
+      <workItem from="1527767495027" duration="3482000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="393840000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49906892" visible="true" weight="0.21574564" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5034065" side_tool="true" weight="0.30963665" />
+      <window_info anchor="right" id="Database" order="3" weight="0.025718609" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32921174" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info id="Structure" order="1" sideWeight="0.5009311" side_tool="true" weight="0.25586677" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49659348" visible="true" weight="0.34907252" />
+      <window_info anchor="bottom" id="Favorites" order="12" sideWeight="0.5026495" side_tool="true" weight="0.3322091" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Remote Host" order="3" weight="0.329296" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49906892" visible="true" weight="0.21271764" />
+      <window_info id="Structure" order="1" sideWeight="0.5009311" side_tool="true" weight="0.25586677" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32921174" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Command Line Tools Console" order="8" weight="0.328594" />
+      <window_info anchor="right" id="Database" order="3" weight="0.025718609" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5034065" side_tool="true" weight="0.30963665" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32715008" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49659348" visible="true" weight="0.16903633" />
+      <window_info anchor="bottom" id="Favorites" order="12" sideWeight="0.5026495" side_tool="true" weight="0.3322091" />
+    </layout>
+    <layout-to-restore>
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Remote Host" order="3" weight="0.329296" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19288956" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32911393" />
+      <window_info anchor="right" id="Database" order="4" weight="0.025718609" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32911393" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/../../../../.." />
+    </ignored-roots>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/../../../../../laravel/Homestead/Homestead.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-54">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../../laravel/project/restaurant/public/css/app.css" />
+    <entry file="file://$PROJECT_DIR$/../../../../../laravel/project/restaurant/server.php" />
+    <entry file="file://$PROJECT_DIR$/../../../../../laravel/project/restaurant/public/js/js/main.js" />
+    <entry file="file://$PROJECT_DIR$/../../../../../laravel/project/restaurant/public/js/js/plugins/select2.min.js" />
+    <entry file="file://$PROJECT_DIR$/../../../../../laravel/project/restaurant/public/js/dashboard/table_products.js" />
+    <entry file="file://$PROJECT_DIR$/../../../../../laravel/project/restaurant/app/Http/Controllers/SigninController.php" />
+    <entry file="file://$PROJECT_DIR$/../../../../../laravel/project/restaurant/app/Http/Controllers/Controller.php" />
+    <entry file="file://$PROJECT_DIR$/../../../../../laravel/project/restaurant/app/Http/Controllers/Auth/RegisterController.php" />
+    <entry file="file://$PROJECT_DIR$/../../../../../laravel/project/restaurant/app/Http/Controllers/HomeController.php" />
+    <entry file="file://$PROJECT_DIR$/../../../../../laravel/project/restaurant/public/js/index.js" />
+    <entry file="file://$PROJECT_DIR$/../../../../../laravel/project/restaurant/routes/web.php" />
+    <entry file="file://$PROJECT_DIR$/../../../../../laravel/project/restaurant/database/seeds/UsersTableSeeder.php" />
+    <entry file="file://$PROJECT_DIR$/../../../../../laravel/project/restaurant/database/seeds/DatabaseSeeder.php" />
+    <entry file="file://$PROJECT_DIR$/../../../../../laravel/project/restaurant/resources/views/dashboard/table_products.blade.php" />
+    <entry file="file://$PROJECT_DIR$/../../../../../laravel/project/restaurant/resources/views/dashboard/table_data_table.blade.php" />
+    <entry file="file://$PROJECT_DIR$/../../../../../laravel/project/restaurant/resources/assets/js/bootstrap.js" />
+    <entry file="file://$PROJECT_DIR$/../../../../../laravel/project/restaurant/resources/assets/js/components/slidesComponent.vue" />
+    <entry file="file://$PROJECT_DIR$/../../../../../laravel/project/restaurant/resources/assets/js/components/slides.vue" />
+    <entry file="file://$PROJECT_DIR$/../../../../../laravel/project/restaurant/resources/assets/js/components/mySlides.vue" />
+    <entry file="file://$PROJECT_DIR$/../../../../../laravel/project/restaurant/public/js/vue/Script.js" />
+    <entry file="file://$PROJECT_DIR$/../../../../../laravel/project/restaurant/public/js/dashboard/table_basic.js" />
+    <entry file="file://$PROJECT_DIR$/../../../../../laravel/project/restaurant/resources/assets/js/components/ExampleComponent.vue" />
+    <entry file="file://$PROJECT_DIR$/../../../../../laravel/project/restaurant/resources/assets/js/app.js" />
+    <entry file="file://$PROJECT_DIR$/../../../../../laravel/project/restaurant/yarn.lock" />
+    <entry file="file://$PROJECT_DIR$/../../../../../laravel/project/restaurant/webpack.mix.js" />
+    <entry file="file://$PROJECT_DIR$/../../../../../laravel/project/restaurant/package-lock.json" />
+    <entry file="file://$PROJECT_DIR$/../../../../../laravel/project/restaurant/resources/assets/js/components/ExampleComponent2.vue" />
+    <entry file="file://$PROJECT_DIR$/../../../../../laravel/project/restaurant/package.json" />
+    <entry file="file://$PROJECT_DIR$/../../../../../laravel/project/restaurant/resources/views/layouts/master.blade.php" />
+    <entry file="file://$PROJECT_DIR$/application/views/admin/employee/view_employee.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-529">
+          <caret line="25" column="61" lean-forward="true" selection-start-line="25" selection-start-column="61" selection-end-line="25" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Login_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="71" column="38" selection-start-line="71" selection-start-column="25" selection-end-line="71" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/employee/_layout_main.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/employee/employee.php" />
+    <entry file="file://$PROJECT_DIR$/application/libraries/Menu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1794" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/employee/view_clients.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-138" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/employee/employee_list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="653" column="54" lean-forward="true" selection-start-line="653" selection-start-column="54" selection-end-line="653" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/language/english/en_lang.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="13" column="45" selection-end-line="533" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/language/english/english_lang.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12259">
+          <caret line="533" selection-start-line="533" selection-end-line="533" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/employee/component/navigations.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="183" column="49" selection-start-line="177" selection-start-column="115" selection-end-line="183" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/libraries/Admin_Controller.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/helpers/admin_helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1840">
+          <caret line="84" column="16" selection-start-line="84" selection-start-column="9" selection-end-line="84" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/core/MY_Model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="92" column="25" selection-start-line="92" selection-start-column="25" selection-end-line="92" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/login.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/employee/clients_list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17802">
+          <caret line="774" column="113" selection-start-line="774" selection-start-column="113" selection-end-line="774" selection-end-column="113" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Employee.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7406">
+          <caret line="326" column="52" selection-start-line="326" selection-start-column="52" selection-end-line="326" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Employee_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1679">
+          <caret line="73" column="32" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/employee/employee/employee_list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2139">
+          <caret line="93" column="92" selection-start-line="93" selection-start-column="92" selection-end-line="93" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/asd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="60" column="62" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="62" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/employee/employee/view_employee.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2001">
+          <caret line="65" column="43" selection-start-line="65" selection-start-column="43" selection-end-line="65" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/employee/Dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-752">
+          <caret line="1513" column="33" selection-start-line="1513" selection-start-column="20" selection-end-line="1513" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

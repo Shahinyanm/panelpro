@@ -92,7 +92,7 @@
                 <div class="tab-pane <?= $active == 2 ? 'active' : '' ?>" id="assign_task" style="position: relative;">
                     <div class="box" style="border: none; padding-top: 15px;" data-collapsed="0">
                         <div class="panel-body">
-                            <form  id="form_validation" action="<?php echo base_url() ?>admin/task/save_task/<?php if (!empty($task_info->task_id)) echo $task_info->task_id; ?>" method="post" class="form-horizontal">
+                            <form  id="form_validation" action="<?php echo base_url() ?>employee/dashboard/save_task/<?php if (!empty($task_info->task_id)) echo $task_info->task_id; ?>" method="post" class="form-horizontal">
 
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label"><?= lang('task_name')?><span class="required">*</span></label>

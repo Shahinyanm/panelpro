@@ -44,5 +44,22 @@ class Task_Model extends MY_Model {
         $this->db->update('tbl_task_comment',$data,$where );
     }
 
+    public function get_clients_all_task_info($id = NULL,$client_id = NULL) {
 
+        $this->db->select('tbl_task.*', FALSE);
+        $this->db->from('tbl_task');
+        if (!empty($id)) {
+
+            $this->db->where('tbl_task.task_id', $id);
+
+            $query_result = $this->db->get();
+            $result = $query_result->row();
+        } else {
+            $this->db->where('tbl_task.assigned_from', $client_id);
+            $query_result = $this->db->get();
+            $result = $query_result->result();
+        }
+
+        return $result;
+    }
 }

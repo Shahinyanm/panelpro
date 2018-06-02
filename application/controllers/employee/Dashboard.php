@@ -1556,7 +1556,7 @@ class Dashboard extends Employee_Controller {
         $this->task_model->_order_by = 'designations_id';
         $data['employee_info'] = $this->task_model->get_by(array('status' => 1), FALSE);
         //get all training information
-        $data['all_task_info'] = $this->task_model->get_all_task_info();
+        $data['all_task_info'] = $this->task_model->get_clients_all_task_info(NULL,$client_id);
 
         if ($id) { // retrive data from db by id
             $data['active'] = 2;
@@ -1582,6 +1582,9 @@ class Dashboard extends Employee_Controller {
             'task_hour',
             'task_progress',
             'task_status'));
+        $data['assigned_from'] = $this->session->userdata('employee_id');
+//        var_dump($data);
+//        die();
         $assigned_to = $this->input->post("assigned_to");
         foreach ($assigned_to as $assig){
             $data['assigned_to'] = $assig;
@@ -1589,16 +1592,13 @@ class Dashboard extends Employee_Controller {
             $this->task_model->_primary_key = "task_id"; // $id
             $this->task_model->save($data, $id);
         }
-//        $data['assigned_to'] = serialize($this->task_model->array_from_post(array('assigned_to')));
-
-
         //save data into table.
 
 
         $type = "success";
         $message = lang('save_task');
         set_message($type, $message);
-        redirect('admin/task/all_task');
+        redirect('employee/dashboard/employee_task');
     }
 
     public function update_status($id = NULL) {
@@ -1616,7 +1616,7 @@ class Dashboard extends Employee_Controller {
         $type = "success";
         $message = lang('task_updated');
         set_message($type, $message);
-        redirect('admin/task/view_task_details/' . $id);
+        redirect('employee/dashboard/view_task_details/' . $id);
     }
 
     public function delete_task($id = NULL) {
@@ -1630,7 +1630,7 @@ class Dashboard extends Employee_Controller {
         $message = lang('deleted_task');
         set_message($type, $message);
 
-        redirect('admin/task/all_task');
+        redirect('employee/dashboard/employee_task');
     }
 
     public function save_task_attachment($task_attachment_id = NULL) {
@@ -1673,7 +1673,7 @@ class Dashboard extends Employee_Controller {
                 $fdata['image_width'] = $val['image_width'];
                 $fdata['image_height'] = $val['image_height'];
                 $fdata['task_attachment_id'] = $id;
-                $this->emp_model->_table_name = "tbl_task_contact_uploaded_files"; // table name
+                $this->emp_model->_table_name = "tbl_task_uploaded_files"; // table name
                 $this->emp_model->_primary_key = "uploaded_files_id"; // $id
                 $this->emp_model->save($fdata);
             }
@@ -1682,7 +1682,7 @@ class Dashboard extends Employee_Controller {
         $type = "success";
         $message = $msg;
         set_message($type, $message);
-        redirect('employee/dashboard/view_task_contact_details/' . $data['task_contact_id'] . '/3');
+        redirect('employee/dashboard/view_task_details/' . $data['task_id'] . '/3');
     }
 }
 

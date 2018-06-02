@@ -110,14 +110,15 @@ class MY_Controller extends CI_Controller {
         $data['user_events_notification'] = $this->emp_model->get_my_event($where,$this->session->userdata('employee_id'));
 
         //check task status
-        $this->user_model->_table_name = 'tbl_task';
-        $this->user_model->_order_by = 'task_id';
+        $this->emp_model->_table_name = 'tbl_task';
+        $this->emp_model->_order_by = 'task_id';
         $data['total_task_request'] = count($this->emp_model->get_new_task($where, $this->session->userdata('employee_id')));
         $data['task_request'] = $this->emp_model->get_new_task($where, $this->session->userdata('employee_id'));
 
+
         //check task status
-        $this->user_model->_table_name = 'tbl_task_contact';
-        $this->user_model->_order_by = 'task_contact_id';
+        $this->emp_model->_table_name = 'tbl_task_contact';
+        $this->emp_model->_order_by = 'task_contact_id';
         $data['total_task_contact_request'] = count($this->emp_model->get_new_task_contact($where, $this->session->userdata('employee_id')));
         $data['task_contact_request'] = $this->emp_model->get_new_task_contact($where, $this->session->userdata('employee_id'));
 
@@ -129,13 +130,12 @@ class MY_Controller extends CI_Controller {
         $data['total_comment_request'] = $this->emp_model->get_my_comment_info($this->session->userdata('employee_id'));
         $data['comment_request'] = $this->emp_model->get_my_comment_info($this->session->userdata('employee_id'));
 
-         //check contact comment of from admin status
-        $this->emp_model->_table_name = 'tbl_task_contact_comment';
-        $this->emp_model->_order_by = 'task_contact_comment_id';
-        $data['total_contact_comment_request'] = $this->emp_model->get_my_contact_comment_info($this->session->userdata('employee_id'));
-        $data['contact_comment_request'] = $this->emp_model->get_my_contact_comment_info($this->session->userdata('employee_id'));
 
-        
+
+
+
+
+
         // check employee email notification status
         $this->emp_model->_table_name = 'tbl_inbox';
         $this->emp_model->_order_by = 'inbox_id';

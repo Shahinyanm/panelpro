@@ -517,16 +517,12 @@ public function get_new_task_contact($where, $id = NULL)
 
   public function get_my_comment_info($id = NULL)
     {
-
-
-        $data = array();
         $this->db->select('tbl_task.*');
         $this->db->from('tbl_task');
         $this->db->where('tbl_task.assigned_to',$id);
-
         $task = $this->db->get()->result();
 
-    $result = array();
+        $result = array();
         $sum = null;
         foreach ($task as $comment){
 

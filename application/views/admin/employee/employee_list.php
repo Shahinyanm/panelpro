@@ -673,14 +673,8 @@
                 <div class="">
                     <label class="control-label" ><?= lang('status') ?><span class="required">*</span></label>
                     <select name="status" class="form-control">
-                        <option value="1"
-                            <?php
-                            echo $employee_info->status == '1' ? 'selected' : '';
-                            ?>><?php echo lang('activate'); ?></option>
-                        <option value="2"
-                            <?php
-                            echo $employee_info->status == '0' ? 'selected' : '';
-                            ?>><?php echo lang('inactive'); ?></option>
+                        <option value="1"> <?php echo lang('activate'); ?></option>
+                        <option value="2"><?php echo lang('inactive'); ?></option>
 
                     </select>
                 </div>

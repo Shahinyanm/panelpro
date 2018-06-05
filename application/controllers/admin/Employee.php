@@ -325,7 +325,7 @@ class Employee extends Admin_Controller {
                  $isEmployee= $this->employee_model->all_employee();
 
                 foreach($isEmployee as $is){
-                    if (!in_array($is, $data['clients_employee'])){
+                    if (!in_array($is, $data['clients_employee']) && $is->employment_id != 'advance'){
                         $data['all_employee'][]=$is;
 
                     }
@@ -378,7 +378,7 @@ class Employee extends Admin_Controller {
                 redirect('admin/employee/clients_list');
             }
         }
-        $data['subview'] = $this->load->view('admin/employee/clients_list', $data, TRUE);
+        $data['subview'] = $this->load->view('admin/employee/view_clients', $data, TRUE);
         $this->load->view('admin/_layout_main', $data);
     }
 

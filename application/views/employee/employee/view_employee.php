@@ -25,39 +25,6 @@
                         <div class="col-lg-1 col-sm-1">
                             &nbsp;
                         </div>
-                        <div class="col-lg-8 col-sm-8 ">
-                            <div>
-                                <div style="margin-left: 20px;">                                        
-                                    <h3><?php echo "$employee_info->first_name " . "$employee_info->last_name"; ?></h3>
-
-                                    <hr />
-                                    <table class="table-hover">
-                                        <tr>
-                                            <td><strong><?= lang('employee_id')?></strong></td>
-                                            <td>&nbsp;&nbsp;&nbsp;</td>
-                                            <td><?php echo $employee_info->employment_id ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong><?= lang('department')?></strong></td>
-                                            <td>&nbsp;&nbsp;&nbsp;</td>
-                                            <td><?php echo "$employee_info->department_name"; ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong><?= lang('designation')?></strong></td>
-                                            <td>&nbsp;&nbsp;&nbsp;</td>
-                                            <td><?php echo "$employee_info->designations"; ?></td>
-                                        </tr>                                                                                
-                                        <tr>
-                                            <td><strong><?= lang('joining_date')?></strong></td>
-                                            <td>&nbsp;&nbsp;&nbsp;</td>
-                                            <?php if($employee_info->joining_date != '0000-00-00'): ?>
-                                            <td><?php echo date('d M Y', strtotime($employee_info->joining_date)); ?></td>
-                                            <?php endif ?>
-                                        </tr>                                            
-                                    </table>                                                                           
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -138,7 +105,61 @@
 
                                 </div>
                             </div>
-                        </div><!-- ************************ Bank Details End ******************************* -->    
+                        </div><!-- ************************ Bank Details End ******************************* -->
+                        <!-- ************************      Payment Details Start******************************* -->
+
+                        <div class="col-sm-6">
+                            <div class="box box-info">
+                                <div class="box-heading with-border">
+                                    <h4 class="box-title"><?= lang('bank_information')?></h4>
+                                </div>
+                                <div class="box-body form-horizontal">
+                                    <?php if (!empty($employee_info->interac)): ?>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label" > <?= lang('interac')?> :</label>
+                                            <div class="col-sm-8">
+                                                <p class="form-control-static"><?php echo "$employee_info->interac"; ?></p>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php if (!empty($employee_info->paypal)): ?>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label"><?= lang('paypal')?> : </label>
+                                            <div class="col-sm-8">
+                                                <p class="form-control-static"><?php echo "$employee_info->paypal"; ?></p>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php if (!empty($employee_info->type_of_account)): ?>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label" ><?= lang('type_of_account')?> :</label>
+                                            <div class="col-sm-8">
+                                                <p class="form-control-static"><?php echo "$employee_info->type_of_account"; ?></p>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php if (!empty($employee_info->bitcoin)): ?>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label"><?= lang('bitcoin')?> : </label>
+                                            <div class="col-sm-8">
+                                                <p class="form-control-static"><?php echo "$employee_info->bitcoin"; ?></p>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php if (!empty($employee_info->etherum)): ?>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label"><?= lang('etherum')?> : </label>
+                                            <div class="col-sm-8">
+                                                <p class="form-control-static"><?php echo "$employee_info->etherum"; ?></p>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
+
+
+                                </div>
+                            </div>
+                        </div><!-- ************************ Payment Details End ******************************* -->
+
                     </div>
                 </div>                
             </div>

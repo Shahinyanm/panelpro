@@ -13,6 +13,7 @@ $lang['clients_list'] = 'Clients List';
 $lang['add_client'] = 'Add Client';
 $lang['employee_details'] = 'Employee Details';
 $lang['employee_task'] = 'Employee Tasks';
+$lang['error_user_name'] = 'User Name is already exists';
 
 $lang['view_client'] = 'View Client';
 $lang['advance'] = 'Advance';

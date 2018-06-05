@@ -53,6 +53,7 @@ class Login_Model extends MY_Model {
                     ), TRUE);
 //            echo  ($this->hash($this->input->post('password')));
 //            die();
+
                 if (count($employee)) {
 
                   // if(password_verify($this->input->post('password'), $employee->password)) {

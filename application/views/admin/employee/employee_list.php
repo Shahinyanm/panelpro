@@ -649,7 +649,7 @@
                     ?>><?= lang('employee') ?></option>
                     <option value="advance" <?php
                     if (!empty($employee_info->employment_id)) {
-                        echo $employee_info->employment_id == 'Advance' ? 'selected' : '';
+                        echo $employee_info->employment_id == 'advance' ? 'selected' : '';
                     }
                     ?>><?= lang('advance') ?></option>
                 </select>
@@ -686,7 +686,7 @@
                 </div>
                 <?php endif ?>
                 <div class="">
-                    <label class="control-label" ><?= lang('designation') ?> <span class="required">*</span></label>
+                    <label class="control-label" ><?= lang('designation') ?> </label>
                     <select name="designations_id" class="form-control">                            
                         <option value=""><?= lang('select_designation') ?>.....</option>
                         <?php if (!empty($all_department_info)): foreach ($all_department_info as $dept_name => $v_department_info) : ?>

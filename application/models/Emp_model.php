@@ -321,7 +321,8 @@ class Emp_Model extends MY_Model
     {
         $this->db->select('tbl_task.*', FALSE);
         $this->db->from('tbl_task');
-        $this->db->where($where, $id);
+        $this->db->where($where);
+        $this->db->where('assigned_to', $id);
         $query_result = $this->db->get();
         $result = $query_result->result();
 
@@ -334,7 +335,8 @@ public function get_new_task_contact($where, $id = NULL)
     {
         $this->db->select('tbl_task_contact.*', FALSE);
         $this->db->from('tbl_task_contact');
-        $this->db->where($where, $id);
+        $this->db->where($where);
+        $this->db->where('assigned_to', $id);
         $query_result = $this->db->get();
         $result = $query_result->result();
 

@@ -66,19 +66,19 @@ class Employee extends Admin_Controller {
     }
 
     public function save_employee($id = NULL) {
-        // **** Employee Personal Details,Contact Details and Official Status Save And Update Start *** 
-        //input post
-        $data = $this->employee_model->array_from_post(array('first_name', 'last_name','maratial_status','date_of_birth','gender', 'present_address','nationality', 'city', 'country_id', 'mobile', 'phone', 'email', 'employment_id',
-            'designations_id', 'joining_date','present_address2','middle_name','state_province_region','zip_postal'));
-        //image upload
+                // **** Employee Personal Details,Contact Details and Official Status Save And Update Start ***
+                //input post
+                $data = $this->employee_model->array_from_post(array('first_name', 'last_name','maratial_status','date_of_birth','gender', 'present_address','nationality', 'city', 'country_id', 'mobile', 'phone', 'email', 'employment_id',
+                    'designations_id', 'joining_date','present_address2','middle_name','state_province_region','zip_postal'));
+                //image upload
 //        echo $this->input->post('countries_id');
 //        die();
 
-        if (!empty($_FILES['photo']['name'])) {
-            $old_path = $this->input->post('old_path');
-            if ($old_path) {
-                unlink($old_path);
-            }
+                if (!empty($_FILES['photo']['name'])) {
+                    $old_path = $this->input->post('old_path');
+                    if ($old_path) {
+                        unlink($old_path);
+                    }
 
             $val = $this->employee_model->uploadImage('photo');
             $val == TRUE || redirect('admin/employee/employees');
@@ -222,8 +222,7 @@ class Employee extends Admin_Controller {
             $this->employee_model->save($document_data);
         }
         // ***Employee Document Information Save and Update End   ***
-        // messages for user
-//        var_dump($data['e'])
+
         $type = "success";
         $message = lang('employee_info_saved');
         set_message($type, $message);
@@ -313,7 +312,9 @@ class Employee extends Admin_Controller {
         $data['active'] = 1;
         $data['all_employee_info'] = $this->db->where('employment_id','advance')->get('tbl_employee')->result();
         $data['all_employee'] =array();
-
+//        echo $id;
+//        echo $flag;
+//        die();
         if (!empty($id)) {// retrive data from db by id
             if(!empty($flag)){
                 $data['active'] = 3;
@@ -322,9 +323,11 @@ class Employee extends Admin_Controller {
 
                 $data['emp_info'] = $this->employee_model->all_employee($id);
                  $isEmployee= $this->employee_model->all_employee();
+
                 foreach($isEmployee as $is){
                     if (!in_array($is, $data['clients_employee'])){
                         $data['all_employee'][]=$is;
+
                     }
                 }
             }else{
@@ -414,5 +417,56 @@ class Employee extends Admin_Controller {
         $message = lang('save_task');
         set_message($type, $message);
         redirect('admin/employee/clients/'.$id.'/add'); //redirect page
+    }
+
+
+    public function save_client($id = NULL)
+    {
+        // **** Employee Personal Details,Contact Details and Official Status Save And Update Start ***
+        //input post
+        $data = $this->employee_model->array_from_post(array('email'));
+        $result = $this->user_model->find(['user_name'=>$this->input->post('email')]);
+        // ************* Save into Employee Table
+        if(!$result){
+        $this->employee_model->_table_name = "tbl_employee"; // table name
+        $this->employee_model->_primary_key = "employee_id"; // $id
+        $data['status'] = 1;
+        $data['employment_id'] = 'advance';
+        $employee_id = $this->employee_model->save($data);
+
+        // save into tbl employee login
+        $this->employee_model->_table_name = "tbl_employee_login"; // table name
+        $this->employee_model->_primary_key = "employee_login_id"; // $id
+        // check employee login details exsist or not
+        // if existing do not save
+        // else save the login details
+        $check_existing_data = $this->employee_model->check_by(array('employee_id' => $employee_id), 'tbl_employee_login');
+        $ldata['employee_id'] = $employee_id;
+        $ldata['user_name'] = $this->input->post('email');
+        $ldata['password'] = $this->hash($this->input->post('password'));
+
+        if ($data['status'] == '') {
+            $ldata['activate'] = 1;
+        } else {
+            $ldata['activate'] = $data['status'];
+        }
+
+        if (!empty($check_existing_data)) {
+            $this->employee_model->save($ldata, $check_existing_data->employee_login_id);
+        } else {
+            $this->employee_model->save($ldata);
+        }
+        $type = "success";
+        $message = lang('employee_info_saved');
+        set_message($type, $message);
+
+        redirect('admin/employee/clients'); //redirect page
+        }else{
+            $type = "success";
+            $message = lang('error_user_name');
+            set_message($type, $message);
+
+            redirect('admin/employee/clients'); //redirect page
+        }
     }
 }

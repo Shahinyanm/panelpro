@@ -3,15 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e5868deb-a76b-40e8-b8c7-515d95be964b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/../../../../../Laravel/Homestead/Vagrantfile" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Laravel/Homestead/Vagrantfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/admin/Employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/admin/Employee.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/language/english/en_lang.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/language/english/en_lang.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/Emp_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Emp_model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/Login_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Login_model.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/admin/employee/clients_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/employee/clients_list.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin/employee/employee_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/employee/employee_list.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/asd.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/language/english/english_lang.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/language/english/english_lang.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,80 +21,17 @@
       <file leaf-file-name="Employee.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/admin/Employee.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="446" selection-start-line="446" selection-end-line="446" />
+            <state relative-caret-position="131">
+              <caret line="463" column="10" lean-forward="true" selection-end-line="509" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="navigations.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/employee/component/navigations.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1358">
-              <caret line="148" column="105" selection-start-line="148" selection-start-column="101" selection-end-line="148" selection-end-column="105" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Login.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/Login.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MY_Controller.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/core/MY_Controller.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="116" selection-start-line="116" selection-end-line="116" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="employee_list.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/employee/employee_list.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="688" column="77" selection-start-line="688" selection-start-column="77" selection-end-line="688" selection-end-column="77" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Emp_model.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/Emp_model.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-137">
-              <caret line="336" column="37" selection-start-line="336" selection-start-column="37" selection-end-line="336" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Login_model.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/Login_model.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="55" selection-start-line="55" selection-end-line="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Register.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/Register.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="57" column="69" selection-start-line="57" selection-start-column="11" selection-end-line="57" selection-end-column="69" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="clients_list.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="clients_list.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/admin/employee/clients_list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="67" column="89" lean-forward="true" selection-start-line="67" selection-start-column="89" selection-end-line="67" selection-end-column="89" />
+            <state relative-caret-position="-430">
+              <caret line="65" column="123" selection-start-line="65" selection-start-column="123" selection-end-line="65" selection-end-column="123" />
             </state>
           </provider>
         </entry>
@@ -117,10 +47,12 @@
       <find>clients</find>
       <find>add_emplo</find>
       <find>save_employee</find>
-      <find>hash</find>
-      <find>task</find>
-      <find>get_new_</find>
       <find>total_task</find>
+      <find>task</find>
+      <find>hash</find>
+      <find>get_new_</find>
+      <find>delete_clients</find>
+      <find>delete_clien</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -173,13 +105,13 @@
         <option value="$PROJECT_DIR$/application/controllers/employee/Dashboard.php" />
         <option value="$PROJECT_DIR$/application/language/english/en_lang.php" />
         <option value="$PROJECT_DIR$/system/language/english/english_lang.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/employee/clients_list.php" />
         <option value="$PROJECT_DIR$/application/controllers/Login.php" />
         <option value="$PROJECT_DIR$/application/models/Login_model.php" />
-        <option value="$PROJECT_DIR$/application/controllers/admin/Employee.php" />
         <option value="$PROJECT_DIR$/application/models/Emp_model.php" />
         <option value="$PROJECT_DIR$/application/core/MY_Controller.php" />
         <option value="$PROJECT_DIR$/application/views/admin/employee/employee_list.php" />
+        <option value="$PROJECT_DIR$/application/controllers/admin/Employee.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/employee/clients_list.php" />
       </list>
     </option>
   </component>
@@ -1728,6 +1660,19 @@
               <item name="panelpro" type="b2602c69:ProjectViewProjectNode" />
               <item name="panelpro" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="panelpro" type="b2602c69:ProjectViewProjectNode" />
+              <item name="panelpro" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="panelpro" type="b2602c69:ProjectViewProjectNode" />
+              <item name="panelpro" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -1736,14 +1681,6 @@
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="panelpro" type="b2602c69:ProjectViewProjectNode" />
-              <item name="panelpro" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="employee" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="panelpro" type="b2602c69:ProjectViewProjectNode" />
@@ -1820,12 +1757,12 @@
       <workItem from="1527604886914" duration="15981000" />
       <workItem from="1527767495027" duration="3482000" />
       <workItem from="1527973007142" duration="4268000" />
-      <workItem from="1528180314383" duration="7691000" />
+      <workItem from="1528180314383" duration="10017000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="406820000" />
+    <option name="totallyTimeSpent" value="409146000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -1836,7 +1773,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32921174" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49659348" weight="0.27150086" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49659348" weight="0.27006173" />
       <window_info anchor="right" id="Remote Host" order="3" weight="0.329296" />
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49906892" visible="true" weight="0.18849356" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
@@ -2007,24 +1944,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/language/english/en_lang.php">
+    <entry file="file://$PROJECT_DIR$/application/core/MY_Controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="15" column="22" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/employee/clients_list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="67" column="89" lean-forward="true" selection-start-line="67" selection-start-column="89" selection-end-line="67" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Register.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="57" column="69" selection-start-line="57" selection-start-column="11" selection-end-line="57" selection-end-column="69" />
+        <state relative-caret-position="185">
+          <caret line="117" lean-forward="true" selection-end-line="235" />
         </state>
       </provider>
     </entry>
@@ -2035,20 +1958,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Login_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="55" selection-start-line="55" selection-end-line="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Employee.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="446" selection-start-line="446" selection-end-line="446" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/employee/component/navigations.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1358">
@@ -2056,24 +1965,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Emp_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-137">
-          <caret line="336" column="37" selection-start-line="336" selection-start-column="37" selection-end-line="336" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/core/MY_Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="116" selection-start-line="116" selection-end-line="116" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin/employee/employee_list.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="366">
           <caret line="688" column="77" selection-start-line="688" selection-start-column="77" selection-end-line="688" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="57" column="69" selection-start-line="57" selection-start-column="11" selection-end-line="57" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Login_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Emp_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="47">
+          <caret line="344" column="21" lean-forward="true" selection-end-line="587" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/language/english/en_lang.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="12" column="32" selection-end-line="535" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Employee.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="463" column="10" lean-forward="true" selection-end-line="509" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/employee/clients_list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-430">
+          <caret line="65" column="123" selection-start-line="65" selection-start-column="123" selection-end-line="65" selection-end-column="123" />
         </state>
       </provider>
     </entry>

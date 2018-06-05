@@ -63,9 +63,9 @@
                                             ?></td>
                                             <td ><?php echo btn_view('admin/employee/view_clients/' . $v_employee->employee_id); ?></td>
                                             <td >
-                                                <?php echo btn_add('admin/employee/clients/' . $v_employee->employee_id. 'add' ); ?>
+                                                <?php echo btn_add('admin/employee/clients/' . $v_employee->employee_id. '/add' ); ?>
 <!--                                                --><?php //echo btn_edit('admin/employee/clients/' . $v_employee->employee_id); ?>
-                                                <?php echo btn_delete('admin/employee/delete_employee/' . $v_employee->employee_id ); ?>
+                                                <?php echo btn_delete('admin/employee/delete_client/' . $v_employee->employee_id ); ?>
                                             </td>
                                         </tr>
                                         <?php
@@ -97,7 +97,7 @@
                                                 <td >
                                                     <?php echo btn_add('admin/employee/clients/' . $v_employee->employee_id. '/add' ); ?>
 <!--                                                    --><?php //echo btn_edit('admin/employee/clients/' . $v_employee->employee_id); ?>
-                                                    <?php echo btn_delete('admin/employee/delete_employee/' . $v_employee->employee_id ); ?>
+                                                    <?php echo btn_delete('admin/employee/delete_client/' . $v_employee->employee_id ); ?>
 
                                                 </td>
                                             </tr>

@@ -469,4 +469,41 @@ class Employee extends Admin_Controller {
             redirect('admin/employee/clients'); //redirect page
         }
     }
+    public function delete_client($id) {
+        // ************* Delete into Employee Table
+        $this->employee_model->_table_name = "tbl_employee"; // table name
+        $this->employee_model->_primary_key = "employee_id"; // $id
+        $this->employee_model->delete($id);
+        // delete into tbl bank
+        $bank_info = $this->employee_model->check_by(array('employee_id' => $id), 'tbl_employee_bank');
+        $this->employee_model->_table_name = "tbl_employee_bank"; // table name
+        $this->employee_model->_primary_key = "employee_bank_id"; // $id
+        $this->employee_model->delete($bank_info->employee_bank_id);
+
+        // delete into tbl employee document
+        $doc_id = $this->employee_model->check_by(array('employee_id' => $id), 'tbl_employee_document');
+        $this->employee_model->_table_name = "tbl_employee_document"; // table name
+        $this->employee_model->_primary_key = "document_id"; // $id
+        $this->employee_model->delete($doc_id->document_id);
+
+        // delete into tbl employee login
+        $this->employee_model->_table_name = "tbl_employee_login"; // table name
+        $this->employee_model->_order_by = "employee_id"; // table name
+        $this->employee_model->_primary_key = "employee_login_id"; // $id
+        $login_id = $this->employee_model->get_by(array('employee_id' => $id), TRUE);
+        $this->employee_model->delete($login_id->employee_login_id);
+
+        // delete into tbl_assign_item
+        $this->employee_model->_table_name = "tbl_assign_item"; // table name
+        $this->employee_model->_order_by = "employee_id"; // table name
+        $this->employee_model->_primary_key = "assign_item_id"; // $id
+        $assign_item_id = $this->employee_model->get_by(array('employee_id' => $id), TRUE);
+        $this->employee_model->delete($assign_item_id->assign_item_id);
+
+        // messages for user
+        $type = "success";
+        $message = lang('employee_info_deleted');
+        set_message($type, $message);
+        redirect('admin/employee/clients'); //redirect page
+    }
 }

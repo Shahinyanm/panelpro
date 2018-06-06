@@ -23,7 +23,7 @@ class Employee extends Admin_Controller {
         $data['page_header'] = lang('employee_page_header'); //Page header title
 
         $data['active'] = 1;
-        $data['all_employee_info'] = $this->db->get('tbl_employee')->result();
+        $data['all_employee_info'] = $this->db->where('employment_id !=', 'advance')->get('tbl_employee')->result();
 //        echo "<pre>";
 //        var_dump($data['all_employee_info']);
 //

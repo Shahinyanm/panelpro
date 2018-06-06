@@ -27,6 +27,7 @@
                                         <th><?= lang('employee') ?></th>
                                         <th><?= lang('dept_desingation') ?></th>                                        
                                         <th><?= lang('mobile') ?></th>
+<!--                                        <th>--><?//= lang('type') ?><!--</th>-->
                                         <th><?= lang('status') ?></th>
                                         <th class="col-sm-1 hidden-print"><?= lang('view_details') ?></th>                                             
                                         <th class="col-sm-2 hidden-print"><?= lang('action') ?></th>

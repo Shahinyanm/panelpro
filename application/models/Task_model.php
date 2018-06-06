@@ -56,6 +56,7 @@ class Task_Model extends MY_Model {
             $result = $query_result->row();
         } else {
             $this->db->where('tbl_task.assigned_from', $client_id);
+            $this->db->or_where('tbl_task.assigned_to', $client_id);
             $query_result = $this->db->get();
             $result = $query_result->result();
         }

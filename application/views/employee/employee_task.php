@@ -32,7 +32,7 @@
                                 </thead>
                                 <tbody>
                                 <?php if (!empty($all_task_info)):foreach ($all_task_info as $key => $v_task): ?>
-                                    <?php  $all_comment_info = count($this->db->where('task_id', $v_task->task_id)->where('view_status',2)->where('employee_id !=', '(Null)')->get('tbl_task_comment')->result()); ?>
+                                    <?php  $all_comment_info = count($this->db->where('task_id', $v_task->task_id)->where('view_status',2)->where('employee_id !=', '(Null)')->where('employee_id !=', $_SESSION['employee_id'])->get('tbl_task_comment')->result()); ?>
 
 
                                     <tr>

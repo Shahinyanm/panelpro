@@ -23,8 +23,10 @@
                             </div>
 
                             <!-- Collect the nav links, forms, and other content for toggling -->
+
                             <div class="main-menu collapse navbar-collapse menu-bg" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav">
+                                    <?php if ($_SESSION['employment_id'] != 'advance'){ ?>
                                     <li class="<?php
                                     if (!empty($menu['index'])) {
                                         echo $menu['index'] == 1 ? 'active' : '';
@@ -202,16 +204,97 @@
                                             echo '';
                                         }
                                         ?></span></a></li>
-                                    <?php if ($_SESSION['employment_id'] == 'advance'){ ?>
+
+
+
+                                    <?php } else {?>
                                     <li class="<?php
                                     if (!empty($menu['employee'])) {
                                         echo $menu['employee'] == 1 ? 'active' : '';
                                     }
                                     ?>">
                                         <a href="<?php echo base_url() ?>employee/dashboard/employees"><?= lang('employee')?></a></li>
-                                    <?php } ?>
+                                    <?php }?>
+                                    <li class="dropdown <?php
+                                    if (!empty($menu['mailbox'])) {
+                                        echo $menu['mailbox'] == 1 ? 'active' : '';
+                                    }
+                                    ?>">
+
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= lang('mailbox')?><b class="caret"></b> </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="<?php
+                                            if (!empty($menu['inbox'])) {
+                                                echo $menu['inbox'] == 1 ? 'active' : '';
+                                            }
+                                            ?>"><a href="<?php echo base_url() ?>employee/dashboard/inbox"><?= lang('inbox')?></a></li>
+                                            <li class="<?php
+                                            if (!empty($menu['sent'])) {
+                                                echo $menu['sent'] == 1 ? 'active' : '';
+                                            }
+                                            ?>"><a  href="<?php echo base_url() ?>employee/dashboard/sent"><?= lang('sent')?></a></li>
+                                            <li class="<?php
+                                            if (!empty($menu['draft'])) {
+                                                echo $menu['draft'] == 1 ? 'active' : '';
+                                            }
+                                            ?>"><a  href="<?php echo base_url() ?>employee/dashboard/draft"><?= lang('draft')?></a></li>
+                                            <li class="<?php
+                                            if (!empty($menu['trash'])) {
+                                                echo $menu['trash'] == 1 ? 'active' : '';
+                                            }
+                                            ?>"><a  href="<?php echo base_url() ?>employee/dashboard/trash"><?= lang('trash')?></a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="<?php
+                                    if (!empty($menu['my_task'])) {
+                                        echo $menu['my_task'] == 1 ? 'active' : '';
+                                    }
+                                    ?>">
+                                        <?php $total_task_request = $_SESSION['notify']['total_task_request']; ?>
+                                        <?php $total_comment_request = $_SESSION['notify']['total_comment_request']; ?>
+
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= lang('tasks')?><b class="caret"></b>
+                                            <?php if (!empty($total_comment_request)) {
+                                                echo "<span class='label label-danger'>*</span>";
+                                            }else{
+                                                echo "";
+                                            } ?>
+                                            <?php if (!empty($total_task_request)) {
+                                                echo "<span class='label label-success'>*</span>";
+                                            }else{
+                                                echo "";
+                                            } ?> </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="<?php
+                                            if (!empty($menu['task'])) {
+                                                echo $menu['task'] == 1 ? 'active' : '';
+                                            }
+                                            ?>">
+                                                <li class="<?php
+                                                if (!empty($menu['employee_task'])) {
+                                                    echo $menu['employee_task'] == 1 ? 'active' : '';
+                                                }
+                                                ?>"><a href="<?php echo base_url() ?>employee/dashboard/employee_task"><?= lang('employee_task')?> <span class="label label-success"><?php
+                                                            if (!empty($total_employee_task_request)) {
+                                                                echo $total_employee_task_request;
+                                                            } else {
+                                                                echo '';
+                                                            }
+                                                            ?></span>
+                                                        <span class="label label-danger"><?php
+                                                            if (!empty($total_employee_task_coments)) {
+                                                                echo $total_employee_task_coments;
+                                                            } else {
+                                                                echo '';
+                                                            }
+                                                            ?></span></a></li>
+
+                                        </ul>
+                                    </li>
 
                         </ul>
+
+
                         <ul class="main-menu nav navbar-nav navbar-right">
                             <li class="dropdown <?php
                             if (!empty($menu['language'])) {
@@ -317,8 +400,7 @@
                                 <li class="footer"><a href="<?php echo base_url() ?>employee/dashboard/inbox"><?= lang('view_all') ?> <?= lang('messages') ?></a></li>
                             </ul>
                         </li>
-
-
+                            <?php if ($_SESSION['employment_id'] != 'advance'){ ?>
                             <?php $total_leave = $_SESSION['notify']['total_leave_notifation']; ?>
                             <li class="dropdown messages-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -503,7 +585,7 @@
                         </li>
                     </ul>
                 </li>
-                
+                            <?php } ?>
 
                 
                 <li class="dropdown <?php

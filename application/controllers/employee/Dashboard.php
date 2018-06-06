@@ -84,8 +84,12 @@ class Dashboard extends Employee_Controller {
         // get recent email                  
         $data['get_inbox_message'] = $this->emp_model->get_inbox_message($this->session->userdata('email'), $flag = NULL, $del_info = NULL, TRUE);
 
-        $data['subview'] = $this->load->view('employee/main_content', $data, TRUE);
-        $this->load->view('employee/_layout_main', $data);
+        if($this->session->userdata('employment_id')=='advance'){
+            redirect('employee/dashboard/employees');
+        }else{
+            $data['subview'] = $this->load->view('employee/main_content', $data, TRUE);
+            $this->load->view('employee/_layout_main', $data);
+        }
     }
 
     public function get_approved_leave() {
@@ -1557,6 +1561,7 @@ class Dashboard extends Employee_Controller {
         $data['employee_info'] = $this->task_model->get_by(array('status' => 1), FALSE);
         //get all training information
         $data['all_task_info'] = $this->task_model->get_clients_all_task_info(NULL,$client_id);
+
 
         if ($id) { // retrive data from db by id
             $data['active'] = 2;

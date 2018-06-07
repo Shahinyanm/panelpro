@@ -373,7 +373,14 @@ class Dashboard extends Employee_Controller {
         $type = "success";
         $message = "Task Successfully Updated!";
         set_message($type, $message);
-        redirect('employee/dashboard/view_task_details/' . $data['task_id'] . '/' . $data['active'] = 2);
+        if($this->session->userdata('employment_id') =='advance'){
+            redirect('employee/dashboard/view_client_task_details/' . $data['task_id'] . '/' . $data['active'] = 2);
+
+        }else{
+            redirect('employee/dashboard/view_task_details/' . $data['task_id'] . '/' . $data['active'] = 2);
+
+        }
+
     }
 
 
@@ -400,7 +407,7 @@ class Dashboard extends Employee_Controller {
 
 
     public function save_task_contact_attachment($task_attachment_id = NULL) {
-        $data = $this->emp_model->array_from_post(array('title', 'project_details', 'task_contact_id'));
+        $data = $this->emp_model->array_from_post(array('title', 'description', 'task_contact_id'));
         $user_type = $this->session->userdata('user_type');
         if ($user_type == 1) {
             $data['user_id'] = $this->session->userdata('employee_id');
@@ -464,7 +471,8 @@ class Dashboard extends Employee_Controller {
         //get all comments info
        $result = $this->emp_model->get_all_comment_info($id);
        foreach ($result as $comment){
-           if(($comment->employee_id == $this->session->userdata('employee_id')) ||  $comment->employee_id == NULL){
+
+           if((($comment->employee_id == $this->session->userdata('employee_id')) ||  $comment->employee_id == NULL) || (($comment->employee_id != $this->session->userdata('employee_id')) ||  $comment->user_id == NULL)) {
                $com[] = $comment;
            }
        }
@@ -1558,7 +1566,13 @@ class Dashboard extends Employee_Controller {
         $client_id = $this->session->userdata('employee_id');
         $this->task_model->_table_name = 'tbl_employee';
         $this->task_model->_order_by = 'designations_id';
-        $data['employee_info'] = $this->task_model->get_by(array('status' => 1), FALSE);
+        $data['employee_info'] = array();
+        $clients_employee = $this->employee_model->get_all_clients_employee($client_id);
+        foreach ($clients_employee as $client) {
+            $data['employee_info'][] = $this->employee_model->all_employee($client->employee_id);
+
+        }
+//        $data['employee_info'] = $this->task_model->get_by(array('status' => 1), FALSE);
         //get all training information
         $data['all_task_info'] = $this->task_model->get_clients_all_task_info(NULL,$client_id);
 
@@ -1639,7 +1653,7 @@ class Dashboard extends Employee_Controller {
     }
 
     public function save_task_attachment($task_attachment_id = NULL) {
-        $data = $this->emp_model->array_from_post(array('title', 'task_description', 'task_id'));
+        $data = $this->emp_model->array_from_post(array('title', 'description', 'task_id'));
         $user_type = $this->session->userdata('user_type');
         if ($user_type == 1) {
             $data['user_id'] = $this->session->userdata('employee_id');
@@ -1649,8 +1663,9 @@ class Dashboard extends Employee_Controller {
         // save and update into tbl_files
         $this->emp_model->_table_name = "tbl_task_attachment"; //table name
         $this->emp_model->_primary_key = "task_attachment_id";
-        if (!empty($task_contact_attachment_id)) {
-            $id = $task_contact_attachment_id;
+
+        if (!empty($task_attachment_id)) {
+            $id = $task_attachment_id;
             $this->emp_model->save($data, $id);
             $msg = lang('task_file_updated');
         } else {
@@ -1659,7 +1674,9 @@ class Dashboard extends Employee_Controller {
         }
 
         if (!empty($_FILES['task_files']['name']['0'])) {
+
             $old_path_info = $this->input->post('uploaded_path');
+
             if (!empty($old_path_info)) {
                 foreach ($old_path_info as $old_path) {
                     unlink($old_path);
@@ -1687,7 +1704,61 @@ class Dashboard extends Employee_Controller {
         $type = "success";
         $message = $msg;
         set_message($type, $message);
+        if($this->session->userdata('employment_id') =='advance'){
+            redirect('employee/dashboard/view_client_task_details/' . $data['task_id'] . '/3');
+
+        }else{
         redirect('employee/dashboard/view_task_details/' . $data['task_id'] . '/3');
+        }
+    }
+
+
+    public function view_client_task_details($id, $active = NULL) {
+        $data['title'] = "Task Details";
+        $data['page_header'] = "Task Management";
+        $com = array();
+
+        //get all task information
+        $data['task_details'] = $this->emp_model->get_all_task_info($id);
+        //get all comments info
+        $result = $this->emp_model->get_all_comment_info($id);
+
+        foreach ($result as $comment){
+            if((($comment->employee_id == $this->session->userdata('employee_id')) ||  $comment->employee_id == NULL) || (($comment->employee_id != $this->session->userdata('employee_id')) ||  $comment->user_id == NULL)) {
+                $com[] = $comment;
+            }
+        }
+
+        $data['comment_details'] = $com;
+        $arr = ['view_status'=>1];
+        $where = ['task_id'=>$id,
+            'user_id !='=> '(Null)' ];
+        $this->task_model->update_comment($arr, $where);
+
+        $this->emp_model->_table_name = "tbl_task_attachment"; //table name
+        $this->emp_model->_order_by = "task_id";
+        $data['files_info'] = $this->emp_model->get_by(array('task_id' => $id), FALSE);
+
+        foreach ($data['files_info'] as $key => $v_files) {
+            $this->emp_model->_table_name = "tbl_task_uploaded_files"; //table name
+            $this->emp_model->_order_by = "task_attachment_id";
+            $data['project_files_info'][$key] = $this->emp_model->get_by(array('task_attachment_id' => $v_files->task_attachment_id), FALSE);
+        }
+
+        if ($active == 2) {
+            $data['active'] = 2;
+        } elseif ($active == 3) {
+            $data['active'] = 3;
+        } else {
+            $data['active'] = 1;
+        }
+        $arr = ['view_status'=>1];
+        $where = ['task_id'=>$id];
+
+        $this->task_model->update($arr, $where);
+
+        $data['subview'] = $this->load->view('employee/view_client_task', $data, TRUE);
+        $this->load->view('employee/_layout_main', $data);
     }
 }
 

@@ -25,7 +25,7 @@
 //
 
                 if (!empty($all_task_info)):foreach ($all_task_info as $v_task):
-                    $all_comment_info = count($this->db->where('task_id', $v_task->task_id)->where('view_status',2)->where('user_id !=', '(Null)')->get('tbl_task_comment')->result());
+                     $all_comment_info = count($this->db->where('task_id', $v_task->task_id)->where('view_status',2)->where('user_id !=', 'Null')->get('tbl_task_comment')->result());
 
 
                             if ($v_task->assigned_to == $this->session->userdata('employee_id') ) {

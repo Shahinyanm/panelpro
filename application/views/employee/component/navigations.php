@@ -214,7 +214,7 @@
                                     }
                                     ?>">
                                         <a href="<?php echo base_url() ?>employee/dashboard/employees"><?= lang('employee')?></a></li>
-                                    <?php }?>
+
                                     <li class="dropdown <?php
                                     if (!empty($menu['mailbox'])) {
                                         echo $menu['mailbox'] == 1 ? 'active' : '';
@@ -288,10 +288,9 @@
                                                                 echo '';
                                                             }
                                                             ?></span></a></li>
-
                                         </ul>
                                     </li>
-
+                                    <?php }?>
                         </ul>
 
 

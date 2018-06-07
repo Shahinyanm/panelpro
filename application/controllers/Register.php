@@ -60,7 +60,11 @@ class Register extends MY_Controller {
                 $from = "shahinyanm@gmail.com";
                 $token = md5($result->employee_login_id.$result->user_name);
                 $link = base_url()."register/activate/".$result->employee_login_id."/".$token;
-                $msg  = "<a href='$link' > Click Here </a> To activate your profile";
+                $msg = '<html><body>';
+                $msg .= '<img src="http://css-tricks.com/examples/WebsiteChangeRequestForm/images/wcrf-header.png" alt="Website Change Request" />';
+                $msg .= '<table rules="all" style="border-color: #666;" cellpadding="10">';
+                $msg .= "<tr><td><strong>Email:</strong> </td><td>" . strip_tags($email) . "</td></tr>";
+                $msg .= "<tr><td><strong>URL To Change (main):</strong> </td><td> <a href='$link' > Click Here </a> To activate your profile</td></tr>";
                $mail = $this->mail->send($email,'activate your profile',$msg);
                if($mail){
                    $this->session->set_flashdata('msgMail','We sent you an email to verify your Email address');

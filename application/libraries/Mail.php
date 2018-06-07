@@ -47,7 +47,8 @@ class Mail {
             'mailtype'      => 'html',
             'charset'       => 'iso-8859-1',
             'smtp_crypto'   => 'tls',
-            'send_multipart'=> FALSE
+            'send_multipart'=> FALSE,
+            'wordwrap'      => TRUE,
         );
 
         $this->CI->load->library('email',$config);
@@ -56,6 +57,8 @@ class Mail {
         $this->CI->email->to($x);
         $this->CI->email->subject($y);
         $this->CI->email->message($message);
+        $this->CI->email->set_header('Content-Type', 'text/html');
+
 
         if($this->CI->email->send()){
            return true;

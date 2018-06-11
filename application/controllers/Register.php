@@ -62,9 +62,9 @@ class Register extends MY_Controller {
                 $link = base_url()."register/activate/".$result->employee_login_id."/".$token;
                 $msg = '<html><body>';
                 $msg .= '<table rules="all" style="border-color: #666;" cellpadding="10">';
-                $msg .= "<tr><td><strong>Email:</strong> </td><td>" . strip_tags($email) . "</td></tr>";
-                $msg .= "<tr><td><strong>URL To Activate (main):</strong> </td><td> <a href='$link' > Click Here </a> To activate your profile</td></tr>";
-               $mail = $this->mail->send($email,'activate your profile',$msg);
+                $msg .= "<tr><td><strong>Email:</strong> </td><td>" . strip_tags($email) . "</td></tr></table>";
+                $msg .= "THANKS FOR REGISTERING! TO COMPLETE THE ACTIVATION OF YOUR ACCOUNT PLEASE CLICK THE FOLLOWING LINK::</strong><br> <a href='$link' > Click Here </a> ";
+                $mail = $this->mail->send($email,'activate your profile',$msg);
                if($mail){
                    $this->session->set_flashdata('msgMail','We sent you an email to verify your Email address');
                    redirect("login");

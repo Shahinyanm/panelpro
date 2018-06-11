@@ -58,7 +58,7 @@
                                             if ($v_employee->status == 1) {
                                                 echo '<span class="label label-success">Active</span>';
                                             } else {
-                                                echo '<span class="label label-danger">Deactive</span>';
+                                                echo '<span class="label label-danger">Inactive</span>';
                                             }
                                             ?></td>
                                             <td ><?php echo btn_view('admin/employee/view_employee/' . $v_employee->employee_id); ?></td>

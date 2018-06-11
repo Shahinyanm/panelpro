@@ -39,33 +39,32 @@ class Mail {
     function send($x, $y, $message){
 
         $config = array(
-            'protocol'      => 'smtp',
-            'smtp_host'     => 'ssl://smtp.googlemail.com',
+            'protocol'      => 'sendmail',
+            'smtp_host'     => 'ssl://smtp.gmail.com',
             'smtp_port'     => 587,
             'smtp_user'     => 'shahinyanm@gmail.com',
             'smtp_pass'     => '77Mherik89',
             'mailtype'      => 'html',
             'charset'       => 'iso-8859-1',
             'smtp_crypto'   => 'tls',
-            'send_multipart'=> FALSE,
-            'wordwrap'      => TRUE,
+            'send_multipart'=> FALSE
         );
-
         $this->CI->load->library('email',$config);
+        $this->CI->email->set_mailtype("html");
         $this->CI->email->set_newline("\r\n");
         $this->CI->email->from('shahinyanm@gmail.com', 'Mher');
         $this->CI->email->to($x);
         $this->CI->email->subject($y);
         $this->CI->email->message($message);
-        $this->CI->email->set_header('Content-Type', 'text/html');
-
-
         if($this->CI->email->send()){
-           return true;
 
+            return true;
         }else{
             echo $this->CI->email->print_debugger();
         }
+
     }
+
+
 
 }

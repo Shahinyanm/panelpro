@@ -5,9 +5,9 @@
             <div class="box-header with-border">
                 <h3 class="box-title">Employee Detail</h3>
                 <div class="pull-right">                               
-                    <span><?php echo btn_edit('admin/employee/employees/' . $employee_info->employee_id); ?></span>
-                    <span><?php echo btn_pdf('admin/employee/make_pdf/' . $employee_info->employee_id); ?></span>
-                    <button class="margin btn-print" type="button" data-toggle="tooltip" title="Print" onclick="printDiv('printableArea')"><?php echo btn_print(); ?></button>                                                              
+<!--                    <span>--><?php //echo btn_edit('admin/employee/employees/' . $employee_info->employee_id); ?><!--</span>-->
+<!--                    <span>--><?php //echo btn_pdf('admin/employee/make_pdf/' . $employee_info->employee_id); ?><!--</span>-->
+<!--                    <button class="margin btn-print" type="button" data-toggle="tooltip" title="Print" onclick="printDiv('printableArea')">--><?php //echo btn_print(); ?><!--</button>                                                              -->
                 </div>
             </div><!-- /.box-header -->
 
@@ -70,16 +70,18 @@
                                             <td>&nbsp;&nbsp;&nbsp;</td>
                                             <td><?php echo $employee_info->employment_id ?></td>
                                         </tr>
+<!--                                        <tr>-->
+<!--                                            <td><strong>--><?//= lang('department')?><!--</strong></td>-->
+<!--                                            <td>&nbsp;&nbsp;&nbsp;</td>-->
+<!--                                            <td>--><?php //echo "$employee_info->department_name"; ?><!--</td>-->
+<!--                                        </tr>-->
+                                        <?php if (!empty($employee_info->email)): ?>
                                         <tr>
-                                            <td><strong><?= lang('department')?></strong></td>
+                                            <td><strong><?= lang('email')?></strong></td>
                                             <td>&nbsp;&nbsp;&nbsp;</td>
-                                            <td><?php echo "$employee_info->department_name"; ?></td>
+                                            <td><?php echo "$employee_info->email"; ?></td>
                                         </tr>
-                                        <tr>
-                                            <td><strong><?= lang('designation')?></strong></td>
-                                            <td>&nbsp;&nbsp;&nbsp;</td>
-                                            <td><?php echo "$employee_info->designations"; ?></td>
-                                        </tr>                                                                                
+                                        <?php endif; ?>
                                         <tr>
                                             <td><strong><?= lang('joining_date')?></strong></td>
                                             <td>&nbsp;&nbsp;&nbsp;</td>
@@ -102,7 +104,7 @@
                                 <div class="box-heading with-border">
                                     <h4 class="box-title"><?= lang('personal_details') ?></h4>
                                 </div>
-                                <div class="box-body form-horizontal">                                
+                                <div class="box-body form-horizontal">
                                     <div class="form-group">
                                         <label class="col-sm-4 control-label"><?= lang('date_of_birth') ?>: </label>
                                         <div class="col-sm-8">
@@ -115,13 +117,13 @@
                                     <div class="form-group">
                                         <label class="col-sm-4 control-label"><?= lang('gender') ?>:</label>
                                         <div class="col-sm-8">
-                                            <p class="form-control-static"><?php echo "$employee_info->gender"; ?></p>                                                                                          
+                                            <p class="form-control-static"><?php echo "$employee_info->gender"; ?></p>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-4 control-label"><?= lang('maratial_status') ?>:</label>
                                         <div class="col-sm-8">
-                                            <p class="form-control-static"><?php echo "$employee_info->maratial_status"; ?></p>                                                                                          
+                                            <p class="form-control-static"><?php echo "$employee_info->maratial_status"; ?></p>
                                         </div>
                                     </div>
                                     <?php if (!empty($employee_info->middle_name)): ?>
@@ -136,9 +138,9 @@
                                         <div class="form-group">
                                             <label class="col-sm-4 control-label"><?= lang('nationality')?> : </label>
                                             <div class="col-sm-8">
-                                                <p class="form-control-static"><?php echo "$employee_info->nationality"; ?></p>                                                                                          
+                                                <p class="form-control-static"><?php echo "$employee_info->nationality"; ?></p>
                                             </div>
-                                        </div>                                
+                                        </div>
                                     <?php endif; ?>
                                     <?php if (!empty($employee_info->interac)): ?>
                                         <div class="form-group">
@@ -146,7 +148,7 @@
                                             <div class="col-sm-8">
                                                 <p class="form-control-static"><?php echo "$employee_info->interac"; ?></p>
                                             </div>
-                                        </div>                                
+                                        </div>
                                     <?php endif; ?>
                                     <?php if (!empty($employee_info->paypal)): ?>
                                         <div class="form-group">
@@ -174,9 +176,9 @@
                                         </div>
                                     <?php endif; ?>
 
-                                </div>            
-                            </div>            
-                        </div> <!-- ************************ Personal Information Panel End ************************-->       
+                                </div>
+                            </div>
+                        </div> <!-- ************************ Personal Information Panel End ************************-->
                         <div class="col-sm-6"><!-- ************************ Contact Details Start******************************* -->
                             <div class="box box-info">
                                 <div class="box-heading with-border">
@@ -262,154 +264,7 @@
                             </div>
                         </div> <!-- ************************ Contact Details End ******************************* -->
                     </div>
-                    <div class="col-sm-12">
-                        <div class="col-sm-6 hidden-print"><!-- ************************ Employee Documents Start ******************************* -->
-                            <div class="box box-info">
-                                <div class="box-heading with-border">                                    
-                                    <h4 class="box-title"><?= lang('employee_document')?></h4>                                    
-                                </div>
-                                <div class="box-body form-horizontal">
-                                    <!-- CV Upload -->                                                                  
-                                    <?php if (!empty($employee_info->resume)): ?>                                                
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label"><?= lang('resume')?> : </label>
-                                            <div class="col-sm-8">                                                        
-                                                <p class="form-control-static">
-                                                    <a href="<?php echo base_url() . $employee_info->resume; ?>" target="_blank" style="text-decoration: underline;">View Employee Resume</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    <?php endif; ?>
-                                    <?php if (!empty($employee_info->offer_letter)): ?>                                                
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label"><?= lang('offer_letter')?> : </label>
-                                            <div class="col-sm-8">                                                        
-                                                <p class="form-control-static">
-                                                    <a href="<?php echo base_url() . $employee_info->offer_letter; ?>" target="_blank" style="text-decoration: underline;">View Offer Latter</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    <?php endif; ?>
-                                    <?php if (!empty($employee_info->joining_letter)): ?>                                                
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label"><?= lang('joining_letter')?> : </label>
-                                            <div class="col-sm-8">                                                        
-                                                <p class="form-control-static">
-                                                    <a href="<?php echo base_url() . $employee_info->joining_letter; ?>" target="_blank" style="text-decoration: underline;">View Joining Letter</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    <?php endif; ?>
-                                    <?php if (!empty($employee_info->contract_paper)): ?>                                                
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label"><?= lang('contract_paper')?> : </label>
-                                            <div class="col-sm-8">                                                        
-                                                <p class="form-control-static">
-                                                    <a href="<?php echo base_url() . $employee_info->contract_paper; ?>" target="_blank" style="text-decoration: underline;">View Contract Paper</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    <?php endif; ?>
-                                    <?php if (!empty($employee_info->id_proff)): ?>                                                
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label"><?= lang('id_proff')?> : </label>
-                                            <div class="col-sm-8">                                                        
-                                                <p class="form-control-static">
-                                                    <a href="<?php echo base_url() . $employee_info->id_proff; ?>" target="_blank" style="text-decoration: underline;">View ID Proff</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    <?php endif; ?>
-                                    <?php if (!empty($employee_info->other_document)): ?>                                                
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label"><?= lang('other_documents')?> : </label>
-                                            <div class="col-sm-8">                                                        
-                                                <p class="form-control-static">
-                                                    <a href="<?php echo base_url() . $employee_info->other_document; ?>" target="_blank" style="text-decoration: underline;">View Other Document</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    <?php endif; ?>                                                            
-                                </div>
-                            </div>
-                        </div> <!-- ************************ Employee Documents Start ******************************* -->
 
-                        <!-- ************************      Bank Details Start******************************* -->
-                        <div class="col-sm-6">
-                            <div class="box box-info">
-                                <div class="box-heading with-border">                                    
-                                    <h4 class="box-title"><?= lang('bank_information')?></h4>                                    
-                                </div>
-                                <div class="box-body form-horizontal">                                
-                                    <?php if (!empty($employee_info->bank_name)): ?>
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label" > <?= lang('bank_name')?> :</label>
-                                            <div class="col-sm-8">
-                                                <p class="form-control-static"><?php echo "$employee_info->bank_name"; ?></p>                                                                                          
-                                            </div>
-                                        </div>
-                                    <?php endif; ?>
-                                    <?php if (!empty($employee_info->holder_name)): ?>
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label"><?= lang('holder_name')?> : </label>
-                                            <div class="col-sm-8">
-                                                <p class="form-control-static"><?php echo "$employee_info->holder_name"; ?></p>
-                                            </div>
-                                        </div>
-                                    <?php endif; ?>
-                                    <?php if (!empty($employee_info->type_of_account)): ?>
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label" ><?= lang('type_of_account')?> :</label>
-                                            <div class="col-sm-8">
-                                                <p class="form-control-static"><?php echo "$employee_info->type_of_account"; ?></p>
-                                            </div>
-                                        </div>
-                                    <?php endif; ?>                                
-                                    <?php if (!empty($employee_info->bank_address)): ?>
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label"><?= lang('bank_address')?> : </label>
-                                            <div class="col-sm-8">
-                                                <p class="form-control-static"><?php echo "$employee_info->bank_address"; ?></p>
-                                            </div>
-                                        </div>
-                                    <?php endif; ?>
-                                    <?php if (!empty($employee_info->aba_check_routing_number)): ?>
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label"><?= lang('aba_check_routing_number')?> : </label>
-                                            <div class="col-sm-8">
-                                                <p class="form-control-static"><?php echo "$employee_info->aba_check_routing_number"; ?></p>
-                                            </div>
-                                        </div>
-                                    <?php endif; ?>
-                                    <?php if (!empty($employee_info->ach_routing_transit_number)): ?>
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label"><?= lang('ach_routing_transit_number')?> : </label>
-                                            <div class="col-sm-8">
-                                                <p class="form-control-static"><?php echo "$employee_info->ach_routing_transit_number"; ?></p>
-                                            </div>
-                                        </div>
-                                    <?php endif; ?>
-                                    <?php if (!empty($employee_info->wire_routing_nubmer)): ?>
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label"><?= lang('wire_routing_nubmer')?> : </label>
-                                            <div class="col-sm-8">
-                                                <p class="form-control-static"><?php echo "$employee_info->wire_routing_nubmer"; ?></p>
-                                            </div>
-                                        </div>
-                                    <?php endif; ?>
-                                    <?php if (!empty($employee_info->bank_account_number)): ?>
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label"><?= lang('bank_account_number')?> : </label>
-                                            <div class="col-sm-8">
-                                                <p class="form-control-static"><?php echo "$employee_info->bank_account_number"; ?></p>
-                                            </div>
-                                        </div>
-                                    <?php endif; ?>
-
-                                </div>
-                            </div>
-                        </div><!-- ************************ Bank Details End ******************************* -->    
-                    </div>
                 </div>                
             </div>
         </div>

@@ -59,6 +59,10 @@ class User_Model extends MY_Model {
         return $this->db->get_where('tbl_employee_login',$arr)->row();
     }
 
+    public function find_id(Array $arr){
+        return $this->db->get_where('tbl_employee',$arr)->row();
+    }
+
     function update($where,$data){
         $this->db->update('tbl_employee_login', $data, $where ); // gives UPDATE
     }

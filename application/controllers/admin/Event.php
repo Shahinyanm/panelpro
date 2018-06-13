@@ -16,6 +16,7 @@ class Event extends Admin_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('event_model');
+        $this->load->model('user_model');
     }
 
     public function events($id = NULL) {
@@ -88,16 +89,17 @@ class Event extends Admin_Controller {
         $this->event_model->_primary_key = "holiday_id";    //id
         // input data
         $data = $this->event_model->array_from_post(array('event_name', 'description', 'start_date', 'end_date')); //input post
-//        echo ($this->input->post('assigned_to'));
-//        die();
+
         if($this->input->post('assigned_to') !=''){
-        $data['assigned_to'] = serialize($this->event_model->array_from_post(array('assigned_to')));
+            $data['assigned_to'] = serialize($this->event_model->array_from_post(array('assigned_to')));
         }
         // dublicacy check into database
         if (!empty($id)) {
             $holiday_id = array('holiday_id !=' => $id);
         } else {
             $holiday_id = null;
+
+
         }
         $where = array('event_name' => $data['event_name'], 'start_date' => $data['start_date']); // where
         

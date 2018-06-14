@@ -8,6 +8,7 @@ class Notice extends Admin_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('notice_model');
+        $this->load->model('user_model');
 
         $this->load->helper('ckeditor');
         $this->data['ckeditor'] = array(
@@ -40,7 +41,6 @@ class Notice extends Admin_Controller {
             $this->notice_model->_table_name = "tbl_notice"; // table name
             $this->notice_model->_order_by = "notice_id"; // $id
             $data['notice'] = $this->notice_model->get_by(array('notice_id' => $id,), TRUE);
-
 
             if (empty($data['notice'])) {
                 $type = "error";
@@ -76,7 +76,25 @@ class Notice extends Admin_Controller {
             $data['assigned_to'] = serialize($this->notice_model->array_from_post(array('assigned_to')));
 
         }
+        $emp_ids = $this->input->post('assigned_to');
+        if (!empty($id)) {
+            echo $id;
+            $notice  = $this->notice_model->get_by(array('notice_id' => $id,), TRUE);
+            $employees = unserialize($notice->assigned_to);
 
+            foreach ($emp_ids as $ids){
+                if(!in_array($ids,$employees['assigned_to'])){
+                    $result = $this->user_model->find_id(['employee_id'=>$ids]);
+                    $this->mailSender($result,$result->email);
+                }
+            }
+        } else {
+            foreach ($emp_ids as $ids){
+                $result = $this->user_model->find_id(['employee_id'=>$ids]);
+                $this->mailSender($result,$result->email);
+            }
+
+        }
         $this->notice_model->_table_name = "tbl_notice"; // table name
         $this->notice_model->_primary_key = "notice_id"; // $id
         $this->notice_model->save($data, $id);
@@ -113,6 +131,18 @@ class Notice extends Admin_Controller {
         set_message($type, $message);
 
         redirect('admin/notice');
+    }
+
+    public function mailSender($result,$email){
+        if(!empty($result)){
+            $link = base_url()."employee/dashboard/all_notice";
+            $msg = '<html><body>';
+            $msg .= '<table rules="all" style="border-color: #666;" cellpadding="10">';
+            $msg .= "<tr><td><strong>Email:</strong> </td><td>" . strip_tags($email) . "</td></tr></table>";
+            $msg .= "You have a new Notice. :</strong><br> <a href='$link' > Login </a> ";
+            $this->mail->send($email,'New Event',$msg);
+
+        }
     }
 
 }

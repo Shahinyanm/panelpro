@@ -16,6 +16,7 @@ class Event extends Admin_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('event_model');
+        $this->load->model('user_model');
     }
 
     public function events($id = NULL) {
@@ -26,7 +27,9 @@ class Event extends Admin_Controller {
         $this->event_model->_table_name = 'tbl_employee';
         $this->event_model->_order_by = 'designations_id';
         $data['employee_info'] = $this->event_model->get_by(array('status' => 1), FALSE);
-
+//        echo "<pre>";
+//        var_dump($data['employee_info']);
+//        die();
         $this->event_model->_table_name = "tbl_holiday"; //table name
         $this->event_model->_order_by = "holiday_id";
         // get holiday list by id
@@ -88,16 +91,30 @@ class Event extends Admin_Controller {
         $this->event_model->_primary_key = "holiday_id";    //id
         // input data
         $data = $this->event_model->array_from_post(array('event_name', 'description', 'start_date', 'end_date')); //input post
-//        echo ($this->input->post('assigned_to'));
-//        die();
+
         if($this->input->post('assigned_to') !=''){
-        $data['assigned_to'] = serialize($this->event_model->array_from_post(array('assigned_to')));
+            $data['assigned_to'] = serialize($this->event_model->array_from_post(array('assigned_to')));
         }
         // dublicacy check into database
+        $emp_ids = $this->input->post('assigned_to');
         if (!empty($id)) {
             $holiday_id = array('holiday_id !=' => $id);
+            $event  = $this->event_model->get_by(array('holiday_id' => $id,), TRUE);
+            $employees = unserialize($event->assigned_to);
+
+            foreach ($emp_ids as $ids){
+                if(!in_array($ids,$employees['assigned_to'])){
+                    $result = $this->user_model->find_id(['employee_id'=>$ids]);
+                    $this->mailSender($result,$result->email);
+                }
+            }
         } else {
             $holiday_id = null;
+            foreach ($emp_ids as $ids){
+                $result = $this->user_model->find_id(['employee_id'=>$ids]);
+                 $this->mailSender($result,$result->email);
+            }
+
         }
         $where = array('event_name' => $data['event_name'], 'start_date' => $data['start_date']); // where
         
@@ -129,6 +146,19 @@ class Event extends Admin_Controller {
         $message = lang('event_deleted');
         set_message($type, $message);
         redirect('admin/event/events'); //redirect page
+    }
+
+
+    public function mailSender($result,$email){
+        if(!empty($result)){
+            $link = base_url()."employee/dashboard/all_events";
+            $msg = '<html><body>';
+            $msg .= '<table rules="all" style="border-color: #666;" cellpadding="10">';
+            $msg .= "<tr><td><strong>Email:</strong> </td><td>" . strip_tags($email) . "</td></tr></table>";
+            $msg .= "You have a new Event. ::</strong><br> <a href='$link' > Login </a> ";
+            $this->mail->send($email,'New Event',$msg);
+
+        }
     }
 
 }

@@ -150,14 +150,16 @@
                                             <div class="input-group col-sm-5">
                                                 <select multiple="multiple" name="assigned_to[]" style="width: 100%" class="select_2_to" >
                                                     <option value=""><?= lang('select_employee')?>...</option>
-                                                    <?php if (!empty($employee_info)):
-                                                        ?>
+                                                    <?php if (!empty($employee_info)):?>
 
                                                         <?php foreach ($employee_info as $v_employee) : ?>
+
                                                             <option value="<?php echo $v_employee->employee_id; ?>"
                                                                 <?php
-                                                                if (!empty($v_employee->assigned_to)) {
-                                                                    $assign_user = unserialize($v_employee->assigned_to);
+                                                                if (!empty($holiday_list->assigned_to)) {
+
+                                                                    $assign_user = unserialize($holiday_list->assigned_to);
+
                                                                     foreach ($assign_user['assigned_to'] as $assding_id) {
                                                                         echo $v_employee->employee_id == $assding_id ? 'selected' : '';
                                                                     }

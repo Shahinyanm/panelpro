@@ -77,9 +77,11 @@ class Notice extends Admin_Controller {
 
         }
         $emp_ids = $this->input->post('assigned_to');
-        if (!empty($id)) {
-            echo $id;
-            $notice  = $this->notice_model->get_by(array('notice_id' => $id,), TRUE);
+        $this->notice_model->_table_name = 'tbl_notice';
+        //sending mail
+        if ($id) {
+            $notice = $this->notice_model->get_by(array('notice_id' => $id,), TRUE);
+
             $employees = unserialize($notice->assigned_to);
 
             foreach ($emp_ids as $ids){

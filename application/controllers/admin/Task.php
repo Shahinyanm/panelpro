@@ -10,6 +10,7 @@ class Task extends Admin_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('task_model');
+        $this->load->model('user_model');
         $this->load->model('task_contact_model');
         $this->load->helper('ckeditor');
         $this->data['ckeditor'] = array(
@@ -88,7 +89,28 @@ class Task extends Admin_Controller {
             'task_hour',
             'task_progress',
             'task_status'));
+        //sending mail to all employees, whom send the task
         $assigned_to = $this->input->post("assigned_to");
+        $this->task_model->_table_name = 'tbl_task';
+        if ($id) {
+            $tasks = $this->task_model->get_by(array('task_id' => $id,), FALSE);
+
+
+            foreach ($assigned_to as $ids){
+                if($ids == $tasks->assigned_to){
+                    $result = $this->user_model->find_id(['employee_id'=>$ids]);
+                    $this->mailSender($result,$result->email);
+                }
+            }
+        } else {
+            $emails = array();
+            foreach ($assigned_to as $ids){
+                $result = $this->user_model->find_id(['employee_id'=>$ids]);
+                $emails[]=$result->email;
+            }
+            $this->mailSender($result,$emails);
+
+        }
         foreach ($assigned_to as $assig){
             $data['assigned_to'] = $assig;
             $this->task_model->_table_name = "tbl_task"; // table name
@@ -566,8 +588,7 @@ class Task extends Admin_Controller {
                 $this->task_contact_model->_primary_key = 'partner_id';
                 $this->task_contact_model->save($data,$team_id[$i]);
             }else{
-//                var_dump ($data);
-//                die();
+
                 $data['task_contact_id']  = $id;
                 $this->task_contact_model->save($data);
 
@@ -594,6 +615,18 @@ class Task extends Admin_Controller {
         $this->task_contact_model->delete_partner_link(['partner_id'=>$id]);
         redirect('admin/task/view_task_contact_details/' . $id2. '/' . $data['active'] = 4);
 
+    }
+
+
+    public function mailSender($result,$email){
+        if(!empty($result)){
+            $link = base_url()."employee/dashboard/my_task";
+            $msg = '<html><body>';
+            $msg .= '<table rules="all" style="border-color: #666;" cellpadding="10">';
+            $msg .= "You have a new Task. :</strong><br> <a href='$link' > Login </a> ";
+            $this->mail->send($email,'New Task',$msg);
+
+        }
     }
 
 }

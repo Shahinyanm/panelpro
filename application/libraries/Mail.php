@@ -47,7 +47,7 @@ class Mail {
             'mailtype'      => 'html',
             'charset'       => 'iso-8859-1',
             'smtp_crypto'   => 'tls',
-            'send_multipart'=> FALSE
+            'send_multipart'=> TRUE
         );
         $this->CI->load->library('email',$config);
         $this->CI->email->set_mailtype("html");

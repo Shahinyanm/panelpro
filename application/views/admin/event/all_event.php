@@ -147,7 +147,7 @@
                                     </div>
                                         <div class="form-group" id="assigned_to">
                                             <label for="field-1" class="col-sm-3 control-label"><?= lang('assined_to')?>: <span class="required"></span></label>
-                                            <div class="input-group col-sm-5">
+                                            <div class="input-group col-sm-8">
                                                 <select multiple="multiple" name="assigned_to[]" style="width: 100%" class="select_2_to" >
                                                     <option value=""><?= lang('select_employee')?>...</option>
                                                     <?php if (!empty($employee_info)):?>
@@ -173,7 +173,7 @@
 
                                         <label for="field-1" class="col-sm-3 control-label"><?= lang('event_name')?>: <span class="required"> *</span></label>
 
-                                        <div class="col-sm-5">
+                                        <div class="col-sm-8">
                                             <input type="text" name="event_name"class="form-control"  value="<?php
                                             if (!empty($holiday_list->event_name)) {
                                                 echo $holiday_list->event_name;
@@ -184,7 +184,7 @@
                                     <div class="form-group">
                                         <label for="field-1" class="col-sm-3 control-label"><?= lang('description')?>: <span class="required"> *</span></label>
 
-                                        <div class="col-sm-5">
+                                        <div class="col-sm-8">
                                             <textarea style="height: 100px" name="description" class="form-control" id="field-1"   placeholder="Enter Your Description"><?php
                                                 if (!empty($holiday_list->description)) {
                                                     echo $holiday_list->description;

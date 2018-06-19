@@ -506,4 +506,13 @@ class Employee extends Admin_Controller {
         set_message($type, $message);
         redirect('admin/employee/clients'); //redirect page
     }
+
+    public function stages(){
+        $data['title'] = lang('employment_stages');
+        $data['page_header'] = lang('employment_stages'); //Page header title
+
+
+        $data['subview'] = $this->load->view('admin/employee/stages', $data, TRUE);
+        $this->load->view('admin/_layout_main', $data);
+    }
 }

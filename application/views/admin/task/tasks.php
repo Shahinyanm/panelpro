@@ -90,14 +90,13 @@
                                 
                 <!-- Add Stock Category tab Starts -->
                 <div class="tab-pane <?= $active == 2 ? 'active' : '' ?>" id="assign_task" style="position: relative;">
-                    <div class="box" style="border: none; padding-top: 15px;" data-collapsed="0">                        
-                        <div class="panel-body">
-                            <form  id="form_validation" action="<?php echo base_url() ?>admin/task/save_task/<?php if (!empty($task_info->task_id)) echo $task_info->task_id; ?>" method="post" class="form-horizontal">
+          *-          <div class="box" style="border: none; padding-top: 15px;" data-collapsed="0">
+                        <div class="panel-body">                            <form  id="form_validation" action="<?php echo base_url() ?>admin/task/save_task/<?php if (!empty($task_info->task_id)) echo $task_info->task_id; ?>" method="post" class="form-horizontal">
 
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label"><?= lang('task_name')?><span class="required">*</span></label>
                                     <div class="col-sm-5">
-                                        <input type="text" name="task_name" required class="form-control" value="<?php if (!empty($task_info->task_name)) echo $task_info->task_name; ?>" />
+             AZA                           <input type="text" name="task_name" required class="form-control" value="<?php if (!empty($task_info->task_name)) echo $task_info->task_name; ?>" />
                                     </div>
                                 </div>
 
@@ -109,15 +108,17 @@
                                             <?php if (!empty($employee_info)): ?>
 
                                                 <?php foreach ($employee_info as $v_employee) : ?>
-                                                    <option value="<?php echo $v_employee->employee_id; ?>" 
+                                                    <option value="<?php echo $v_employee->employee_id; ?>"
                                                     <?php
                                                     if (!empty($task_info->assigned_to)) {
                                                         $assign_id = $task_info->assigned_to;
 //                                                        foreach ($assign_user['assigned_to'] as $assding_id) {
                                                             echo $v_employee->employee_id == $assign_id ? 'selected' : '';
+
 //                                                        }
                                                     }
-                                                    ?>><?php echo $v_employee->first_name . ' ' . $v_employee->last_name ?> (<?php echo $v_employee->employee_id ?> )</option>
+                                                    ?>>
+                                                        <?php echo $v_employee->first_name . ' ' . $v_employee->last_name ?> (<?php echo $v_employee->employee_id ?> )</option>
                                                         <?php endforeach; ?>
                                                     <?php endif; ?>
                                         </select>

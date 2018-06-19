@@ -141,7 +141,28 @@ class Task extends Admin_Controller {
             'project_name',
             'project_details'));
 
+        //sending mail to all employees, whom send the task
         $assigned_to = $this->input->post("assigned_to");
+        $this->task_model->_table_name = 'tbl_task_contact';
+        if ($id) {
+            $tasks = $this->task_model->get_by(array('task_contact_id' => $id,), FALSE);
+
+
+            foreach ($assigned_to as $ids){
+                if($ids == $tasks->assigned_to){
+                    $result = $this->user_model->find_id(['employee_id'=>$ids]);
+                    $this->mailSender($result,$result->email);
+                }
+            }
+        } else {
+            $emails = array();
+            foreach ($assigned_to as $ids){
+                $result = $this->user_model->find_id(['employee_id'=>$ids]);
+                $emails[]=$result->email;
+            }
+            $this->mailSender($result,$emails);
+
+        }
         foreach ($assigned_to as $assig){
             $data['assigned_to'] = $assig;
             $this->task_contact_model->_table_name = "tbl_task_contact"; // table name

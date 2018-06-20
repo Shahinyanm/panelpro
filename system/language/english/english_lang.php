@@ -15,6 +15,12 @@ $lang['employee_details'] = 'Employee Details';
 $lang['employee_task'] = 'Employee Tasks';
 $lang['error_user_name'] = 'User Name is already exists';
 $lang['employment_stages'] = 'Stages of Employment';
+$lang['stage_1'] = 'First Stage';
+$lang['stage_2'] = 'Second Stage';
+$lang['stage_3'] = 'Third Stage';
+$lang['stage_4'] = 'Fourth Stage';
+$lang['stage_5'] = 'Fifth Stage';
+$lang['stage_6'] = 'Sixth Stage';
 
 $lang['view_client'] = 'View Client';
 $lang['advance'] = 'Advance';

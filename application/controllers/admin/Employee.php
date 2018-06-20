@@ -16,6 +16,7 @@ class Employee extends Admin_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('employee_model');
+        $this->load->model('stage_model');
     }
 
     public function employees($id = NULL) {
@@ -465,7 +466,6 @@ class Employee extends Admin_Controller {
             $type = "success";
             $message = lang('error_user_name');
             set_message($type, $message);
-
             redirect('admin/employee/clients'); //redirect page
         }
     }
@@ -511,8 +511,36 @@ class Employee extends Admin_Controller {
         $data['title'] = lang('employment_stages');
         $data['page_header'] = lang('employment_stages'); //Page header title
 
+        $data['stages_info'] = $this->stage_model->all_stage_info();
 
-        $data['subview'] = $this->load->view('admin/employee/stages', $data, TRUE);
+        $data['subview'] = $this->load->view('admin/employee/stages_list', $data, TRUE);
         $this->load->view('admin/_layout_main', $data);
+    }
+
+
+    public function save_stages($id = NULL) {
+        //input post
+        $data = $this->stage_model->array_from_post(array('name1', 'description1','name2', 'description2','name3',
+            'description3','name4', 'description4','name5', 'description5','name6', 'description6',));
+
+
+        // ************* Save into Stage Table
+        $this->stage_model->_table_name = "tbl_stage"; // table name
+        $this->stage_model->_primary_key = "stage_id"; // $id
+        if (!empty($id)) {
+            $data['status'] = $this->input->post('status');
+            $this->stage_model->save($data, $id);
+        } else {
+            $data['status'] = $this->input->post('status');
+            $this->stage_model->save($data);
+        }
+
+
+
+        $type = "success";
+        $message = lang('stages_saved');
+        set_message($type, $message);
+
+        redirect('admin/employee/stages'); //redirect page
     }
 }

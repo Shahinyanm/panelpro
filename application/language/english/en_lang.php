@@ -21,6 +21,8 @@ $lang['stage_3'] = 'Third Stage';
 $lang['stage_4'] = 'Fourth Stage';
 $lang['stage_5'] = 'Fifth Stage';
 $lang['stage_6'] = 'Sixth Stage';
+$lang['stages_saved'] = 'Stages Saved';
+$lang['stages_name'] = 'Stages Name';
 
 $lang['view_client'] = 'View Client';
 $lang['advance'] = 'Advance';

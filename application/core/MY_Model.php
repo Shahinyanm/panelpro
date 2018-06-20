@@ -69,6 +69,7 @@ class MY_Model extends CI_Model {
         // Insert
         if ($id === NULL) {
             !isset($data[$this->_primary_key]) || $data[$this->_primary_key] = NULL;
+
             $this->db->set($data);
             $this->db->insert($this->_table_name);
             $id = $this->db->insert_id();

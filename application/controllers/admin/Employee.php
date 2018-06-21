@@ -289,8 +289,6 @@ class Employee extends Admin_Controller {
         }
         $data['all_stages_info']= $this->stage_model->all_stage_info();
         $data['stages_info']= $this->stage_model->employee_stage($id);
-        var_dump($data['all_stages_info']);
-        die();
         $data['subview'] = $this->load->view('admin/employee/view_employee', $data, TRUE);
         $this->load->view('admin/_layout_main', $data);
     }

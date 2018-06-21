@@ -6,30 +6,35 @@
                 <h3 class="box-title"><?=lang('employment_stages')?></h3>
             </div><!-- /.box-header -->
             <div class="row">
+                <?php if($all_stages_info): foreach($all_stages_info as $stage_info): ?>
                 <div class="col-sm-2">
-                    <div class="col-sm-12" class="stages">asdadada</div>
-                    <div class="col-sm-12"> <span>adssadad</span></div>
+                    <div class="col-sm-12 stages block" ><span class="stage_text"><?php if(!empty($stage_info->name)){echo $stage_info->name;}?></span></div>
+                    <div class="col-sm-12 block"> <span><?php if(!empty($stage_info->description)){echo $stage_info->description;}?></span></div>
+                    <div class="col-sm-12 block"> <input type="checkbox" ></div>
                 </div>
-                <div class="col-sm-2">
-                    <div class="col-sm-12" class="stages">asdasdada</div>
-                    <div class="col-sm-12"> <span>asdadad</span></div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="col-sm-12" class="stages">asdsadadaa</div>
-                    <div class="col-sm-12"> <span>asdadsad</span></div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="col-sm-12" class="stages">asdadsadsad</div>
-                    <div class="col-sm-12"> <span>adssadadad</span></div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="col-sm-12" class="stages">adssadad</div>
-                    <div class="col-sm-12"> <span>adsasdsa</span></div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="col-sm-12" class="stages">asdadad</div>
-                    <div class="col-sm-12"> <span>asdsadsad</span></div>
-                </div>
+                <?php
+                endforeach;
+                endif; ?>
+<!--                <div class="col-sm-2">-->
+<!--                    <div class="col-sm-12" class="stages">asdasdada</div>-->
+<!--                    <div class="col-sm-12"> <span>asdadad</span></div>-->
+<!--                </div>-->
+<!--                <div class="col-sm-2">-->
+<!--                    <div class="col-sm-12" class="stages">asdsadadaa</div>-->
+<!--                    <div class="col-sm-12"> <span>asdadsad</span></div>-->
+<!--                </div>-->
+<!--                <div class="col-sm-2">-->
+<!--                    <div class="col-sm-12" class="stages">asdadsadsad</div>-->
+<!--                    <div class="col-sm-12"> <span>adssadadad</span></div>-->
+<!--                </div>-->
+<!--                <div class="col-sm-2">-->
+<!--                    <div class="col-sm-12" class="stages">adssadad</div>-->
+<!--                    <div class="col-sm-12"> <span>adsasdsa</span></div>-->
+<!--                </div>-->
+<!--                <div class="col-sm-2">-->
+<!--                    <div class="col-sm-12" class="stages">asdadad</div>-->
+<!--                    <div class="col-sm-12"> <span>asdsadsad</span></div>-->
+<!--                </div>-->
 
             </div>
 

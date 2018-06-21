@@ -287,6 +287,10 @@ class Employee extends Admin_Controller {
                 redirect('admin/employee/employee_list');
             }
         }
+        $data['all_stages_info']= $this->stage_model->all_stage_info();
+        $data['stages_info']= $this->stage_model->employee_stage($id);
+        var_dump($data['all_stages_info']);
+        die();
         $data['subview'] = $this->load->view('admin/employee/view_employee', $data, TRUE);
         $this->load->view('admin/_layout_main', $data);
     }
@@ -511,7 +515,8 @@ class Employee extends Admin_Controller {
         $data['title'] = lang('employment_stages');
         $data['page_header'] = lang('employment_stages'); //Page header title
 
-        $data['stages_info'] = $this->stage_model->all_stage_info();
+        $data['active'] = 1;
+        $data['all_stage_info'] = $this->stage_model->all_stage_info();
 
         $data['subview'] = $this->load->view('admin/employee/stages_list', $data, TRUE);
         $this->load->view('admin/_layout_main', $data);
@@ -520,18 +525,20 @@ class Employee extends Admin_Controller {
 
     public function save_stages($id = NULL) {
         //input post
-        $data = $this->stage_model->array_from_post(array('name1', 'description1','name2', 'description2','name3',
-            'description3','name4', 'description4','name5', 'description5','name6', 'description6',));
+        $data = $this->stage_model->array_from_post(array('name', 'description'));
+        if($this->input->post('status')=='on') {
 
+            $data['status'] = 1;
+        }else{
+            $data['status'] = 0;
+        }
 
         // ************* Save into Stage Table
         $this->stage_model->_table_name = "tbl_stage"; // table name
         $this->stage_model->_primary_key = "stage_id"; // $id
         if (!empty($id)) {
-            $data['status'] = $this->input->post('status');
             $this->stage_model->save($data, $id);
         } else {
-            $data['status'] = $this->input->post('status');
             $this->stage_model->save($data);
         }
 

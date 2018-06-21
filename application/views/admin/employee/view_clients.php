@@ -4,8 +4,7 @@
             <!-- main content -->
             <div class="box-header with-border">
                 <h3 class="box-title">Employee Detail</h3>
-<<<<<<< HEAD
-                <div class="pull-right">                               
+                <div class="pull-right">
 <!--                    <span>--><?php //echo btn_edit('admin/employee/employees/' . $employee_info->employee_id); ?><!--</span>-->
 <!--                    <span>--><?php //echo btn_pdf('admin/employee/make_pdf/' . $employee_info->employee_id); ?><!--</span>-->
 <!--                    <button class="margin btn-print" type="button" data-toggle="tooltip" title="Print" onclick="printDiv('printableArea')">--><?php //echo btn_print(); ?><!--</button>                                                              -->

@@ -3,6 +3,37 @@
         <div class="box">            
             <!-- main content -->
             <div class="box-header with-border">
+                <h3 class="box-title"><?=lang('employment_stages')?></h3>
+            </div><!-- /.box-header -->
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="col-sm-12" class="stages">asdadada</div>
+                    <div class="col-sm-12"> <span>adssadad</span></div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="col-sm-12" class="stages">asdasdada</div>
+                    <div class="col-sm-12"> <span>asdadad</span></div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="col-sm-12" class="stages">asdsadadaa</div>
+                    <div class="col-sm-12"> <span>asdadsad</span></div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="col-sm-12" class="stages">asdadsadsad</div>
+                    <div class="col-sm-12"> <span>adssadadad</span></div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="col-sm-12" class="stages">adssadad</div>
+                    <div class="col-sm-12"> <span>adsasdsa</span></div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="col-sm-12" class="stages">asdadad</div>
+                    <div class="col-sm-12"> <span>asdsadsad</span></div>
+                </div>
+
+            </div>
+
+            <div class="box-header with-border">
                 <h3 class="box-title">Employee Detail</h3>
                 <div class="pull-right">                               
                     <span><?php echo btn_edit('admin/employee/employees/' . $employee_info->employee_id); ?></span>
@@ -408,7 +439,7 @@
 
                                 </div>
                             </div>
-                        </div><!-- ************************ Bank Details End ******************************* -->    
+                        </div><!-- ************************ Bank Details End ******************************* -->
                     </div>
                 </div>                
             </div>

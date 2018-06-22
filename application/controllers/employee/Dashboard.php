@@ -6,6 +6,7 @@ class Dashboard extends Employee_Controller {
 
         parent::__construct();
         $this->load->model('employee_model');
+        $this->load->model('stage_model');
         $this->load->model('emp_model');
         $this->load->model('task_model');
         $this->load->model('task_contact_model');
@@ -46,7 +47,6 @@ class Dashboard extends Employee_Controller {
         foreach ($attendance_info as $v_info) {
             $data['clocking'] = $this->emp_model->check_by(array('attendance_id' => $v_info->attendance_id, 'clocking_status' => 1), 'tbl_clock');
         }
-
         //get employee details by employee id
         $data['employee_details'] = $this->emp_model->all_emplyee_info($employee_id);
         // upcoming birthday
@@ -83,6 +83,7 @@ class Dashboard extends Employee_Controller {
         $data['event_info'] = $this->emp_model->get_all_events();
         // get recent email                  
         $data['get_inbox_message'] = $this->emp_model->get_inbox_message($this->session->userdata('email'), $flag = NULL, $del_info = NULL, TRUE);
+        $data['all_stages_info'] =  $this->stage_model->all_stage_info();
 
         if($this->session->userdata('employment_id')=='advance'){
             redirect('employee/dashboard/employees');

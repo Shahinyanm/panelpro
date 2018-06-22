@@ -1,3 +1,26 @@
+<style>
+    .stages{
+
+        border-radius: 50px;
+        color: white;
+        height: 100px;
+        font-weight: bold;
+        width: 100px;
+        display: table;
+        margin: 20px 20px;
+
+    }
+    .stage_text{
+        vertical-align: middle;
+        display: table-cell;
+    }
+
+    .block {
+        /*border: 1px dashed #8dba60;*/
+        text-align: center;
+        vertical-align: middle;
+    }
+</style>
 <div class="row">
     <div class="col-sm-12" data-spy="scroll" data-offset="0">                            
         <div class="box">            
@@ -7,36 +30,32 @@
             </div><!-- /.box-header -->
             <div class="row">
                 <?php if($all_stages_info): foreach($all_stages_info as $stage_info): ?>
-                <div class="col-sm-2">
-                    <div class="col-sm-12 stages block" ><span class="stage_text"><?php if(!empty($stage_info->name)){echo $stage_info->name;}?></span></div>
+                <div class="col-sm-2 stage_info"  data-id="<?php if(!empty($stage_info->stage_id)){echo $stage_info->stage_id;}?>">
+                   <?php
+                    $employee_stage = $this->stage_model->check_by(array('stage_id' => $stage_info->stage_id, 'status'=>1, 'employee_id'=>$employee_info->employe_id),'tbl_employee_stages');
+                    if(!empty($employee_stage)):
+                    ?>
+                    <div class="col-sm-12 stages block"  style="background:#8dba60 ;"><span class="stage_text"><?php if(!empty($stage_info->name)){echo $stage_info->name;}?></span></div>
                     <div class="col-sm-12 block"> <span><?php if(!empty($stage_info->description)){echo $stage_info->description;}?></span></div>
-                    <div class="col-sm-12 block"> <input type="checkbox" ></div>
+                    <div class="col-sm-12 block"> <input type="checkbox" class="check"  checked data-id="<?php echo $employee_info->employe_id?>" ></div>
                 </div>
+
                 <?php
-                endforeach;
-                endif; ?>
-<!--                <div class="col-sm-2">-->
-<!--                    <div class="col-sm-12" class="stages">asdasdada</div>-->
-<!--                    <div class="col-sm-12"> <span>asdadad</span></div>-->
-<!--                </div>-->
-<!--                <div class="col-sm-2">-->
-<!--                    <div class="col-sm-12" class="stages">asdsadadaa</div>-->
-<!--                    <div class="col-sm-12"> <span>asdadsad</span></div>-->
-<!--                </div>-->
-<!--                <div class="col-sm-2">-->
-<!--                    <div class="col-sm-12" class="stages">asdadsadsad</div>-->
-<!--                    <div class="col-sm-12"> <span>adssadadad</span></div>-->
-<!--                </div>-->
-<!--                <div class="col-sm-2">-->
-<!--                    <div class="col-sm-12" class="stages">adssadad</div>-->
-<!--                    <div class="col-sm-12"> <span>adsasdsa</span></div>-->
-<!--                </div>-->
-<!--                <div class="col-sm-2">-->
-<!--                    <div class="col-sm-12" class="stages">asdadad</div>-->
-<!--                    <div class="col-sm-12"> <span>asdsadsad</span></div>-->
-<!--                </div>-->
+                else:
+                ?>
+<!--                    <div class="col-sm-2 stage_info"  data-id="--><?php //if(!empty($stage_info->stage_id)){echo $stage_info->stage_id;}?><!--">-->
+                        <div class="col-sm-12 stages block" style="background:#d9534f "><span class="stage_text"><?php if(!empty($stage_info->name)){echo $stage_info->name;}?></span></div>
+                        <div class="col-sm-12 block"> <span><?php if(!empty($stage_info->description)){echo $stage_info->description;}?></span></div>
+                        <div class="col-sm-12 block">  <input type="checkbox" class="check" data-id="<?php echo $employee_info->employe_id?>"></div>
 
             </div>
+                <?php
+                    endif;
+                    endforeach;
+                    endif;
+                    ?>
+        </div>
+            <br><br><br>
 
             <div class="box-header with-border">
                 <h3 class="box-title">Employee Detail</h3>
@@ -451,6 +470,7 @@
         </div>
     </div>
 </div>
+<input type="hidden" id="base" value="<?php echo base_url()?>">
 <script type="text/javascript">
     function printDiv(printableArea) {
         var printContents = document.getElementById(printableArea).innerHTML;
@@ -459,5 +479,37 @@
         window.print();
         document.body.innerHTML = originalContents;
     }
+
+
+    $('.check').on('change', function(){
+        let status = 1;
+        if ($(this).is(':checked')) {
+            status = 1;
+        } else {
+            status =0
+        }
+        let id = $(this).parents('.stage_info').data('id');
+        let employee_id = $(this).data('id');
+        let parent = $(this).parents('.stage_info').find('.stages')
+
+        $.ajax ({
+            type: 'post',
+            url: $('#base').val()+"admin/employee/change_stage_status",
+            data:{status: status, id:id, employee_id:employee_id},
+            dataType:'json',
+            success:r=>{
+               if(r == 1){
+               parent.css('background-color','#8dba60')
+               }else{
+                   parent.css('background-color','#d9534f')
+               }
+
+            }
+
+
+    })
+
+    })
+
 </script>
 

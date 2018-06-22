@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2018-06-21 17:22:36
+Date: 2018-06-22 13:23:23
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -1140,11 +1140,16 @@ CREATE TABLE `tbl_employee_stages` (
   `stage_id` int(11) DEFAULT NULL,
   `status` int(1) DEFAULT '0' COMMENT '0 = off, 1 = on',
   PRIMARY KEY (`employee_stage_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tbl_employee_stages
 -- ----------------------------
+INSERT INTO `tbl_employee_stages` VALUES ('2', '71', '4', '1');
+INSERT INTO `tbl_employee_stages` VALUES ('4', '71', '6', '1');
+INSERT INTO `tbl_employee_stages` VALUES ('5', '71', '7', '0');
+INSERT INTO `tbl_employee_stages` VALUES ('9', '71', '3', '1');
+INSERT INTO `tbl_employee_stages` VALUES ('10', '71', '4', '1');
 
 -- ----------------------------
 -- Table structure for `tbl_event`
@@ -1891,17 +1896,17 @@ CREATE TABLE `tbl_stage` (
   `status` int(1) DEFAULT '0' COMMENT '0 - inactive, 1 active',
   `description` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`stage_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tbl_stage
 -- ----------------------------
-INSERT INTO `tbl_stage` VALUES ('3', '1', '1', '1');
-INSERT INTO `tbl_stage` VALUES ('4', '2', '1', '2');
-INSERT INTO `tbl_stage` VALUES ('5', '3', '1', '3');
-INSERT INTO `tbl_stage` VALUES ('6', '4', '1', '4');
-INSERT INTO `tbl_stage` VALUES ('7', '5', '1', '5');
-INSERT INTO `tbl_stage` VALUES ('8', '6', '1', '6');
+INSERT INTO `tbl_stage` VALUES ('3', 'Stage 1', '1', 'Set Profile settings');
+INSERT INTO `tbl_stage` VALUES ('4', 'Stage 2', '1', 'Upload Your resume and other documents');
+INSERT INTO `tbl_stage` VALUES ('6', 'Stage 3', '1', 'Upload Your Photo');
+INSERT INTO `tbl_stage` VALUES ('7', 'Stage 4', '1', 'Set your work time');
+INSERT INTO `tbl_stage` VALUES ('9', 'Stage 5', '1', 'Set .....');
+INSERT INTO `tbl_stage` VALUES ('10', 'Stage 6', '1', 'Set other information');
 
 -- ----------------------------
 -- Table structure for `tbl_stock`

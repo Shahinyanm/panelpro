@@ -4,6 +4,10 @@
     <?php echo message_box('error'); ?>
     <div class="main_content">
         <div class="row">
+            <?php $this->load->view('employee/stages'); ?>
+
+        </div>
+        <div class="row">
             <div class="col-md-12">
 
                 <div class="col-md-5">                    

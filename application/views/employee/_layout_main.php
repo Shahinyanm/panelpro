@@ -1,14 +1,17 @@
 <?php $this->load->view('employee/component/header'); ?>
+
 <body onload="startTime()">
     <?php $this->load->view('employee/component/navigations'); ?>
+
     <div class="container">
         <div class="row">
+
 
             <div class="margin">    
                 <div class="col-md-12">
                     <div class="main_content">
                         <div class="row">
-                            <?php echo $subview ?>              
+                            <?php echo $subview ?>
                         </div>
                     </div>
                 </div>

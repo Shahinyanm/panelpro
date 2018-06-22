@@ -38,8 +38,7 @@
                                     <td><?php echo $stage->description ?> </td>
                                     <td><?=$stage->status==1? '<span class="label label-success" >active </span>' : '<span class="label label-danger" >inactive </span>' ;?> </td>
                                     <td >
-                                        <?php echo btn_add('admin/employee/stages/' . $stage->stage_id. '/add' ); ?>
-                                        <!--                                                --><?php //echo btn_edit('admin/employee/clients/' . $v_employee->employee_id); ?>
+                                        <?php echo btn_edit('admin/employee/stages/' . $stage->stage_id); ?>
                                         <?php echo btn_delete('admin/employee/delete_stage/' . $stage->stage_id ); ?>
                                     </td>
                                 </tr>
@@ -99,7 +98,7 @@
                                                             <label class="control-label"><?= lang('status') ?> <span
                                                                         class="required"> *</span></label>
                                                             <input type="checkbox" name="status" <?php
-                                                            if (!empty($stage_info->description) && ($stage_info->status == 0)) {
+                                                            if (!empty($stage_info->description) && ($stage_info->status == 1)) {
                                                                 echo 'checked';
                                                             }
                                                             ?> class="form-control" required>

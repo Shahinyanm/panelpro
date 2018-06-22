@@ -509,11 +509,15 @@ class Employee extends Admin_Controller {
         redirect('admin/employee/clients'); //redirect page
     }
 
-    public function stages(){
+    public function stages($id= NULL){
         $data['title'] = lang('employment_stages');
         $data['page_header'] = lang('employment_stages'); //Page header title
-
-        $data['active'] = 1;
+        if($id){
+            $data['active'] = 2;
+            $data['stage_info']= $this->stage_model->all_stage_info($id);
+        }else{
+            $data['active'] = 1;
+        }
         $data['all_stage_info'] = $this->stage_model->all_stage_info();
 
         $data['subview'] = $this->load->view('admin/employee/stages_list', $data, TRUE);
@@ -540,12 +544,43 @@ class Employee extends Admin_Controller {
             $this->stage_model->save($data);
         }
 
-
-
         $type = "success";
         $message = lang('stages_saved');
         set_message($type, $message);
 
         redirect('admin/employee/stages'); //redirect page
     }
+
+    public function change_stage_status(){
+        $status = $this->input->post('status');
+        $stage = $this->stage_model->employee_stage(array('stage_id'=>$this->input->post('id')),$this->input->post('employee_id'));
+        $this->stage_model->_table_name ='tbl_employee_stages';
+        $this->stage_model->_primary_key =$this->input->post('employee_id');
+        if(!empty($stage)){
+
+            $this->stage_model->update(array('status'=>$this->input->post('status')),array('stage_id'=>$this->input->post('id'),'employee_id'=>$this->input->post('employee_id')));
+        }else{
+            $this->stage_model->save(array('status'=>$this->input->post('status'),'stage_id'=>$this->input->post('id'),'employee_id'=>$this->input->post('employee_id')));
+
+        }
+
+        echo json_encode($status);
+
+    }
+
+    public function delete_stage($id= NULL){
+        $this->employee_model->_table_name = "tbl_stage"; // table name
+        $this->employee_model->_primary_key = "stage_id"; // $id
+        $this->employee_model->delete($id);
+
+        $this->employee_model->_table_name = "tbl_employee_stages"; // table name
+        $this->employee_model->_primary_key = "stage_id"; // $id
+        $this->employee_model->delete($id);
+
+        $type = "success";
+        $message = lang('stages_deleted');
+        set_message($type, $message);
+        redirect('admin/employee/stages'); //redirect page
+    }
+
 }

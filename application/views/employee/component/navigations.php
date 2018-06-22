@@ -618,6 +618,7 @@
 </div>                                            
 </header>   
 </div>
+
 <input type="hidden" value = <?= base_url()?> id="base">
 <script>
     // $('.award_row').on('click', function(){

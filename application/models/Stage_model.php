@@ -30,12 +30,13 @@ class Stage_Model extends MY_Model {
     }
 
 
-    public function employee_stage($id = NULL) {
+    public function employee_stage($where,$id = NULL) {
         $this->db->select('tbl_employee_stages.*', FALSE);
         $this->db->from('tbl_employee_stages');
 
         if (!empty($id)) {
             $this->db->where('tbl_employee_stages.employee_id', $id);
+            $this->db->where($where);
             $query_result = $this->db->get();
             $result = $query_result->result();
         } else {
@@ -43,6 +44,13 @@ class Stage_Model extends MY_Model {
             $result = $query_result->result();
         }
         return $result;
+    }
+
+    public function update($data, $where){
+        $this->db->set($data);
+        $this->db->where($where);
+        $this->db->update($this->_table_name);
+
     }
 
 

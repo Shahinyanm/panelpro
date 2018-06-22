@@ -24,7 +24,7 @@ class Employee_Model extends MY_Model {
     }
 
     public function all_emplyee_info($id = NULL) {
-        $this->db->select('tbl_employee.*', FALSE);
+        $this->db->select('tbl_employee.*, tbl_employee.employee_id as employe_id', FALSE);
         $this->db->select('tbl_employee_bank.*', FALSE);
         $this->db->select('tbl_employee_document.*', FALSE);
         $this->db->select('tbl_designations.*', FALSE);

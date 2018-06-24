@@ -237,7 +237,7 @@
                                         if (!empty($employee_info->mobile)) {
                                             echo $employee_info->mobile;
                                         }
-                                        ?>" class="form-control">
+                                        ?>" class="form-control" placeholder="Only Number">
                                     </div>
                                     <div class="">
                                         <label class="control-label" ><?= lang('phone') ?><span class="required">*</span></label>
@@ -245,7 +245,7 @@
                                         if (!empty($employee_info->phone)) {
                                             echo $employee_info->phone;
                                         }
-                                        ?>" class="form-control">
+                                        ?>" class="form-control" placeholder="Only Number">
                                     </div>
                                     <div class="">
                                         <label class="control-label" ><?= lang('email') ?> <span class="required"> *</span></label>

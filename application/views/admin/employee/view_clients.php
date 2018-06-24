@@ -5,17 +5,8 @@
             <div class="box-header with-border">
                 <h3 class="box-title">Employee Detail</h3>
                 <div class="pull-right">
-<!--                    <span>--><?php //echo btn_edit('admin/employee/employees/' . $employee_info->employee_id); ?><!--</span>-->
-<!--                    <span>--><?php //echo btn_pdf('admin/employee/make_pdf/' . $employee_info->employee_id); ?><!--</span>-->
-<!--                    <button class="margin btn-print" type="button" data-toggle="tooltip" title="Print" onclick="printDiv('printableArea')">--><?php //echo btn_print(); ?><!--</button>                                                              -->
                 </div>
-=======
-<!--                <div class="pull-right">                               -->
-<!--                    <span>--><?php //echo btn_edit('admin/employee/employees/' . $employee_info->employee_id); ?><!--</span>-->
-<!--                    <span>--><?php //echo btn_pdf('admin/employee/make_pdf/' . $employee_info->employee_id); ?><!--</span>-->
-<!--                    <button class="margin btn-print" type="button" data-toggle="tooltip" title="Print" onclick="printDiv('printableArea')">--><?php //echo btn_print(); ?><!--</button>                                                              -->
-<!--                </div>-->
->>>>>>> d522a2ae3b8306981ad2adf03ccd7ea8545d88c2
+
             </div><!-- /.box-header -->
 
             <div id="printableArea"> 
@@ -68,9 +59,6 @@
                         <div class="col-lg-8 col-sm-8 ">
                             <div>
                                 <div style="margin-left: 20px;">                                        
-<!--                                    <h3>--><?php //echo "$employee_info->first_name " . "$employee_info->last_name"; ?><!--</h3>-->
-
-<!--                                    <hr />-->
                                     <table class="table-hover">
                                         <tr>
                                             <td><strong><?= lang('employee_id')?></strong></td>

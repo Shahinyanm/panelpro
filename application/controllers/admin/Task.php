@@ -31,7 +31,7 @@ class Task extends Admin_Controller {
         // get all employee info 
         $this->task_model->_table_name = 'tbl_employee';
         $this->task_model->_order_by = 'designations_id';
-        $data['employee_info'] = $this->task_model->get_by(array('status' => 1), FALSE);
+        $data['employee_info'] = $this->task_model->get_by(array('status' => 1, 'employment_id'=>'employee'), FALSE);
         //get all training information
         $data['all_task_info'] = $this->task_model->get_all_task_info();
 
@@ -57,13 +57,9 @@ class Task extends Admin_Controller {
         // get all employee info
         $this->task_contact_model->_table_name = 'tbl_employee';
         $this->task_contact_model->_order_by = 'designations_id';
-        $data['employee_info'] = $this->task_contact_model->get_by(array('status' => 1), FALSE);
+        $data['employee_info'] = $this->task_contact_model->get_by(array('status' => 1, 'employment_id'=>'employee'), FALSE);
         //get all training information
         $data['all_task_contact_info'] = $this->task_contact_model->get_all_task_contact_info();
-
-        $data['all_task_contact_info'] = $this->task_contact_model->get_all_task_contact_info();
-        $data['all_task_contact_info'] = $this->task_contact_model->get_all_task_contact_info();
-
 
         if ($id) { // retrive data from db by id
             $data['active'] = 2;

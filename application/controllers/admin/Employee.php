@@ -392,6 +392,8 @@ class Employee extends Admin_Controller {
 
             $this->employee_model->_table_name = "tbl_clients_employee"; // table name
             $this->employee_model->delete_multiple(['clients_id'=>$client, 'employee_id'=>$employee]);
+
+
         }
 
         $type = "success";

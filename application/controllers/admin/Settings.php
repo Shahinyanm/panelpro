@@ -580,7 +580,7 @@ class Settings extends Admin_Controller {
 
 
         $data['current_languages'] = $lang;
-        $this->lang->load($lang, 'english', $path);
+        $this->lang->load($lang, $lang, $path);
         $data['english'] =$this->lang->language;
 
         

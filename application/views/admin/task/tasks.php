@@ -96,7 +96,7 @@
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label"><?= lang('task_name')?><span class="required">*</span></label>
                                     <div class="col-sm-5">
-             AZA                           <input type="text" name="task_name" required class="form-control" value="<?php if (!empty($task_info->task_name)) echo $task_info->task_name; ?>" />
+                                        <input type="text" name="task_name" required class="form-control" value="<?php if (!empty($task_info->task_name)) echo $task_info->task_name; ?>" />
                                     </div>
                                 </div>
 

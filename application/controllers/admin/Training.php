@@ -21,7 +21,7 @@ class Training extends Admin_Controller {
         // get all employee info 
         $this->training_model->_table_name = 'tbl_employee';
         $this->training_model->_order_by = 'designations_id';
-        $data['employee_info'] = $this->training_model->get_by(array('status' => 1), FALSE);
+        $data['employee_info'] = $this->training_model->get_by(array('status' => 1,'deleted' => 0), FALSE);
 
         //get all training information
         $data['all_training_info'] = $this->training_model->get_all_training_info();

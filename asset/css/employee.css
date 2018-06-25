@@ -15,12 +15,12 @@ body{
 
 .tab-pane-mail{
     height:340px;
-    overflow-y:scroll;
+    overflow-y:auto;
 }
 
 .tab-pane-notice{
     height:395px;
-    overflow-y:scroll;
+    overflow-y:auto;
 }
 .required { 
     font-weight: bold;

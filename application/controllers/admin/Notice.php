@@ -29,7 +29,7 @@ class Notice extends Admin_Controller {
 
         $this->notice_model->_table_name = 'tbl_employee';
         $this->notice_model->_order_by = 'designations_id';
-        $data['all_employee_notice'] = $this->notice_model->get_by(array('status' => 1), FALSE);
+        $data['all_employee_notice'] = $this->notice_model->get_by(array('status' => 1,'deleted' => 0), FALSE);
 
         //get all notice to view in report.
         $this->notice_model->_table_name = "tbl_notice"; // table name

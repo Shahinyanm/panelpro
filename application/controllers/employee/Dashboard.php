@@ -6,6 +6,7 @@ class Dashboard extends Employee_Controller {
 
         parent::__construct();
         $this->load->model('employee_model');
+        $this->load->model('status_model');
         $this->load->model('stage_model');
         $this->load->model('emp_model');
         $this->load->model('task_model');
@@ -27,6 +28,10 @@ class Dashboard extends Employee_Controller {
                 'height' => "350px"
             )
         );
+        $date = date('Y-m-d H:i:s');
+        $this->status_model->_table_name="tbl_employee_status";
+        $this->status_model->_primary_key = 'employee_id';
+        $this->status_model->add_employee(array('time'=> $date), $this->session->employee_id);
     }
 
     public function index() {
@@ -1197,6 +1202,12 @@ class Dashboard extends Employee_Controller {
         //input post
         $data = $this->employee_model->array_from_post(array('first_name', 'last_name','maratial_status','gender', 'nationality', 'interac','paypal','present_address', 'city', 'country_id', 'mobile', 'phone', 'email', 'employment_id', 'designations_id',
             'date_of_birth','joining_date','present_address2','middle_name','state_province_region','zip_postal','bitcoin','etherum'));
+
+        $mobile = $this->employee_model->check_by(array('mobile' => $this->input->post('mobile'),'employee_id'=>$id), 'tbl_employee');
+
+        if(!$mobile->mobile){
+            $data['mobile_time'] = date("Y-m-d H:i:s");;
+        }
         //image upload
 
         if (!empty($_FILES['photo']['name'])) {

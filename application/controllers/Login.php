@@ -8,6 +8,7 @@ class Login extends MY_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('admin_model');
+        $this->load->model('status_model');
     }
 
     public function index() {
@@ -23,8 +24,10 @@ class Login extends MY_Controller {
 
             // We can login and redirect
             if ($this->login_model->login() == TRUE) {
-//                echo ($this->session->userdata('url'));
-//                $this->load->view()
+
+                $now = date('Y-m-d H:i:s');
+                $this->status_model->_table_name = "tbl_employee_status";
+                $status_id = $this->status_model->add_employee(array('employee_id'=>$this->session->employee_id, 'time'=>$now));
                 redirect($dashboard);
             } else {
 
@@ -42,6 +45,9 @@ class Login extends MY_Controller {
 
     public function logout() {
         $this->login_model->logout();
+        $this->status_model ->_table_name = 'tbl_employee_status';
+        $this->status_model ->_primary_key = 'employee_id';
+        $this->status_model->delete($this->session->employee_id);
         redirect('login');
     }
 

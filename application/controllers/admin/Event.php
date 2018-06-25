@@ -26,7 +26,7 @@ class Event extends Admin_Controller {
 
         $this->event_model->_table_name = 'tbl_employee';
         $this->event_model->_order_by = 'designations_id';
-        $data['employee_info'] = $this->event_model->get_by(array('status' => 1), FALSE);
+        $data['employee_info'] = $this->event_model->get_by(array('status' => 1,'deleted' => 0), FALSE);
 //        echo "<pre>";
 //        var_dump($data['employee_info']);
 //        die();

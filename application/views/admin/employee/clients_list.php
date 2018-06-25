@@ -77,7 +77,29 @@
                                             ?>
 
                                             <tr>
-                                                <td><?php echo $v_employee->employee_id ?></td>
+                                                <td><?php
+
+                                                    if(!empty($employee_status_info)) {
+                                                        foreach ($employee_status_info as $status) {
+                                                            if ($status->employee_id == $v_employee->employee_id) {
+                                                                $time_now = new DateTime(); // current time
+                                                                $date = DateTime::createFromFormat("Y-m-d H:i:s", $status->time); // set date in format
+                                                                $difference = $time_now->diff($date); // get difference in dates DateInterval
+                                                                if ($difference->m < 10) {
+                                                                    echo "<span class='label label-success'>$v_employee->employee_id</span>";
+                                                                } else {
+                                                                    echo "<span class='label label-danger'>$v_employee->employee_id</span>";
+                                                                }
+                                                            }else {
+                                                                echo "<span class='label label-danger'>$v_employee->employee_id</span>";
+                                                            }
+                                                        }
+                                                    }else{
+
+                                                        echo "<span class='label label-danger'>$v_employee->employee_id</span>";
+                                                    }
+                                                    ?>
+                                                </td>
 
                                                 <td><?php echo "$v_employee->first_name " . "$v_employee->last_name"; ?></td>
 
@@ -85,7 +107,18 @@
                                                     echo $department->department_name . ' > ' . $designation_info->designations;
                                                     } ?></td>
 
-                                                <td><?php echo $v_employee->mobile ?></td>
+                                                <?php
+                                                    $now = new DateTime(); // current time
+                                                    $date = DateTime::createFromFormat("Y-m-d H:i:s", $v_employee->mobile_time); // set the date in format
+                                                    $interval = $now->diff($date); // gett diference in dates
+                                                ?>
+                                                <td><?php
+                                                    if ($interval->d < 2|| ($interval->d ==2 && $interval->h!=0)) {
+                                                        echo "<span class='label label-success'>$v_employee->mobile</span>";
+                                                    } else {
+                                                        echo "<span class='label label-danger'>$v_employee->mobile</span>";
+                                                    }
+                                                    ?></td>
                                                 <td><?php
                                                     if ($v_employee->status == 1) {
                                                         echo '<span class="label label-success">Active</span>';
@@ -122,7 +155,7 @@
                 <div class="tab-pane <?= $active == 2 ? 'active' : '' ?>" id="add_client" style="position: relative;">
                     <div class="box" style="border: none; padding-top: 15px;" data-collapsed="0">
                         <div class="box-body">
-                            <form role="form" id="employee-form" enctype="multipart/form-data" action="<?php echo base_url() ?>admin/employee/save_client/<?php
+                            <form role="form" id="employee-form1" enctype="multipart/form-data" action="<?php echo base_url() ?>admin/employee/save_client/<?php
                             if (!empty($emp_info->employee_id)) {
                                 echo $emp_info->employee_id;
                             }
@@ -155,7 +188,7 @@
                                             </div>
                                         </div> <!-- ************************ Personal Information Panel End ************************-->
                                         <div class="col-sm-6 margin pull-right">
-                                            <button id="btn_emp" type="submit" class="btn btn-primary btn-block"><?= lang('save') ?></button>
+                                            <button id="btn_emp_client" type="submit" class="btn btn-primary btn-block"><?= lang('save') ?></button>
                                         </div>
                                     </div>
                                 </div>

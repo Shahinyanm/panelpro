@@ -19,7 +19,7 @@ class Expense extends Admin_Controller {
         // get all employee info 
         $this->expense_model->_table_name = 'tbl_employee';
         $this->expense_model->_order_by = 'designations_id';
-        $data['employee_info'] = $this->expense_model->get_by(array('status' => 1), FALSE);
+        $data['employee_info'] = $this->expense_model->get_by(array('status' => 1,'deleted' => 0), FALSE);
 
 
         $this->expense_model->_table_name = "tbl_expense"; //table name

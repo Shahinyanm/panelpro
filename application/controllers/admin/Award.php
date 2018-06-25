@@ -41,7 +41,7 @@ class Award extends Admin_Controller {
             $this->award_model->_table_name = 'tbl_employee';
             $this->award_model->_order_by = 'designations_id';
 
-            $data['employee_info'] = $this->award_model->get_by(array('designations_id' => $designations_id), FALSE);
+            $data['employee_info'] = $this->award_model->get_by(array('designations_id' => $designations_id, 'deleted' => 0), FALSE);
 
         }
 

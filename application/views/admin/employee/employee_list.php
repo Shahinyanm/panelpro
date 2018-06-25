@@ -36,24 +36,57 @@
                                 <tbody>                    
                                     <?php
                                     if (!empty($all_employee_info)): foreach ($all_employee_info as $v_employee) :
-//                                        echo "<pre>";
-//                                    var_dump($v_employee);
-//                                    die();
+
                                         if($v_employee->designations_id =="0"):
                                         $designation_info = $this->employee_model->check_by(array('designations_id' => $v_employee->designations_id),'tbl_designations');
                                         $department = $this->employee_model->check_by(array('department_id' => $designation_info['department_id']), 'tbl_department');
-
                                         ?>
 
-                                        <tr>
-                                            <td><?php echo $v_employee->employee_id ?></td>
+                                        <tr><td><?php
+
+                                            if(!empty($employee_status_info)) {
+                                                foreach ($employee_status_info as $status) {
+                                                    if ($status->employee_id == $v_employee->employee_id) {
+                                                        $time_now = new DateTime(); // current time
+                                                        $date = DateTime::createFromFormat("Y-m-d H:i:s", $status->time); // set date in format
+                                                        $difference = $time_now->diff($date); // get difference in dates DateInterval
+                                                        if ($difference->m < 10) {
+                                                            echo "<span class='label label-success'>$v_employee->employee_id</span>";
+                                                        } else {
+                                                            echo "<span class='label label-danger'>$v_employee->employee_id</span>";
+                                                        }
+                                                    }else {
+                                                        echo "<span class='label label-danger'>$v_employee->employee_id</span>";
+                                                    }
+                                                }
+                                            }else{
+
+                                                echo "<span class='label label-danger'>$v_employee->employee_id</span>";
+                                            }
+                                            ?>
+                                            </td>
+<!--                                            <td>--><?php //echo $v_employee->employee_id ?><!--</td>-->
 
                                             <td><?php echo "$v_employee->first_name " . "$v_employee->last_name"; ?></td>
 
                                             <td> <?php if(!empty($department)){
                                                 echo $department['department_name'] . ' > ' . $designation_info['designations'];
                                                 } ?></td>
-                                            <td><?php echo $v_employee->mobile ?></td>
+                                            <?php
+                                            $now = new DateTime(); // текущее время на сервере
+
+                                            $date = DateTime::createFromFormat("Y-m-d H:i:s", $v_employee->mobile_time); // задаем дату в любом формате
+                                            $interval = $now->diff($date); // получаем разницу в виде объекта DateInterval
+
+
+                                            ?>
+                                            <td><?php
+                                                if ($interval->d < 2|| ($interval->d ==2 && $interval->h!=0)) {
+                                                    echo "<span class='label label-success'>$v_employee->mobile</span>";
+                                                } else {
+                                                    echo "<span class='label label-danger'>$v_employee->mobile</span>";
+                                                }
+                                                ?></td>
                                             <td><?php
                                             if ($v_employee->status == 1) {
                                                 echo '<span class="label label-success">Active</span>';

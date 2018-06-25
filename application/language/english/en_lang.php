@@ -25,6 +25,9 @@ $lang['stages_saved'] = 'Stages Saved';
 $lang['stages_name'] = 'Stages Name';
 $lang['stages_list'] = 'Stages List';
 $lang['add_stages'] = 'Add Stages';
+$lang['deleted_employee_list'] = 'Deleted Employees List';
+$lang['deleted_employees'] = 'Deleted Employees';
+$lang['employee_info_restored'] = 'Employee Info restored';
 
 $lang['view_client'] = 'View Client';
 $lang['advance'] = 'Advance';

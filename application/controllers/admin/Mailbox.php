@@ -18,7 +18,7 @@ class Mailbox extends Admin_Controller {
             'config' => array(
                 'toolbar' => "Full",
                 'width' => "99.8%",
-                'height' => "350px"
+                'height' => "300px"
             )
         );
     }
@@ -102,7 +102,7 @@ class Mailbox extends Admin_Controller {
 
         $this->mailbox_model->_table_name = 'tbl_employee';
         $this->mailbox_model->_order_by = 'employee_id';
-        $data['get_employee_email'] = $this->mailbox_model->get_by(array('status' => '1'), FALSE);
+        $data['get_employee_email'] = $this->mailbox_model->get_by(array('status' => '1','deleted' => 0), FALSE);
         $data['editor'] = $this->data;
         if (!empty($reply)) {
             $data['inbox_info'] = $this->mailbox_model->check_by(array('inbox_id' => $id), 'tbl_inbox');

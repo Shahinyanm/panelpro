@@ -17,6 +17,7 @@ class Employee extends Admin_Controller {
         parent::__construct();
         $this->load->model('employee_model');
         $this->load->model('stage_model');
+        $this->load->model('status_model');
     }
 
     public function employees($id = NULL) {
@@ -24,7 +25,53 @@ class Employee extends Admin_Controller {
         $data['page_header'] = lang('employee_page_header'); //Page header title
 
         $data['active'] = 1;
-        $data['all_employee_info'] = $this->db->where('employment_id !=', 'advance')->get('tbl_employee')->result();
+        $data['all_employee_info'] = $this->db->where('employment_id !=', 'advance')->where('deleted', '0')->get('tbl_employee')->result();
+
+        if (!empty($id)) {// retrive data from db by id
+            $data['active'] = 2;
+            $data['employee_info'] = $this->employee_model->all_emplyee_info($id);
+
+            $data['emp_info'] = $this->db->where('employee_id', $id)->get('tbl_employee')->row();
+
+            if (empty($data['employee_info'])) {
+                $type = "error";
+                $message = lang('no_record_found');
+                set_message($type, $message);
+                redirect('admin/employee/add_employee');
+            }
+        } else {
+            $data['active'] = 1;
+        }
+
+        // retrive all data from department table
+        $this->employee_model->_table_name = "tbl_department"; //table name
+        $this->employee_model->_order_by = "department_id";
+        $all_dept_info = $this->employee_model->get();
+        // get all department info and designation info
+        foreach ($all_dept_info as $v_dept_info) {
+            $data['all_department_info'][$v_dept_info->department_name] = $this->employee_model->get_add_department_by_id($v_dept_info->department_id);
+        }
+        // retrive country
+        $this->employee_model->_table_name = "countries"; //table name
+        $this->employee_model->_order_by = "countryName";
+        $data['all_country'] = $this->employee_model->get();
+
+        //check employee status
+        $this->status_model->_table_name = 'tbl_employee_status';
+//        $this->status_model->get_by();
+        $data['employee_status_info'] =  $this->status_model->get();
+
+
+        $data['subview'] = $this->load->view('admin/employee/employee_list', $data, TRUE);
+        $this->load->view('admin/_layout_main', $data);
+    }
+
+    public function deleted_employees($id = NULL) {
+        $data['title'] = lang('clients_list');
+        $data['page_header'] = lang('employee_page_header'); //Page header title
+
+        $data['active'] = 1;
+        $data['all_employee_info'] = $this->db->where('deleted', '1')->get('tbl_employee')->result();
 //        echo "<pre>";
 //        var_dump($data['all_employee_info']);
 //
@@ -62,7 +109,7 @@ class Employee extends Admin_Controller {
 
 
 
-        $data['subview'] = $this->load->view('admin/employee/employee_list', $data, TRUE);
+        $data['subview'] = $this->load->view('admin/employee/deleted_employee_list', $data, TRUE);
         $this->load->view('admin/_layout_main', $data);
     }
 
@@ -71,10 +118,14 @@ class Employee extends Admin_Controller {
                 //input post
                 $data = $this->employee_model->array_from_post(array('first_name', 'last_name','maratial_status','date_of_birth','gender', 'present_address','nationality', 'city', 'country_id', 'mobile', 'phone', 'email', 'employment_id',
                     'designations_id', 'joining_date','present_address2','middle_name','state_province_region','zip_postal'));
-                //image upload
-//        echo $this->input->post('countries_id');
-//        die();
 
+                //set date of new mobile
+                $mobile = $this->employee_model->check_by(array('mobile' => $this->input->post('mobile'),'employee_id'=>$id), 'tbl_employee');
+                if(!$mobile->mobile){
+                    $data['mobile_time'] = date("Y-m-d H:i:s");;
+                }
+
+                //image upload
                 if (!empty($_FILES['photo']['name'])) {
                     $old_path = $this->input->post('old_path');
                     if ($old_path) {
@@ -239,38 +290,60 @@ class Employee extends Admin_Controller {
         // ************* Delete into Employee Table 
         $this->employee_model->_table_name = "tbl_employee"; // table name
         $this->employee_model->_primary_key = "employee_id"; // $id
-        $this->employee_model->delete($id);
+        $this->employee_model->save(array('deleted'=> 1,'status'=>0), $id);
         // delete into tbl bank 
-        $bank_info = $this->employee_model->check_by(array('employee_id' => $id), 'tbl_employee_bank');
-        $this->employee_model->_table_name = "tbl_employee_bank"; // table name
-        $this->employee_model->_primary_key = "employee_bank_id"; // $id
-        $this->employee_model->delete($bank_info->employee_bank_id);
+//        $bank_info = $this->employee_model->check_by(array('employee_id' => $id), 'tbl_employee_bank');
+//        $this->employee_model->_table_name = "tbl_employee_bank"; // table name
+//        $this->employee_model->_primary_key = "employee_bank_id"; // $id
+//        $this->employee_model->delete($bank_info->employee_bank_id);
 
         // delete into tbl employee document
-        $doc_id = $this->employee_model->check_by(array('employee_id' => $id), 'tbl_employee_document');
-        $this->employee_model->_table_name = "tbl_employee_document"; // table name
-        $this->employee_model->_primary_key = "document_id"; // $id
-        $this->employee_model->delete($doc_id->document_id);
+//        $doc_id = $this->employee_model->check_by(array('employee_id' => $id), 'tbl_employee_document');
+//        $this->employee_model->_table_name = "tbl_employee_document"; // table name
+//        $this->employee_model->_primary_key = "document_id"; // $id
+//        $this->employee_model->delete($doc_id->document_id);
 
-        // delete into tbl employee login
+//         delete into tbl employee login
         $this->employee_model->_table_name = "tbl_employee_login"; // table name
-        $this->employee_model->_order_by = "employee_id"; // table name        
-        $this->employee_model->_primary_key = "employee_login_id"; // $id
+        $this->employee_model->_order_by = "employee_id"; // table name
+        $this->employee_model->_primary_key = "employee_id"; // $id
         $login_id = $this->employee_model->get_by(array('employee_id' => $id), TRUE);
-        $this->employee_model->delete($login_id->employee_login_id);
+//        var_dump($login_id);
+//        die();
+        $this->employee_model->save(array('activate'=>0),$login_id->employee_id);
 
         // delete into tbl_assign_item
-        $this->employee_model->_table_name = "tbl_assign_item"; // table name
-        $this->employee_model->_order_by = "employee_id"; // table name        
-        $this->employee_model->_primary_key = "assign_item_id"; // $id
-        $assign_item_id = $this->employee_model->get_by(array('employee_id' => $id), TRUE);
-        $this->employee_model->delete($assign_item_id->assign_item_id);
+//        $this->employee_model->_table_name = "tbl_assign_item"; // table name
+//        $this->employee_model->_order_by = "employee_id"; // table name
+//        $this->employee_model->_primary_key = "assign_item_id"; // $id
+//        $assign_item_id = $this->employee_model->get_by(array('employee_id' => $id), TRUE);
+//        $this->employee_model->delete($assign_item_id->assign_item_id);
 
         // messages for user
         $type = "success";
         $message = lang('employee_info_deleted');
         set_message($type, $message);
         redirect('admin/employee/employees'); //redirect page
+    }
+
+    public function restore_employee($id) {
+        // ************* Restore into Employee Table
+        $this->employee_model->_table_name = "tbl_employee"; // table name
+        $this->employee_model->_primary_key = "employee_id"; // $id
+        $this->employee_model->save(array('deleted'=> 0,'status'=>1), $id);
+
+        //restore employee info
+        $this->employee_model->_table_name = "tbl_employee_login"; // table name
+        $this->employee_model->_order_by = "employee_id"; // table name
+        $this->employee_model->_primary_key = "employee_id"; // $id
+        $login_id = $this->employee_model->get_by(array('employee_id' => $id), TRUE);
+
+        $this->employee_model->save(array('activate'=>1),$login_id->employee_id);
+        // messages for user
+        $type = "success";
+        $message = lang('employee_info_restored');
+        set_message($type, $message);
+        redirect('admin/employee/deleted_employees'); //redirect page
     }
 
     public function view_employee($id = NULL) {
@@ -313,7 +386,7 @@ class Employee extends Admin_Controller {
         $data['title'] = lang('clients');
         $data['page_header'] = lang('employee_page_header'); //Page header title
         $data['active'] = 1;
-        $data['all_employee_info'] = $this->db->where('employment_id','advance')->get('tbl_employee')->result();
+        $data['all_employee_info'] = $this->db->where('employment_id','advance')->where('deleted','0')->get('tbl_employee')->result();
         $data['all_employee'] =array();
 //        echo $id;
 //        echo $flag;
@@ -477,32 +550,32 @@ class Employee extends Admin_Controller {
         // ************* Delete into Employee Table
         $this->employee_model->_table_name = "tbl_employee"; // table name
         $this->employee_model->_primary_key = "employee_id"; // $id
-        $this->employee_model->delete($id);
-        // delete into tbl bank
-        $bank_info = $this->employee_model->check_by(array('employee_id' => $id), 'tbl_employee_bank');
-        $this->employee_model->_table_name = "tbl_employee_bank"; // table name
-        $this->employee_model->_primary_key = "employee_bank_id"; // $id
-        $this->employee_model->delete($bank_info->employee_bank_id);
-
-        // delete into tbl employee document
-        $doc_id = $this->employee_model->check_by(array('employee_id' => $id), 'tbl_employee_document');
-        $this->employee_model->_table_name = "tbl_employee_document"; // table name
-        $this->employee_model->_primary_key = "document_id"; // $id
-        $this->employee_model->delete($doc_id->document_id);
-
-        // delete into tbl employee login
-        $this->employee_model->_table_name = "tbl_employee_login"; // table name
-        $this->employee_model->_order_by = "employee_id"; // table name
-        $this->employee_model->_primary_key = "employee_login_id"; // $id
-        $login_id = $this->employee_model->get_by(array('employee_id' => $id), TRUE);
-        $this->employee_model->delete($login_id->employee_login_id);
-
-        // delete into tbl_assign_item
-        $this->employee_model->_table_name = "tbl_assign_item"; // table name
-        $this->employee_model->_order_by = "employee_id"; // table name
-        $this->employee_model->_primary_key = "assign_item_id"; // $id
-        $assign_item_id = $this->employee_model->get_by(array('employee_id' => $id), TRUE);
-        $this->employee_model->delete($assign_item_id->assign_item_id);
+        $this->employee_model->save(array('deleted'=> 1,'status'=>0), $id);
+//        // delete into tbl bank
+//        $bank_info = $this->employee_model->check_by(array('employee_id' => $id), 'tbl_employee_bank');
+//        $this->employee_model->_table_name = "tbl_employee_bank"; // table name
+//        $this->employee_model->_primary_key = "employee_bank_id"; // $id
+//        $this->employee_model->delete($bank_info->employee_bank_id);
+//
+//        // delete into tbl employee document
+//        $doc_id = $this->employee_model->check_by(array('employee_id' => $id), 'tbl_employee_document');
+//        $this->employee_model->_table_name = "tbl_employee_document"; // table name
+//        $this->employee_model->_primary_key = "document_id"; // $id
+//        $this->employee_model->delete($doc_id->document_id);
+//
+//        // delete into tbl employee login
+//        $this->employee_model->_table_name = "tbl_employee_login"; // table name
+//        $this->employee_model->_order_by = "employee_id"; // table name
+//        $this->employee_model->_primary_key = "employee_login_id"; // $id
+//        $login_id = $this->employee_model->get_by(array('employee_id' => $id), TRUE);
+//        $this->employee_model->delete($login_id->employee_login_id);
+//
+//        // delete into tbl_assign_item
+//        $this->employee_model->_table_name = "tbl_assign_item"; // table name
+//        $this->employee_model->_order_by = "employee_id"; // table name
+//        $this->employee_model->_primary_key = "assign_item_id"; // $id
+//        $assign_item_id = $this->employee_model->get_by(array('employee_id' => $id), TRUE);
+//        $this->employee_model->delete($assign_item_id->assign_item_id);
 
         // messages for user
         $type = "success";

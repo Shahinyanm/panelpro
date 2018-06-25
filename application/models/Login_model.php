@@ -49,7 +49,7 @@ class Login_Model extends MY_Model {
             $employee = $this->get_by(array(
                 'user_name' => $this->input->post('user_name'),
                 'password' => $this->hash($this->input->post('password')),
-                'activate' => 1
+                'activate' => 1,
                     ), TRUE);
 //            echo  ($this->hash($this->input->post('password')));
 //            die();

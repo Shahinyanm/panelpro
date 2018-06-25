@@ -579,8 +579,8 @@
                 <div class="">
                     <label class="control-label" ><?= lang('bitcoin') ?> <span class=""></span></label>
                     <input  type="text"  name="bitcoin" value="<?php
-                    if (!empty($employee_info->paypal)) {
-                        echo $employee_info->paypal;
+                    if (!empty($employee_info->bitcoin)) {
+                        echo $employee_info->bitcoin;
                     }
                     ?>" class="form-control">
                 </div>
@@ -588,8 +588,8 @@
                 <div class="">
                     <label class="control-label" ><?= lang('etherum') ?> <span class=""></span></label>
                     <input  type="text"  name="etherum" value="<?php
-                    if (!empty($employee_info->paypal)) {
-                        echo $employee_info->paypal;
+                    if (!empty($employee_info->etherum)) {
+                        echo $employee_info->etherum;
                     }
                     ?>" class="form-control">
 

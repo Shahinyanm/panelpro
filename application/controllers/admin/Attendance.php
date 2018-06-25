@@ -43,7 +43,7 @@ class Attendance extends Admin_Controller {
             // get all employee info by designation id
             $this->attendance_model->_table_name = 'tbl_employee';
             $this->attendance_model->_order_by = 'designations_id';
-            $data['employee_info'] = $this->attendance_model->get_by(array('designations_id' => $data['overtime_info']->designations_id), FALSE);
+            $data['employee_info'] = $this->attendance_model->get_by(array('designations_id' => $data['overtime_info']->designations_id, 'deleted' => 0), FALSE);
         }
         // get all expense list by year and month
         $data['all_overtime_info'] = $this->get_overtime_info($data['year']);
